@@ -1,0 +1,77 @@
+#include "BulletTypeFocus.h"
+#include "EnemyManager.h"
+#include "BulletManager.h"
+
+USING_NS_CC;
+
+bool BulletTypeFocus::init()
+{
+
+	if ( !Bullet::init() )
+	{
+		return false;
+	}
+
+	//BulletManager::getInstance()->bullets.pushBack(this);
+
+	setTexture("effects/Bullet_Focus.png");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+
+	_isSight = false;
+
+	return true;
+}
+
+
+
+void BulletTypeFocus::explode()
+{
+
+	if (_isSight)
+	{
+		_target->onPhysicalDamaged(_damage);
+
+		setTexture("effects/Bullet_Focus_attacker.png");
+		auto sp = Sprite::create("effects/Bullet_Focus_attackerCenter.png");
+		addChild(sp);
+		sp->setPosition(getContentSize()/2);
+		runAction(RepeatForever::create(RotateBy::create(2,-180)));
+		runAction(RepeatForever::create(Sequence::create(FadeOut::create(1),FadeIn::create(1),NULL)));
+		
+		scheduleUpdate();
+	}
+	else
+	{
+		_target->onPhysicalDamaged(_damage);
+		removeFromParent();
+		BulletManager::getInstance()->bullets.eraseObject(this);
+	}
+
+
+
+}
+
+void BulletTypeFocus::setDamage(float damage , bool isSight)
+{
+	_damage = damage;
+	_isSight = isSight;
+
+}
+
+void BulletTypeFocus::update( float delta )
+{
+
+	if ((_target->isFloating)||(!_target->isAlive()))
+	{
+		unscheduleUpdate();
+		removeFromParent();
+		BulletManager::getInstance()->bullets.eraseObject(this);
+		return;
+	}
+	setPosition(_target->getPosition());
+
+}
+
+

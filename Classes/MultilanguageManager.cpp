@@ -1,0 +1,8 @@
+#include "MultilanguageManager.h"
+
+USING_NS_CC;
+
+const char* MultilanguageManager::getStringByKey( const std::string& key )
+{
+	return Dictionary::createWithContentsOfFile("captions/CN/captions.plist")->valueForKey(key)->getCString();
+}
