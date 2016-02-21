@@ -32,6 +32,8 @@ public:
 
 	virtual void setAppearacneWithTarget(Enemy* target , bool show);
 
+	void setDamageContributerID(int ID);
+
 
 	enum BuffType
 	{
@@ -47,7 +49,7 @@ public:
 
 	};
 
-
+	void forceEnd();
 
 protected:
 
@@ -58,6 +60,9 @@ protected:
 	//Enemy* _target;
 
 	float _buffTimeRest;
+
+
+	int _damageContributerID;
 
 };
 

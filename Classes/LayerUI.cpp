@@ -11,6 +11,8 @@
 #include "LayerSetting.h"
 #include "Cannon.h"
 #include "ExtraStateButtonManager.h"
+#include "DamageContributionManager.h"
+#include "MapPointsManager.h"
 
 
 
@@ -142,11 +144,13 @@ bool LayerUI::init()
 	auto listenerGameOverWin = EventListenerCustom ::create("GAME_OVER_WIN",[&](EventCustom* event){
 		unsigned *u =  static_cast<unsigned*>(event->getUserData());
 		showLevelResultPanel(true, *u);
+		displayDamageContribution();
 	});
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerGameOverWin,this);
 
 	auto listenerGameOverLose = EventListenerCustom ::create("GAME_OVER_LOSE",[&](EventCustom* event){
 		showLevelResultPanel(false, 0);
+		displayDamageContribution();
 	});
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerGameOverLose,this);
 
@@ -728,6 +732,29 @@ void LayerUI::buttonsMoveTogether( cocos2d::Node* leftButton,cocos2d::Node* righ
 
 	}
 
+}
+
+void LayerUI::displayDamageContribution()
+{
+	DamageContributionManager* dcm = DamageContributionManager::getInstance();
+	for (int i =0 ; i< 9*12 ; i++)
+	{
+		if (dcm->getContribution(i)!=0)
+		{
+			Sprite* bg = Sprite::create("BLANK.png");
+			addChild(bg,1);
+			bg->setColor(Color3B(0,0,0));
+			bg->setTextureRect(Rect(0,0,80,30));
+			bg->setPosition(MapPointsManager::getPointByIndex(i) + Vec2(0,-30));
+			int damage = (int)(dcm->getContribution(i));
+			LabelTTF* label = LabelTTF::create(String::createWithFormat("%d",damage)->_string,"Arial",20);
+			bg->addChild (label,1);
+			label->setPosition(bg->getContentSize()/2);
+			
+			
+
+		}
+	}
 }
 
 

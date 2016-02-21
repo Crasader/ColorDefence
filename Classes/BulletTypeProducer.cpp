@@ -26,7 +26,8 @@ void BulletTypeProducer::explode()
 
 	setPosition(_target->getPosition());
 
-	_target->onPhysicalDamaged(_damage);
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 	setVisible(false);
 	

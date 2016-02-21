@@ -27,7 +27,8 @@ bool BulletTypeTrapping::init()
 void BulletTypeTrapping::explode()
 {
 
-	_target->onPhysicalDamaged(_damage);
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	if (_isTrapping)
 	{
 		_target->setBuff(BuffTypeStun::create(_target,225));

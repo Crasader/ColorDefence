@@ -3,6 +3,7 @@
 #include "BulletManager.h"
 
 
+
 USING_NS_CC;
 
 bool Bullet::init()
@@ -22,6 +23,7 @@ bool Bullet::init()
 	_target = nullptr;
 
 
+	_damageContributerID = 0;
 
 	return true;
 }
@@ -49,7 +51,9 @@ Enemy* Bullet::getTarget()
 void Bullet::explode()
 {
 	
-	_target->onPhysicalDamaged(_damage);
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);
 
@@ -68,6 +72,11 @@ void Bullet::pause()
 void Bullet::resume()
 {
 	Sprite::resume();
+}
+
+void Bullet::setDamageContributerID( int ID )
+{
+	_damageContributerID = ID;
 }
 
 

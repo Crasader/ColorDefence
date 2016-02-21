@@ -64,13 +64,16 @@ bool Enemy::init()
 
 
 
-void Enemy::onRealDamaged( float damage )
+float Enemy::onRealDamaged( float damage )
 {
 
+	//todo ½«ÉËº¦Ô´°ó¶¨
 	if (_hasBuffSpreadDamage)
 	{
 		_eventDispatcher->dispatchCustomEvent("SPREAD_DAMAGE",this);
 	}
+
+	float damageContribution = damage>_hitPoint?_hitPoint:damage;
 
 	_hitPoint-= damage;
 
@@ -79,15 +82,18 @@ void Enemy::onRealDamaged( float damage )
 		_hitPoint = 0;
 	}
 	hpb->setHitPoint((float)_hitPoint/(float)_fullHitPoint);
+
+	return damageContribution;
+
 }
 
-void Enemy::onPhysicalDamaged( float damage )
+float Enemy::onPhysicalDamaged( float damage )
 {
 
 
 	if (isFloating||!isAlive())
 	{
-		return;
+		return 0;
 	}
 
 	int realDamage = damage - _armor;
@@ -96,25 +102,25 @@ void Enemy::onPhysicalDamaged( float damage )
 		realDamage = 1;
 	}
 
-	onRealDamaged(realDamage);
+	return onRealDamaged(realDamage);
 
 }
 
 
-void Enemy::onMagicalDamaged( float damage )
+float Enemy::onMagicalDamaged( float damage )
 {
 
 	if (isFloating||!isAlive())
 	{
-		return;
+		return 0;
 	}
 
 	if (isAntiMagic())
 	{
-		return;
+		return 0;
 	}
 
-	onRealDamaged(damage);
+	return onRealDamaged(damage);
 	
 }
 
@@ -371,11 +377,11 @@ float Enemy::getMovingProgress()
 
 }
 
-void Enemy::onShadowDamaged( float damage )
+float Enemy::onShadowDamaged( float damage )
 {
 	if (isFloating||!isAlive())
 	{
-		return;
+		return 0;
 	}
 
 	if (isAntiMagic())
@@ -388,7 +394,7 @@ void Enemy::onShadowDamaged( float damage )
 
 	}
 
-	onRealDamaged(damage);
+	return onRealDamaged(damage);
 
 }
 
@@ -456,6 +462,7 @@ bool Enemy::setBuff( Buff* buff )
 
 
 	_buffs.pushBack(buff);
+	addChild(buff);
 	buff->setAppearacneWithTarget(this,true);
 	
 	return true;
@@ -475,7 +482,9 @@ void Enemy::solveBuff()
  		if (_buffs.at(i)->willEndBuff())
  		{
 			_buffs.at(i)->setAppearacneWithTarget(this,false);
+			_buffs.at(i)->removeFromParent();
 			_buffs.eraseObject(_buffs.at(i));
+			
 
  		}
  	}
@@ -527,25 +536,17 @@ void Enemy::setSuperPoisoningState( bool hasBuffSuperPoisoning )
 {
 	_hasBuffSuperPoisoning = hasBuffSuperPoisoning;
 
-	if (_hasBuffPoisoning)
+	if (_hasBuffPoisoning&&_hasBuffSuperPoisoning)
 	{
 
-		Buff* buffTypePoisoning = nullptr;
-		if (_hasBuffSuperPoisoning)
+		for (Buff* b:_buffs)
 		{
-			for (Buff* b:_buffs)
+			if (b->getBuffType() == Buff::kBuffTypePoisoning)
 			{
-				if (b->getBuffType() == 1)
-				{
-					b->setAppearacneWithTarget(this,false);
-					buffTypePoisoning = b;
-					return;
-				}
+				b->forceEnd();
+				return;
 			}
-			
-			_buffs.eraseObject(buffTypePoisoning);
 		}
-
 	}
 
 }

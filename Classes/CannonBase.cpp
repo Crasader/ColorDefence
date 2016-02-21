@@ -27,8 +27,6 @@ bool CannonBase::init()
 	}
 
 
-	_damageContributed = 0;
-
 
 	return true;
 }
@@ -79,11 +77,8 @@ void CannonBase::afterDestroy()
 
 }
 
-float CannonBase::damageRecord( float damage )
-{
-	_damageContributed += damage;
-	return _damageContributed;
-}
+
+
 
 
 

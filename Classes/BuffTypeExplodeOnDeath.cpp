@@ -74,7 +74,7 @@ void BuffTypeExplodeOnDeath::setAppearacneWithTarget( Enemy* target , bool show 
 		target->setSpreadDamageState(true);
 		//显示一个大圆
    		Sprite* sp = Sprite::create("effects/BuffTypeSpreadDamage.png");
-		target->addChild(sp,10,_buffType);
+		addChild(sp,10,_buffType);
  		sp->setPosition(getContentSize().width/2,getContentSize().height/2);
  		sp->setScale(500.0/600.0);
 		auto fi = FadeIn::create(2.0);
@@ -88,10 +88,10 @@ void BuffTypeExplodeOnDeath::setAppearacneWithTarget( Enemy* target , bool show 
 	{
 		target->setSpreadDamageState(false);
 		//隐藏大圆
- 		if (target->getChildByTag(_buffType)!= nullptr)
+ 		if (getChildByTag(_buffType)!= nullptr)
 		{
 
-			target->removeChildByTag(_buffType);
+			removeChildByTag(_buffType);
 
 		}
 	}

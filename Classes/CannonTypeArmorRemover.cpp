@@ -36,6 +36,7 @@ void CannonTypeArmorRemover::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, attackRange ,50 , 200);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
 	

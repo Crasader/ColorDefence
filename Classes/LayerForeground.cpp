@@ -10,6 +10,7 @@
 
 
 #include "CannonTypeDuplicate.h"
+#include "DamageContributionManager.h"
 
 
 USING_NS_CC;
@@ -194,13 +195,15 @@ bool LayerForeground::init()
 
 
 
-
+	DamageContributionManager* dcm = DamageContributionManager::getInstance();
 	for (int i : levelManager->getBaseLocation())
 	{
 		CannonBase* c = CannonBase::create();
 		addChild(c);
 		c->setPosition(MapPointsManager::getPointByIndex(i));
+		dcm->addIndex(i);
 		cannonBases.pushBack(c);
+
 	}
 
 	//绘制起点 终点 路线

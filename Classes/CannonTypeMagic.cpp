@@ -39,7 +39,7 @@ void CannonTypeMagic::attackOnce()
 
 	BulletTypeMagic* bullet = BulletTypeMagic::create();
 	bullet->setPosition(getPosition());
-	//bullet->setRotation(getRotation());
+	bullet->setDamageContributerID(_damageContributerID);
 	bullet->setDamage(_damage);
 
 	getParent()->addChild(bullet);

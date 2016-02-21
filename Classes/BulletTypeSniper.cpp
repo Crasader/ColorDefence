@@ -37,10 +37,12 @@ void BulletTypeSniper::setDamage( float damage)
 
 void BulletTypeSniper::explode()
 {
-	_target->onPhysicalDamaged(_damage);
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	if ((_target->getRestHitPointRate()<=0.16)&&(_target->isAlive()))
 	{
-		_target->onRealDamaged(1000000);
+		float damageContributed = _target->onRealDamaged(1000000);
+		DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 		setTexture("effects/Bullet_Sniper_headshot.png");
 		setColor(Color3B(255,255,255));
 		setScale(3);

@@ -33,6 +33,7 @@ void CannonTypeSplash::attackOnce()
 	bullet->setDamage(_damage, 88);
 
 	bullet->setTarget(_target);
+	bullet->setDamageContributerID(_damageContributerID);
 	getParent()->addChild(bullet);
 
 	//

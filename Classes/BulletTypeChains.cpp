@@ -27,7 +27,8 @@ void BulletTypeChains::explode()
 {
 	
 
-	_target->onPhysicalDamaged(_damage);
+	float damageContributed = _target->onMagicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	//_target->setBuffStun(_stunTime);
 	_target->setBuff(BuffTypeStun::create(_target,_stunTime));
 	

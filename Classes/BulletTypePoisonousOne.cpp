@@ -29,10 +29,15 @@ void BulletTypePoisonousOne::explode()
 {
 	
 
-	_target-> onPhysicalDamaged(_damage);
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 	//_target->setBuffPoisoning(_poisonousDamage,_poisonousTime);
-	_target->setBuff(BuffTypePoisoning::create(_target,_poisonousDamage,_poisonousTime));
+	
+	
+	auto buff = BuffTypePoisoning::create(_target,_poisonousDamage,_poisonousTime);
+	buff->setDamageContributerID(_damageContributerID);
+	_target->setBuff(buff);
 
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);

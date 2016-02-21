@@ -34,10 +34,13 @@ void BulletTypeArmorRemover::explode()
 	{
 		if (pt.getDistance(e->getPosition())<_damageRadius)
 		{
-			bool buf = e->setBuff(BuffTypeBroken::create(_target,_armorReduce,_brokenTime));
-			e-> onPhysicalDamaged(_damage);
 
-			if (buf)
+			bool bBuff = e->setBuff(BuffTypeBroken::create(_target,_armorReduce,_brokenTime));
+			float damageContributed = e->onPhysicalDamaged(_damage);
+			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+
+
+			if (bBuff)
 			{
 				Sprite* rmvr = Sprite::create("effects/Bullet_ArmorRemover.png");
 				rmvr->setPosition(e->getPosition());

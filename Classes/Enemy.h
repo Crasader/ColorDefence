@@ -20,10 +20,10 @@ public:
 
 
 	void onSuperPowerDamage(float damage );
-	void onRealDamaged( float damage );
-	void onPhysicalDamaged( float damage );
-	void onMagicalDamaged( float damage );
-	void onShadowDamaged( float damage );
+	float onRealDamaged( float damage );
+	float onPhysicalDamaged( float damage );
+	float onMagicalDamaged( float damage );
+	float onShadowDamaged( float damage );
 
 
 

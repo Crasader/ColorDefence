@@ -56,8 +56,11 @@ void BulletTypeBounce::setDamage(float damage , float bounceRange, float damageR
 void BulletTypeBounce::bounce()
 {
 
-	_target->onPhysicalDamaged(_damage);
-	_target->setBuff(BuffTypeSlow::create(_target , 0.4f , 60));
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+	auto buff = BuffTypeSlow::create(_target , 0.4f , 60);
+	//buff->setDamageContributerID(_damageContributerID);
+	_target->setBuff(buff);
 	targetsBouncedOver.pushBack(_target);
 
 	if (_bounceTimes == 0)

@@ -68,6 +68,7 @@ void CannonTypeConsumer::attackOnce()
 	bullet->setPosition(getPosition());
 	//bullet->setRotation(getRotation());
 	bullet->setDamage(_damage,118);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	
 	getParent()->addChild(bullet);

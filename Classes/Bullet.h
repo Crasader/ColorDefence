@@ -3,7 +3,7 @@
 #include "cocos2d.h"
 #include "Enemy.h"
 #include "SoundManager.h"
-
+#include "DamageContributionManager.h"
 
 class Bullet : public cocos2d::Sprite
 {
@@ -26,6 +26,9 @@ public:
 	virtual void pause();
 	virtual void resume();
 
+
+	void setDamageContributerID(int ID);
+
 protected:
 
 	
@@ -38,6 +41,10 @@ protected:
 	Enemy* _target;
 
 	virtual void explode();
+
+
+	int _damageContributerID;
+
 
 };
 

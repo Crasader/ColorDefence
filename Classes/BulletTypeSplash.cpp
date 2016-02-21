@@ -35,7 +35,10 @@ void BulletTypeSplash::explode()
 	{
 		if (pt.getDistance(e->getPosition())<_damageRadius)
 		{
-			e-> onPhysicalDamaged(_damage);
+
+			float damageContributed = e->onPhysicalDamaged(_damage);
+			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+
 		}
 	}
 

@@ -43,7 +43,8 @@ void BulletTypeBridge::explode()
 		{
 			if (pt.getDistance(e->getPosition())<_damageRadius)
 			{
-				e-> onPhysicalDamaged(_damage);
+				float damageContributed = e->onPhysicalDamaged(_damage);
+				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 			}
 		}
 		unscheduleUpdate();
@@ -67,7 +68,8 @@ void BulletTypeBridge::explode()
 	}
 	else
 	{
-		_target->onPhysicalDamaged(_damage);
+		float damageContributed = _target->onPhysicalDamaged(_damage);
+		DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 		BulletManager::getInstance()->bullets.eraseObject(this);
 		removeFromParent();
 	}

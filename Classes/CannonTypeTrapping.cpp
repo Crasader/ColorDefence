@@ -32,6 +32,7 @@ void CannonTypeTrapping::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_isTrapping?1:_damage, _isTrapping);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
 	getParent()->addChild(bullet);

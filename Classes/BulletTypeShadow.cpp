@@ -35,7 +35,8 @@ void BulletTypeShadow::explode()
 	{
 		if (pt.getDistance(e->getPosition())<_damageRadius)
 		{
-			e-> onShadowDamaged(_damage);
+			float damageContributed = e->onShadowDamaged(_damage);
+			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 			/*
 			if (e->isAntiMagic())
 			{

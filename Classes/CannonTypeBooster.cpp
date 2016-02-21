@@ -33,6 +33,7 @@ void CannonTypeBooster::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_targetCannon);
 	getParent()->addChild(bullet);

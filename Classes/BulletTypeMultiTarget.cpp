@@ -37,7 +37,8 @@ bool BulletTypeMultiTarget::init()
 void BulletTypeMultiTarget::explode()
 {
 
-	_target->onMagicalDamaged(_damage);
+	float damageContributed = _target->onMagicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 	
 	unscheduleUpdate();

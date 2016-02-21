@@ -45,7 +45,7 @@ void CannonTypeSuperPoisonous::attackOnce()
 	bullet->setDamage(_damage, 4.2, 880 , 45);
 
 	bullet->setTarget(_target);
-	
+	bullet->setDamageContributerID(_damageContributerID);
 
 	//
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));

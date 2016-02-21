@@ -35,7 +35,7 @@ void CannonTypeSpreadOnBoss::attackOnce()
 	bullet->setDamage(_damage);
 
 	bullet->setTarget(_target);
-	
+	bullet->setDamageContributerID(_damageContributerID);
 
 	//
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));

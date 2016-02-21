@@ -50,6 +50,7 @@ void CannonTypeChains::attackOnce()
 			chain->setPosition(getPosition());
 			getParent()->addChild(chain,-1);
 			chain->setDamage(_damage, _stunTime);
+			chain->setDamageContributerID(_damageContributerID);
 			chain->setTarget(e);
 			amountOfTargets++ ;
 			//chain->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));

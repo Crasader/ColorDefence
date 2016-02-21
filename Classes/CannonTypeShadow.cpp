@@ -31,6 +31,7 @@ void CannonTypeShadow::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, attackRange);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
 	getParent()->addChild(bullet);

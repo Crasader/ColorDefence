@@ -25,9 +25,13 @@ bool BulletTypeSpreadOnBoss::init()
 void BulletTypeSpreadOnBoss::explode()
 {
 
-	_target->setBuff(BuffTypeSpreadDamage::create(_target,180));
+	auto buff = BuffTypeSpreadDamage::create(_target,180);
+	buff->setDamageContributerID(_damageContributerID);
+	_target->setBuff(buff);
 	
-	_target->onPhysicalDamaged(_damage);
+	
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);

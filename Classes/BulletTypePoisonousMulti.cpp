@@ -113,8 +113,13 @@ void BulletTypePoisonousMulti::update( float delta )
 			if (getPosition().getDistance(e->getPosition())<_damageWidth)
 			{
 				enemiesDamaged.pushBack(e);
-				e->onPhysicalDamaged(_damage);
-				e->setBuff(BuffTypePoisoning::create(e,_poisonousDamage,_poisonousTime));
+				float damageContributed = e->onPhysicalDamaged(_damage);
+				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+				
+				
+				auto buff = BuffTypePoisoning::create(e,_poisonousDamage,_poisonousTime);
+				buff->setDamageContributerID(_damageContributerID);
+				e->setBuff(buff);
 			}
 		}
 

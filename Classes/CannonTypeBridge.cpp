@@ -48,6 +48,8 @@ void CannonTypeBridge::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage,_attackingCannon, 135);
+	bullet->setDamageContributerID(_damageContributerID);
+
 	getParent()->addChild(bullet);
 
 	//

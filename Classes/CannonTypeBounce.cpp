@@ -49,6 +49,7 @@ void CannonTypeBounce::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, _bounceRange, _damageReduceFactor , _bounceTimes);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	
 	getParent()->addChild(bullet);

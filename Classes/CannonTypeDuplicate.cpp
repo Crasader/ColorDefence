@@ -42,6 +42,7 @@ void CannonTypeDuplicate::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, 44);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
 	getParent()->addChild(bullet);

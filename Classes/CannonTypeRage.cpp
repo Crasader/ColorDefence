@@ -45,7 +45,7 @@ void CannonTypeRage::attackOnce()
 	
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage);
-
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
 	getParent()->addChild(bullet);

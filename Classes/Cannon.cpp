@@ -2,6 +2,7 @@
 #include "Bullet.h"
 #include "NumericalManager.h"
 #include "GameStateManager.h"
+#include "MapPointsManager.h"
 
 
 
@@ -58,6 +59,8 @@ bool Cannon::init()
 	}
 
 	hasBaseAfterDestroyed = true;
+
+	_damageContributerID = 0;
 
 	return true;
 }
@@ -185,6 +188,7 @@ void Cannon::attackOnce()
 
 
 	bullet->setTarget(_target);
+	bullet->setDamageContributerID(_damageContributerID);
 	getParent()->addChild(bullet);
 
 	//
@@ -254,6 +258,11 @@ bool Cannon::isActioning()
 void Cannon::onExit()
 {
 	Sprite::onExit();
+}
+
+void Cannon::setDamageContributerID()
+{
+	_damageContributerID = MapPointsManager::getIndexByPoint(getPosition());
 }
 
 

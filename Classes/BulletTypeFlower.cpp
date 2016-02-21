@@ -127,7 +127,8 @@ void BulletTypeFlower::performDamage()
 	{
 		if ((pt.getDistance(e->getPosition())<_damageRadius)&&(!e->isAntiMagic()))
 		{
-			e-> onMagicalDamaged(_damage);
+			float damageContributed = e->onMagicalDamaged(_damage);
+			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 		}
 

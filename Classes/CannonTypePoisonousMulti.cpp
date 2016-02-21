@@ -36,6 +36,7 @@ void CannonTypePoisonousMulti::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, attackRange,0.9,1600);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
 	

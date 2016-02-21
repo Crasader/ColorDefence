@@ -45,7 +45,8 @@ void BulletTypeTracing::explode()
 
 	unscheduleUpdate();
 
-	_target->onPhysicalDamaged(_damage);
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 // 	if (_initSpeed>8)
 // 	{
 // 		_target->setBuffStun(30);

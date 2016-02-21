@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "SoundManager.h"
 #include "ParticleEmitterManager.h"
+#include "DamageContributionManager.h"
 
 USING_NS_CC;
 
@@ -32,7 +33,8 @@ void BuffTypePoisoning::makeEffectWithTarget(Enemy* target)
 
  	if (_buffTimeRest > 0)
  	{
- 		target->onMagicalDamaged(_poisonousDamage);
+ 		float damageContributed = target->onMagicalDamaged(_poisonousDamage);
+		DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
  	}
 
  	
@@ -64,6 +66,9 @@ void BuffTypePoisoning::overrideWithNewBuff( Buff* newBuff )
 	_poisonousDamage = _poisonousDamage>((BuffTypePoisoning*)newBuff)->_poisonousDamage?_poisonousDamage:((BuffTypePoisoning*)newBuff)->_poisonousDamage;
 
 	_buffTimeRest = _buffTimeRest>((BuffTypePoisoning*)newBuff)->_buffTimeRest?_buffTimeRest:((BuffTypePoisoning*)newBuff)->_buffTimeRest;
+
+
+	_damageContributerID = ((BuffTypePoisoning*)newBuff)->_damageContributerID;
 }
 
 void BuffTypePoisoning::setAppearacneWithTarget( Enemy* target , bool show )
@@ -77,7 +82,7 @@ void BuffTypePoisoning::setAppearacneWithTarget( Enemy* target , bool show )
 
 		ParticleSystem* slow_buff = ParticleSystemQuad::create("effects/Particle_Poisonous.plist");
 		slow_buff->setPosition(getContentSize().width/2,getContentSize().height/2);
-		target->addChild(slow_buff,10,_buffType);
+		addChild(slow_buff,10,_buffType);
 		ParticleEmitterManager::getInstance()->particleEmitters.pushBack(slow_buff);
 	}
 	else
@@ -85,13 +90,13 @@ void BuffTypePoisoning::setAppearacneWithTarget( Enemy* target , bool show )
 
 		target->setPoisoningState(false);
 
-		if (target->getChildByTag(_buffType)!= nullptr)
+		if (getChildByTag(_buffType)!= nullptr)
 		{
 
-			((ParticleSystem*)(target->getChildByTag(_buffType)))->setEmissionRate(0);
-			ParticleEmitterManager::getInstance()->particleEmitters.eraseObject(((ParticleSystem*)(target->getChildByTag(_buffType))));
-			ParticleEmitterManager::getInstance()->emittersToRemove.pushBack(((ParticleSystem*)(target->getChildByTag(_buffType))));
-			target->removeChildByTag(_buffType);
+			((ParticleSystem*)(getChildByTag(_buffType)))->setEmissionRate(0);
+			ParticleEmitterManager::getInstance()->particleEmitters.eraseObject(((ParticleSystem*)(getChildByTag(_buffType))));
+			ParticleEmitterManager::getInstance()->emittersToRemove.pushBack(((ParticleSystem*)(getChildByTag(_buffType))));
+			removeChildByTag(_buffType);
 
 		}
 	}

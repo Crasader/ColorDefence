@@ -30,10 +30,13 @@ void BulletTypeSlowOne::explode()
 {
 	
 	emitter->setEmissionRate(0);
-	_target-> onPhysicalDamaged(_damage);
+	float damageContributed = _target->onPhysicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 	//_target->setBuffSlow(_slowFactor,_slowTime);
-	_target->setBuff(BuffTypeSlow::create(_target , _slowFactor,_slowTime));
+	auto buff = BuffTypeSlow::create(_target , _slowFactor,_slowTime);
+	//buff->setDamageContributerID(_damageContributerID);
+	_target->setBuff(buff);
 
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);

@@ -10,6 +10,7 @@
 #include "LayerEmbattle.h"
 #include "TutorialLayer.h"
 #include "SoundManager.h"
+#include "DamageContributionManager.h"
 
 
 const int tutorialLayer_z_order = 102;
@@ -54,6 +55,7 @@ bool ScenePlaying::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+	DamageContributionManager::getInstance()->reset();
 
 	LayerUI* layerUI = LayerUI::create();
 	this->addChild(layerUI,ui_z_order,ui_tag);
@@ -78,6 +80,8 @@ bool ScenePlaying::init()
 	BulletManager::getInstance()->reset();
 
 	CannonManager::getInstance()->reset();
+
+	
 
 	//SoundManager::getInstance()->reset();
 	SoundManager::getInstance()->endBackgroundMusic();

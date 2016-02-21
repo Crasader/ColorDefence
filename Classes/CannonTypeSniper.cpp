@@ -60,7 +60,7 @@ void CannonTypeSniper::attackOnce()
 	BulletTypeSniper* bullet = BulletTypeSniper::create();
 	bullet->setPosition(getPosition());
 	bullet->setRotation(_barrel->getRotation());
-
+	bullet->setDamageContributerID(_damageContributerID);
 
 
 	getParent()->addChild(bullet);

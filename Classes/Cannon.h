@@ -50,6 +50,10 @@ public:
 	virtual void resume();
 
 
+
+	void setDamageContributerID();
+
+
 protected:
 	
 	bool _isActioning;
@@ -81,6 +85,10 @@ protected:
 
 	virtual void onExit();
 
+
+
+
+	int _damageContributerID;
 
 
 };

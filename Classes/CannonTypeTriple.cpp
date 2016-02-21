@@ -52,7 +52,7 @@ void CannonTypeTriple::attackOnce(int index)
 	bullet->setPosition(convertToWorldSpace(_childCannons[index]->getPosition()));
 	bullet->setRotation(_childCannons[index]->getRotation());
 	bullet->setDamage(_damage);
-
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_targets[index]);
 	getParent()->addChild(bullet);

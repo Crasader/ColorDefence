@@ -33,7 +33,7 @@ void CannonTypeSlowOne::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, 0.45 , 500);
-
+	bullet->setDamageContributerID(_damageContributerID);
 
 
 	

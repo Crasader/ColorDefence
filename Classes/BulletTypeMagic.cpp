@@ -36,7 +36,8 @@ bool BulletTypeMagic::init()
 void BulletTypeMagic::explode()
 {
 
-	_target->onMagicalDamaged(_damage);
+	float damageContributed = _target->onMagicalDamaged(_damage);
+	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	starEmitter->setEmissionRate(0);
 	
 	unscheduleUpdate();

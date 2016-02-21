@@ -38,8 +38,11 @@ void BulletTypeSuperPoisonous::explode()
 	{
 		if (pt.getDistance(e->getPosition())<_damageRadius)
 		{
-			e-> onPhysicalDamaged(_damage);
-			e-> setBuff(BuffTypeSuperPoisoning::create(_target,_poisonousDamage,_poisonousTime));
+			float damageContributed = e->onPhysicalDamaged(_damage);
+			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+			auto buff = BuffTypeSuperPoisoning::create(_target,_poisonousDamage,_poisonousTime);
+			buff->setDamageContributerID(_damageContributerID);
+			e-> setBuff(buff);
 		}
 	}
 

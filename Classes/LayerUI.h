@@ -85,5 +85,7 @@ private:
 	void buttonsMoveTogether(cocos2d::Node* leftButton,cocos2d::Node* rightButton,bool closer);
 
 
+	void displayDamageContribution();
+
 };
 

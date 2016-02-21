@@ -59,6 +59,7 @@ void CannonTypeFocus::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, !_hasSight);
+	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
 	getParent()->addChild(bullet);

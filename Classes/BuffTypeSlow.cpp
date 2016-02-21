@@ -77,18 +77,18 @@ void BuffTypeSlow::setAppearacneWithTarget( Enemy* target , bool show )
 
 		ParticleSystem* slow_buff = ParticleSystemQuad::create("effects/Particle_Slow.plist");
 		slow_buff->setPosition(getContentSize().width/2,getContentSize().height/2);
-		target->addChild(slow_buff,10,_buffType);
+		//target->addChild(slow_buff,10,_buffType);
+		addChild(slow_buff,10,_buffType);
 		ParticleEmitterManager::getInstance()->particleEmitters.pushBack(slow_buff);
 	}
 	else
 	{
-		if (target->getChildByTag(_buffType)!= nullptr)
+		if (getChildByTag(_buffType)!= nullptr)
 		{
 
-			((ParticleSystem*)(target->getChildByTag(_buffType)))->setEmissionRate(0);
-			ParticleEmitterManager::getInstance()->particleEmitters.eraseObject(((ParticleSystem*)(target->getChildByTag(_buffType))));
-			ParticleEmitterManager::getInstance()->emittersToRemove.pushBack(((ParticleSystem*)(target->getChildByTag(_buffType))));
-			target->removeChildByTag(_buffType);
+			((ParticleSystem*)(getChildByTag(_buffType)))->setEmissionRate(0);
+			ParticleEmitterManager::getInstance()->particleEmitters.eraseObject(((ParticleSystem*)(getChildByTag(_buffType))));
+			ParticleEmitterManager::getInstance()->emittersToRemove.pushBack(((ParticleSystem*)(getChildByTag(_buffType))));
 
 		}
 	}

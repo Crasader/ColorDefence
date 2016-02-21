@@ -76,9 +76,13 @@ void BulletTypeMagicSlowLine::update( float delta )
 			if (getPosition().getDistance(e->getPosition())<_damageWidth)
 			{
 				enemiesDamaged.pushBack(e);
-				e->onMagicalDamaged(_damage);
+				float damageContributed = e->onMagicalDamaged(_damage);
+				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
-				e->setBuff(BuffTypeSlow::create(e , _slowFactor,_slowTime));
+				auto buff = BuffTypeSlow::create(e , _slowFactor,_slowTime);
+				//buff->setDamageContributerID(_damageContributerID);
+				e->setBuff(buff);
+
 			}
 		}
 

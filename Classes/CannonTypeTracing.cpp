@@ -65,6 +65,7 @@ void CannonTypeTracing::attackOnce()
 	//
 
 	bullet->setRotation(getRotation());
+	bullet->setDamageContributerID(_damageContributerID);
 	bullet->setDamage(_damage, 0.05, 1.5, 9.0 , 3*_damage );
 
 	

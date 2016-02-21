@@ -17,15 +17,12 @@ public:
 	void offSelected();
 	void afterDestroy();
 
-	float damageRecord(float damage);
-
 private:
 
 	float closeScale;
 
 	cocos2d::Sprite* _covers[6];
 
-	float _damageContributed;
 
 };
 

@@ -50,6 +50,7 @@ void CannonTypeMultiTarget::attackOnce()
 				bullet->setPosition(getPosition());
 				bullet->setRotation(getRotation());
 				bullet->setDamage(_damage/6);
+				bullet->setDamageContributerID(_damageContributerID);
 
 				getParent()->addChild(bullet);
 
@@ -89,6 +90,7 @@ void CannonTypeMultiTarget::attackOnce()
 		bullet->setPosition(getPosition());
 		bullet->setRotation(getRotation());
 		bullet->setDamage(_damage);
+		bullet->setDamageContributerID(_damageContributerID);
 
 		getParent()->addChild(bullet);
 		

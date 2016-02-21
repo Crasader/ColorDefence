@@ -31,7 +31,8 @@ void BulletTypeFocus::explode()
 
 	if (_isSight)
 	{
-		_target->onPhysicalDamaged(_damage);
+		float damageContributed = _target->onPhysicalDamaged(_damage);
+		DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 		setTexture("effects/Bullet_Focus_attacker.png");
 		auto sp = Sprite::create("effects/Bullet_Focus_attackerCenter.png");
@@ -44,7 +45,8 @@ void BulletTypeFocus::explode()
 	}
 	else
 	{
-		_target->onPhysicalDamaged(_damage);
+		float damageContributed = _target->onPhysicalDamaged(_damage);
+		DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 		removeFromParent();
 		BulletManager::getInstance()->bullets.eraseObject(this);
 	}

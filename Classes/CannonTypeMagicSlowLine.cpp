@@ -41,6 +41,7 @@ void CannonTypeMagicSlowLine::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, 45, 0.6, 24);
+	bullet->setDamageContributerID(_damageContributerID);
 
 
 	bullet->setTarget(_target);

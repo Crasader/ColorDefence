@@ -18,7 +18,7 @@ bool Buff::init()
 
 	_end = false;
 
-	//retain();
+	_damageContributerID = 0;
 
 	return true;
 }
@@ -69,6 +69,16 @@ bool Buff::verifyWithTarget( Enemy* target )
 void Buff::setAppearacneWithTarget( Enemy* target , bool show )
 {
 
+}
+
+void Buff::setDamageContributerID( int ID )
+{
+	_damageContributerID = ID;
+}
+
+void Buff::forceEnd()
+{
+	_buffTimeRest = 0;
 }
 
 

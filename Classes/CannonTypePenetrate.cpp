@@ -31,6 +31,7 @@ void CannonTypePenetrate::attackOnce()
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
 	bullet->setDamage(_damage, 45);
+	bullet->setDamageContributerID(_damageContributerID);
 
 
 	bullet->setTarget(_target);

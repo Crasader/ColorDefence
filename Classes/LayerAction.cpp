@@ -171,28 +171,7 @@ bool LayerAction::init()
 
 
 
-	//¼àÌý spreadDamageÊÂ¼þ
-	auto listenerSpreadDamage = EventListenerCustom ::create("SPREAD_DAMAGE",[&](EventCustom* event){
 
-
-		//SoundManager::getInstance()->playSoundEffect("sound/superPower.wav");
-
-		Point p = ((Sprite*)(event->getUserData()))->getPosition();
-
-		for (Enemy* e : enemyManager->enemiesInSequence)
-		{
-
-			if ((!e->isBoss())&&(e->getPosition().getDistance(p)<250))
-			{
-				e->onRealDamaged(25);
-			}
-			
-
-		}
-
-
-	});
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerSpreadDamage,this);
 
 
 	
@@ -213,7 +192,7 @@ void LayerAction::finishBuilding(cocos2d::EventCustom* event)
 	cannon->setPosition(cpb->getPosition());
 	CannonManager::getInstance()->cannons.pushBack(cannon);
 	cannon->setColorInfo(cpb->colorInfo);
-
+	cannon->setDamageContributerID();
 
 }
 
