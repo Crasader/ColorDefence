@@ -9,6 +9,7 @@ USING_NS_CC;
 
 const unsigned CANNON_TYPE_CONSUMER = 10;
 const unsigned CANNON_TYPE_MULTI_TARGET = 17;
+const unsigned CANNON_TYPE_SPIRAL = 29;
 
 
 ExtraStateButtonManager::ExtraStateButtonManager()
@@ -38,7 +39,8 @@ const std::string ExtraStateButtonManager::getTextureFileNameOff( unsigned type 
 		return "UI/Button_autoSupplyingOff.png";
 	case CANNON_TYPE_MULTI_TARGET:
 		return "UI/Button_multiTargetOff.png";
-
+	case CANNON_TYPE_SPIRAL:
+		return "UI/Button_multiTargetOff.png";
 	default:
 		return "";
 	}
@@ -54,6 +56,8 @@ const std::string ExtraStateButtonManager::getTextureFileNameOn( unsigned type )
 	case CANNON_TYPE_CONSUMER:
 		return "UI/Button_autoSupplyingOn.png";
 	case CANNON_TYPE_MULTI_TARGET:
+		return "UI/Button_multiTargetOn.png";
+	case CANNON_TYPE_SPIRAL:
 		return "UI/Button_multiTargetOn.png";
 
 		

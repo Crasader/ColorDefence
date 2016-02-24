@@ -21,6 +21,8 @@ public:
 
 	virtual void setAppearacneWithTarget(Enemy* target , bool show);
 
+	void spreadDamage(cocos2d::Point position);
+
 private:
 
 };

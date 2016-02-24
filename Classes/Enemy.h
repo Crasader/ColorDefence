@@ -38,6 +38,7 @@ public:
 	bool hasBuffSuperPoisoning();
 	void setSpreadDamageState(bool hasBuffSpreadDamage);
 	bool hasBuffSpreadDamage();
+	void setBuffExplodeOnDeathState(bool hasBuffExplodeOnDeath);
 
 
 	bool isMoving();
@@ -148,7 +149,7 @@ private:
 	bool _hasBuffPoisoning;
 	bool _hasBuffSuperPoisoning;
 	bool _hasBuffSpreadDamage;
-
+	bool _hasBuffExplodeOnDeath;
 
 };
 

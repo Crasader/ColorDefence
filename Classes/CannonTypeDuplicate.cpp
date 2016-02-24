@@ -86,6 +86,7 @@ void CannonTypeDuplicate::duplicateAtPoint( cocos2d::Point point )
 	CannonManager::getInstance()->cannons.pushBack(cannon);
 	cannon->hasBaseAfterDestroyed = false;
 	cannon->setRotation(getRotation());
+	cannon->_damageContributerID = _damageContributerID;
 	
 	
 	//资源属性变化

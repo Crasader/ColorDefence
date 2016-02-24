@@ -33,6 +33,9 @@
 #include "CannonTypeDuplicate.h"
 #include "CannonTypeLargeWave.h"
 #include "CannonTypeSpreadOnBoss.h"
+#include "CannonTypeExplodeOnDeath.h"
+#include "CannonTypeSpiral.h"
+#include "CannonTypeGroove.h"
 
 CannonManager* CannonManager::_cannonManager= nullptr;
 
@@ -69,9 +72,9 @@ const unsigned CANNON_TYPE_LARGE_WAVE = 26;
 const unsigned CANNON_TYPE_SPREAD_ON_BOSS = 27;
 const unsigned CANNON_TYPE_EXPLODE_ON_DEATH = 28;
 const unsigned CANNON_TYPE_SPIRAL = 29;
-const unsigned CANNON_TYPE_OBSTRUCT = 30;
-const unsigned CANNON_TYPE_BOUNCE_SPLIT = 31;
-const unsigned CANNON_TYPE_HOOK = 32;
+const unsigned CANNON_TYPE_GROOVE = 30;
+const unsigned CANNON_TYPE_HOOK = 31;
+const unsigned CANNON_TYPE_CLOCK = 32;
 
 
 
@@ -196,6 +199,12 @@ const std::string CannonManager::getTextureFileName( unsigned type )
 		return "cannons/CannonCover_LargeWave.png";
 	case CANNON_TYPE_SPREAD_ON_BOSS:
 		return "cannons/CannonCover_SpreadOnBoss.png";
+	case CANNON_TYPE_EXPLODE_ON_DEATH:
+		return "cannons/CannonCover_ExplodeOnDeath.png";
+	case CANNON_TYPE_SPIRAL:
+		return "cannons/CannonCover_Spiral.png";
+	case CANNON_TYPE_GROOVE:
+		return "cannons/CannonCover_Groove.png";
 		
 	default:
 		return "";
@@ -293,6 +302,15 @@ Cannon* CannonManager::getCannonByType( unsigned type )
 		break;
 	case CANNON_TYPE_SPREAD_ON_BOSS:
 		cannon = CannonTypeSpreadOnBoss::create();
+		break;
+	case CANNON_TYPE_EXPLODE_ON_DEATH:
+		cannon = CannonTypeExplodeOnDeath::create();
+		break;
+	case CANNON_TYPE_SPIRAL:
+		cannon = CannonTypeSpiral::create();
+		break;
+	case CANNON_TYPE_GROOVE:
+		cannon = CannonTypeGroove::create();
 		break;
 	default:
 		return nullptr;
@@ -424,29 +442,29 @@ unsigned CannonManager::getPriceByType( unsigned type )
 	{
 
 	case CANNON_TYPE_SHADOW:
-		return 16;
+		return 2;
 	case CANNON_TYPE_POISONOUS_MULTI:
-		return 15;
+		return 1;
 	case CANNON_TYPE_MULTI_TARGET:
-		return 18;
+		return 1;
 	case CANNON_TYPE_BRIDGE:
-		return 17;
+		return 2;
 	case CANNON_TYPE_ARMOR_REMOVER:
-		return 13;
+		return 1;
 	case CANNON_TYPE_TRACING:
-		return 14;
+		return 2;
 	case CANNON_TYPE_TRAPPING:
-		return 17;
+		return 1;
 	case CANNON_TYPE_FLOWER:
-		return 13;
+		return 2;
 	case CANNON_TYPE_FOCUS:
-		return 16;
+		return 1;
 	case CANNON_TYPE_SUPER_POISONOUS:
-		return 17;
+		return 2;
 	case CANNON_TYPE_DUPLICATE:
-		return 19;
+		return 2;
 	default:
-		return 20;
+		return 1;
 	}
 }
 

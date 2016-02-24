@@ -6,6 +6,8 @@
 #include "LevelManager.h"
 #include "SoundManager.h"
 #include "Buff.h"
+#include "BuffTypeSpreadDamage.h"
+#include "BuffTypeExplodeOnDeath.h"
 
 const int actionShake_tag = 666;
 
@@ -43,7 +45,7 @@ bool Enemy::init()
 	_hasBuffSuperPoisoning = false;
 	_hasBuffStun = false;
 	_hasBuffSpreadDamage = false;
-
+	_hasBuffExplodeOnDeath = false;
 
 
 	currentDestination = 0;
@@ -67,10 +69,10 @@ bool Enemy::init()
 float Enemy::onRealDamaged( float damage )
 {
 
-	//todo ½«ÉËº¦Ô´°ó¶¨
+
 	if (_hasBuffSpreadDamage)
 	{
-		_eventDispatcher->dispatchCustomEvent("SPREAD_DAMAGE",this);
+		((BuffTypeSpreadDamage*)(getChildByTag(Buff::kBuffTypeSpreadDamage)))->spreadDamage(getPosition());
 	}
 
 	float damageContribution = damage>_hitPoint?_hitPoint:damage;
@@ -216,6 +218,14 @@ void Enemy::shake()
 
 void Enemy::onDeath()
 {
+
+	if (_hasBuffExplodeOnDeath)
+	{
+		
+
+		((BuffTypeExplodeOnDeath*)(getChildByTag(Buff::kBuffTypeExplodeOnDeath)))->explodeOnDeath(getPosition());
+
+	}
 
 	setInactive();
 	FadeOut* fo = FadeOut::create(0.5);
@@ -463,6 +473,7 @@ bool Enemy::setBuff( Buff* buff )
 
 	_buffs.pushBack(buff);
 	addChild(buff);
+	buff->setTag(buff->getBuffType());
 	buff->setAppearacneWithTarget(this,true);
 	
 	return true;
@@ -559,6 +570,11 @@ void Enemy::setSpreadDamageState( bool hasBuffSpreadDamage )
 bool Enemy::hasBuffSpreadDamage()
 {
 	return _hasBuffSpreadDamage;
+}
+
+void Enemy::setBuffExplodeOnDeathState( bool hasBuffExplodeOnDeath )
+{
+	_hasBuffExplodeOnDeath = hasBuffExplodeOnDeath;
 }
 
 

@@ -1,6 +1,7 @@
 #include "BuffTypeSpreadDamage.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
+#include "DamageContributionManager.h"
 
 
 USING_NS_CC;
@@ -19,30 +20,6 @@ bool BuffTypeSpreadDamage::init(Enemy* enemy, float buffTime)
 
 	_buffTimeRest = buffTime;
 
-
-
-	//¼àÌý spreadDamageÊÂ¼þ
-	auto listenerSpreadDamage = EventListenerCustom ::create("SPREAD_DAMAGE",[&](EventCustom* event){
-
-
-		//SoundManager::getInstance()->playSoundEffect("sound/superPower.wav");
-
-		Point p = ((Sprite*)(event->getUserData()))->getPosition();
-		auto enemyManager = EnemyManager::getInstance();
-		for (Enemy* e : enemyManager->enemiesInSequence)
-		{
-
-			if ((!e->isBoss())&&(e->getPosition().getDistance(p)<250))
-			{
-				e->onRealDamaged(25);
-			}
-
-
-		}
-
-
-	});
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerSpreadDamage,this);
 
 
 
@@ -128,4 +105,22 @@ void BuffTypeSpreadDamage::setAppearacneWithTarget( Enemy* target , bool show )
 
 		}
 	}
+}
+
+void BuffTypeSpreadDamage::spreadDamage(Point position)
+{
+	//Point p = ((Sprite*)(event->getUserData()))->getPosition();
+	auto enemyManager = EnemyManager::getInstance();
+	for (Enemy* e : enemyManager->enemiesInSequence)
+	{
+
+		if ((!e->isBoss())&&(e->getPosition().getDistance(position)<250))
+		{
+			float damageContributed  = e->onRealDamaged(25);
+			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed );
+		}
+
+
+	}
+
 }
