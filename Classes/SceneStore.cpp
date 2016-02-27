@@ -39,7 +39,7 @@ bool SceneStore::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	//总共出售的塔数
-	_total_cannons_for_sale = 16;
+	_total_cannons_for_sale = 17;
 	//有一个特殊物品
 	_totalNumberOfItems = _total_cannons_for_sale + 1 ;
 

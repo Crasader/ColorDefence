@@ -1,6 +1,7 @@
 #include "CannonTypeSpiral.h"
 #include "BulletTypeSpiral.h"
 #include "NumericalManager.h"
+#include "ParticleEmitterManager.h"
 
 USING_NS_CC;
 
@@ -45,7 +46,7 @@ void CannonTypeSpiral::attackOnce()
 	BulletTypeSpiral* bullet = BulletTypeSpiral::create();
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, attackRange);
+	bullet->setDamage(_damage, attackRange , extraStateOn);
 	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
@@ -56,7 +57,79 @@ void CannonTypeSpiral::attackOnce()
 	//
 
 
-	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_shadow.mp3");
+	
+
+
+	//充能 释放
+	Color3B c3b = getColorInfo();
+	int resource[3];
+	resource[0]= NumericalManager::getInstance()->getResourceByColor(c3b.r);
+	resource[1]= NumericalManager::getInstance()->getResourceByColor(c3b.g);
+	resource[2]= NumericalManager::getInstance()->getResourceByColor(c3b.b);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	if (extraStateOn)
+	{
+		for (int k = 0 ; k<3 ; k++)
+		{
+			if (resource[k]>1)
+			{
+				resource[k]--;
+			}
+		}
+	}
+	else
+	{
+		for (int k = 0 ; k<3 ; k++)
+		{
+			if (resource[k]<16)
+			{
+				resource[k]++;
+			}
+		}
+	}
+	
+	//更新颜色
+	setColorInfo(Color3B(
+		NumericalManager::getInstance()->getColorByResource(resource[0]),
+		NumericalManager::getInstance()->getColorByResource(resource[1]),
+		NumericalManager::getInstance()->getColorByResource(resource[2])));
+
+
+/*
+	//粒子系统 特效
+	ParticleSystem* emitter;
+	if (extraStateOn)
+	{
+		SoundManager::getInstance()->playSoundEffect("sound/cannon_consume.mp3");
+		emitter = ParticleSystemQuad::create("effects/Particle_Consumer.plist");
+	}
+	else
+	{
+		SoundManager::getInstance()->playSoundEffect("sound/cannon_consume.mp3");
+		emitter = ParticleSystemQuad::create("effects/Particle_Consumer.plist");
+	}
+
+	(getParent())->addChild(emitter,10086);
+	emitter->setPosition(getPosition());
+	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
+
+*/
+
 
 
 }

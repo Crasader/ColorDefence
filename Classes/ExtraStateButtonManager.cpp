@@ -40,7 +40,7 @@ const std::string ExtraStateButtonManager::getTextureFileNameOff( unsigned type 
 	case CANNON_TYPE_MULTI_TARGET:
 		return "UI/Button_multiTargetOff.png";
 	case CANNON_TYPE_SPIRAL:
-		return "UI/Button_multiTargetOff.png";
+		return "UI/Button_spiralOff.png";
 	default:
 		return "";
 	}
@@ -58,7 +58,7 @@ const std::string ExtraStateButtonManager::getTextureFileNameOn( unsigned type )
 	case CANNON_TYPE_MULTI_TARGET:
 		return "UI/Button_multiTargetOn.png";
 	case CANNON_TYPE_SPIRAL:
-		return "UI/Button_multiTargetOn.png";
+		return "UI/Button_spiralOn.png";
 
 		
 	default:

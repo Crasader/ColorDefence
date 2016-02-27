@@ -24,7 +24,7 @@ bool CannonPrebuilt::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-
+	_extraState = false;
 	//draw = DrawNode::create();
 	//this->addChild(draw);
 
@@ -36,6 +36,12 @@ bool CannonPrebuilt::init()
 	auto listenerChangeColor = EventListenerCustom ::create("CHANGE_COLOR",CC_CALLBACK_1(CannonPrebuilt::UpdateColorInfo, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerChangeColor,this);
 
+	//¼àÌý ±ä¸üextraState
+	auto listenerChangeExtraState = EventListenerCustom ::create("CHANGE_EXTRA_STATE",[&](EventCustom* event){
+		_extraState = !_extraState;
+		updateAppearance();
+	});
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerChangeExtraState,this);
 
 
 
@@ -68,33 +74,8 @@ bool CannonPrebuilt::init()
 void CannonPrebuilt::UpdateColorInfo( cocos2d::EventCustom* event )
 {
 	
-	/*
-	Color3B* c3b =  static_cast<Color3B*>(event->getUserData());
-	colorInfo = Color3B(c3b->r,c3b->g,c3b->b);
-	*/
-	
 
-
-	// »­Ô²
-	//draw->clear();
-	//draw->drawDot(Point(getContentSize().width/2,getContentSize().height/2), c3b->r*2, Color4F(Color3B(c3b->r,c3b->g,c3b->b)));
-
-
-
-	clear();
-
-	
-
-	ResourceManager* rm = ResourceManager::getInstance();
-	colorInfo = Color3B(
-		numericalManager->getColorByResource(rm->resourceUsage[0]),
-		numericalManager->getColorByResource(rm->resourceUsage[1]),
-		numericalManager->getColorByResource(rm->resourceUsage[2])
-		);
-	drawDot(Point(0,0), numericalManager->getRangeByColor(colorInfo,_cannonType), Color4F(Color4B(colorInfo.r,colorInfo.g,colorInfo.b,127)));
-	rotatorOnPrebuilt->setRadius(numericalManager->getRangeByColor(colorInfo,_cannonType));
-	rotatorOnPrebuilt->setSize(numericalManager->getAttackByColor(colorInfo,_cannonType));
-	rotatorOnPrebuilt->setSpeed(numericalManager->getIntervalByColor(colorInfo,_cannonType));
+	updateAppearance();
 
 }
 
@@ -109,22 +90,7 @@ void CannonPrebuilt::setCannonType( unsigned type )
 {
 	_cannonType = type;
 
-
-
-	clear();
-
-
-
-	ResourceManager* rm = ResourceManager::getInstance();
-	colorInfo = Color3B(
-		numericalManager->getColorByResource(rm->resourceUsage[0]),
-		numericalManager->getColorByResource(rm->resourceUsage[1]),
-		numericalManager->getColorByResource(rm->resourceUsage[2])
-		);
-	drawDot(Point(0,0), numericalManager->getRangeByColor(colorInfo,_cannonType), Color4F(Color4B(colorInfo.r,colorInfo.g,colorInfo.b,127)));
-	rotatorOnPrebuilt->setRadius(numericalManager->getRangeByColor(colorInfo,_cannonType));
-	rotatorOnPrebuilt->setSize(numericalManager->getAttackByColor(colorInfo,_cannonType));
-	rotatorOnPrebuilt->setSpeed(numericalManager->getIntervalByColor(colorInfo,_cannonType));
+	updateAppearance();
 
 }
 
@@ -138,6 +104,47 @@ void CannonPrebuilt::pause()
 	DrawNode::pause();
 	rotatorOnPrebuilt->unscheduleUpdate();
 }
+
+void CannonPrebuilt::setExtraState( bool extraState )
+{
+	_extraState = extraState;
+}
+
+void CannonPrebuilt::updateAppearance()
+{
+
+
+	clear();
+
+
+
+	ResourceManager* rm = ResourceManager::getInstance();
+	colorInfo = Color3B(
+		numericalManager->getColorByResource(rm->resourceUsage[0]),
+		numericalManager->getColorByResource(rm->resourceUsage[1]),
+		numericalManager->getColorByResource(rm->resourceUsage[2])
+		);
+
+	if (_extraState)
+	{
+		std::vector<float> extraStatefactor = numericalManager->getExtraStateFactor(_cannonType);
+		drawDot(Point(0,0), numericalManager->getRangeByColor(colorInfo,_cannonType) * extraStatefactor[1], Color4F(Color4B(colorInfo.r,colorInfo.g,colorInfo.b,127)));
+		rotatorOnPrebuilt->setSize(numericalManager->getAttackByColor(colorInfo,_cannonType) * extraStatefactor[0]);
+		rotatorOnPrebuilt->setRadius(numericalManager->getRangeByColor(colorInfo,_cannonType) * extraStatefactor[1]);
+		rotatorOnPrebuilt->setSpeed(numericalManager->getIntervalByColor(colorInfo,_cannonType) * extraStatefactor[2]);
+	}
+	else
+	{
+		drawDot(Point(0,0), numericalManager->getRangeByColor(colorInfo,_cannonType), Color4F(Color4B(colorInfo.r,colorInfo.g,colorInfo.b,127)));
+		rotatorOnPrebuilt->setRadius(numericalManager->getRangeByColor(colorInfo,_cannonType));
+		rotatorOnPrebuilt->setSize(numericalManager->getAttackByColor(colorInfo,_cannonType));
+		rotatorOnPrebuilt->setSpeed(numericalManager->getIntervalByColor(colorInfo,_cannonType));
+	}
+
+
+
+}
+
 
 
 

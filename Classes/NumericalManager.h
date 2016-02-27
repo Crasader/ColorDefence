@@ -23,6 +23,8 @@ public:
 	int getIntervalByColor(cocos2d::Color3B c3b, short type);
 
 
+	std::vector<float> getExtraStateFactor( short type); 
+
 private:
 
 	NumericalManager();

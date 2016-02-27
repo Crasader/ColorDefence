@@ -46,7 +46,7 @@ void CannonTypeGroove::attackOnce()
 
 	bullet->setTarget(_target);
 	bullet->setDamageContributerID(_damageContributerID);
-	getParent()->addChild(bullet);
+	getParent()->addChild(bullet,10086);
 
 	//
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));

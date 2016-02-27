@@ -339,5 +339,22 @@ float NumericalManager::functionLinear( float min, float max, float thisValueX )
 
 }
 
+std::vector<float> NumericalManager::getExtraStateFactor( short type )
+{
+	std::vector<float> ret = std::vector<float>(3,1);
+	switch (type)
+	{
+	case 17:
+		ret[0] = 1.0/5.0;
+		return ret;
+	case 29:
+		ret[0] = 2.0;
+		ret[1] = 1.0/3.0;
+		return ret;
+	default:
+		return ret;
+	}
+}
+
 
 

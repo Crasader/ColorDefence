@@ -64,5 +64,28 @@ cocos2d::DrawNode* Path::drawPathLining()
 	return pathLine;
 }
 
+bool Path::intersectWithSegment( cocos2d::Point pA , cocos2d::Point pB )
+{
+	Point _pA = MapPointsManager::getPointByIndex(_startPointIndex);
+	Point _pB = MapPointsManager::getPointByIndex(_endPointIndex);
+
+	return ccpSegmentIntersect(pA,pB,_pA,_pB);
+}
+
+cocos2d::Point Path::intersectingPoint( cocos2d::Point pA , cocos2d::Point pB )
+{
+	Point _pA = MapPointsManager::getPointByIndex(_startPointIndex);
+	Point _pB = MapPointsManager::getPointByIndex(_endPointIndex);
+
+	return ccpIntersectPoint(pA, pB, _pA, _pB);
+}
+
+cocos2d::Vec2 Path::getDirection()
+{
+	Point _pA = MapPointsManager::getPointByIndex(_startPointIndex);
+	Point _pB = MapPointsManager::getPointByIndex(_endPointIndex);
+	return _pB - _pA;
+}
+
 
 

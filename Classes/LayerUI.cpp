@@ -95,6 +95,10 @@ bool LayerUI::init()
 		//显示预建造
 		Cannon* c =  static_cast<Cannon*>(event->getUserData());
 		CannonPrebuilt* cannon = CannonPrebuilt::create();
+		if (c->extraStateOn)
+		{
+			cannon->setExtraState(true);
+		}
 		addChild(cannon , prebuilt_z_order , prebuilt_tag);
 		cannon->setPosition(c->getPosition());
 		cannon->colorInfo = c->getColorInfo();
@@ -225,10 +229,17 @@ void LayerUI::startUpgrading( cocos2d::EventCustom* event )
 	//显示预建造
 	Cannon* c =  static_cast<Cannon*>(event->getUserData());
 	CannonPrebuilt* cannon = CannonPrebuilt::create();
+	if (c->extraStateOn)
+	{
+		cannon->setExtraState(true);
+	}
 	addChild(cannon , prebuilt_z_order , prebuilt_tag);
 	cannon->setPosition(c->getPosition());
 	cannon->colorInfo = c->getColorInfo();
+
 	cannon->setCannonType(c->getCannonType());
+
+	
 
 
 	/*

@@ -36,6 +36,7 @@
 #include "CannonTypeExplodeOnDeath.h"
 #include "CannonTypeSpiral.h"
 #include "CannonTypeGroove.h"
+#include "CannonTypeHook.h"
 
 CannonManager* CannonManager::_cannonManager= nullptr;
 
@@ -205,7 +206,8 @@ const std::string CannonManager::getTextureFileName( unsigned type )
 		return "cannons/CannonCover_Spiral.png";
 	case CANNON_TYPE_GROOVE:
 		return "cannons/CannonCover_Groove.png";
-		
+	case CANNON_TYPE_HOOK:
+		return "cannons/CannonCover_Hook.png";
 	default:
 		return "";
 	}
@@ -311,6 +313,9 @@ Cannon* CannonManager::getCannonByType( unsigned type )
 		break;
 	case CANNON_TYPE_GROOVE:
 		cannon = CannonTypeGroove::create();
+		break;
+	case CANNON_TYPE_HOOK:
+		cannon = CannonTypeHook::create();
 		break;
 	default:
 		return nullptr;

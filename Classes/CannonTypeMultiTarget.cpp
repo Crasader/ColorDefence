@@ -49,7 +49,7 @@ void CannonTypeMultiTarget::attackOnce()
 				BulletTypeMultiTarget* bullet = BulletTypeMultiTarget::create();
 				bullet->setPosition(getPosition());
 				bullet->setRotation(getRotation());
-				bullet->setDamage(_damage/6);
+				bullet->setDamage(_damage);
 				bullet->setDamageContributerID(_damageContributerID);
 
 				getParent()->addChild(bullet);

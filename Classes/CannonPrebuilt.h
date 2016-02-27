@@ -22,6 +22,9 @@ public:
 
 	
 	void setCannonType(unsigned type);
+
+	void setExtraState(bool extraState);
+
 	unsigned getCannonType();
 
 	void pause();
@@ -31,7 +34,7 @@ private:
 
 	unsigned _cannonType;
 
-	//cocos2d::DrawNode* draw;
+	bool _extraState;
 
 
 	void UpdateType(cocos2d::EventCustom* event);
@@ -44,7 +47,7 @@ private:
 	NumericalManager* numericalManager;
 
 
-
+	void updateAppearance();
 
 };
 

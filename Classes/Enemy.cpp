@@ -61,6 +61,9 @@ bool Enemy::init()
 	hpb->setHitPoint(1.0);
 
 
+	_moveDirection = Vec2(0,0);
+
+
 	return true;
 }
 
@@ -254,8 +257,11 @@ void Enemy::onDeath()
 
 void Enemy::setMoveDirection( cocos2d::Vec2 direction )
 {
+
 	//行走时 需要调整面向的方向
-	_appearance->setRotation(CC_RADIANS_TO_DEGREES(atan2(direction.y, - direction.x)) + 90);
+	_moveDirection = direction;
+	_moveDirection.normalize();
+	_appearance->setRotation(CC_RADIANS_TO_DEGREES(atan2(_moveDirection.y, - _moveDirection.x)) + 90);
 
 
 }
@@ -575,6 +581,21 @@ bool Enemy::hasBuffSpreadDamage()
 void Enemy::setBuffExplodeOnDeathState( bool hasBuffExplodeOnDeath )
 {
 	_hasBuffExplodeOnDeath = hasBuffExplodeOnDeath;
+}
+
+void Enemy::updateDestination()
+{
+
+}
+
+void Enemy::move()
+{
+
+}
+
+cocos2d::Vec2 Enemy::getMoveDirection()
+{
+	return _moveDirection;
 }
 
 

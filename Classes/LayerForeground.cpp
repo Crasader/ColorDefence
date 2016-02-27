@@ -10,6 +10,7 @@
 
 
 #include "CannonTypeDuplicate.h"
+#include "CannonTypeHook.h"
 #include "DamageContributionManager.h"
 
 
@@ -489,6 +490,73 @@ void LayerForeground::respondForDuplicate( cocos2d::EventCustom* event )
 
 void LayerForeground::respondForHook( cocos2d::EventCustom* event )
 {
+
+	CannonTypeHook* cannon = (CannonTypeHook*)(event->getUserData());
+	Enemy* enemy = cannon->getCatchingTarget();
+
+	Point pc = cannon->getPosition();
+	Point pe = enemy->getPosition();
+
+	//是否存在交点
+	bool catching = false;
+	
+	//交点
+	Point pos = Point(0,0);
+	
+	//敌人到交点之间的距离
+	float dis = 0;
+
+	//敌人到达交点后的目标点
+	int destinationID = 0;
+
+	//判断钩子轨迹是否与path相交
+	for (int i =0 ; i<paths.size() ; i++)
+	{
+
+		if ( paths.at(i)->intersectWithSegment(pc, pe))
+		{
+			if (catching)
+			{
+				//如果新的交点到敌人距离更远 则覆盖掉原来的交点
+				if ( (paths.at(i)->intersectingPoint(pc, pe)).getDistance(pe) > dis)
+				{
+					pos = paths.at(i)->intersectingPoint(pc, pe);
+					dis = pos.getDistance(pe);
+					destinationID = i;
+
+				}
+
+			}
+			else
+			{
+				catching = true;
+				pos = paths.at(i)->intersectingPoint(pc, pe);
+				dis = pos.getDistance(pe);
+				destinationID = i;
+
+			}
+			
+		}
+
+
+
+	}
+
+	if (dis	< 10)
+	{
+		catching = false;
+	}
+
+	if (catching)
+	{
+
+		enemy->currentDestination = destinationID+1;
+		enemy->setMoveDirection(paths.at(destinationID)->getDirection());
+
+	}
+
+	cannon->catchOnce(catching, pos );
+
 
 }
 

@@ -208,6 +208,14 @@ void Cannon::setColorInfo( cocos2d::Color3B c3b )
 	attackRange = nm->getRangeByColor(c3b,_cannonType);
 	_attackInterval = nm->getIntervalByColor(c3b , _cannonType);
 	_damage = nm->getAttackByColor(c3b, _cannonType);
+	if (extraStateOn)
+	{
+		std::vector<float> extraStatefactor = nm->getExtraStateFactor(_cannonType);
+		_damage = _damage * extraStatefactor[0];
+		attackRange = attackRange* extraStatefactor[1];
+		_attackInterval * extraStatefactor[2];
+		
+	}
 
 }
 

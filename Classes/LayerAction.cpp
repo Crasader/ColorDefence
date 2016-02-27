@@ -249,22 +249,11 @@ void LayerAction::update( float delta )
 
 
 			}
-			else if (e->getPositionX() < (_enemyPath.at(e->currentDestination)).x)
+			else
 			{
-				e->setPositionX(e->getPositionX()+ e->moveSpeed);
+				e->setPosition(e->getPosition()+ e->moveSpeed * e->getMoveDirection());
 			}
-			else if (e->getPositionX() > (_enemyPath.at(e->currentDestination)).x)
-			{
-				e->setPositionX(e->getPositionX()- e->moveSpeed);
-			}
-			else if (e->getPositionY() < (_enemyPath.at(e->currentDestination)).y)
-			{
-				e->setPositionY(e->getPositionY()+ e->moveSpeed);
-			}
-			else if (e->getPositionY() > (_enemyPath.at(e->currentDestination)).y)
-			{
-				e->setPositionY(e->getPositionY()- e->moveSpeed);
-			}
+
 		}
 
 

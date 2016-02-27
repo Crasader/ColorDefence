@@ -15,6 +15,9 @@ public:
 
 	void setPoints(int startPointIndex , int endPointIndex);
 	bool pathPassingPoint(cocos2d::Point point);
+	bool intersectWithSegment(cocos2d::Point pA , cocos2d::Point pB);
+	cocos2d::Point intersectingPoint(cocos2d::Point pA , cocos2d::Point pB);
+	cocos2d::Vec2 getDirection();
 
 	cocos2d::DrawNode* drawPathMain();
 	cocos2d::DrawNode* drawPathLining();

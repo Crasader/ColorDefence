@@ -53,7 +53,9 @@ public:
 
 
 	int currentDestination;
-
+	void updateDestination();
+	void move();
+	cocos2d::Vec2 getMoveDirection();
 	float getMovingProgress();
 
 	//ÒÆ¶¯ËÙ¶È
@@ -127,6 +129,7 @@ protected:
 
 	float _moveSpeedFull;
 
+	cocos2d::Vec2 _moveDirection;
 
 private:
 
