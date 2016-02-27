@@ -74,8 +74,9 @@ void BulletTypeGroove::setTarget( Enemy* enemy )
 
 	//Vec2 normalized = ccpNormalize(ccp(_end[1].x - _end[0].x,	_end[1].y - _end[0].y));
 	setRotation(CC_RADIANS_TO_DEGREES(atan2(normalized.y, - normalized.x)) - 90);
+	float ratio = _grooveLength/180.0 ;
 
-	auto st = ScaleTo::create(0.08,1,1);
+	auto st = ScaleTo::create(0.08,1,ratio);
 	auto mt = MoveTo::create(0.08,center);
 	auto sp = Spawn::create(st,mt,nullptr);
 	auto ex = CallFunc::create([&]{

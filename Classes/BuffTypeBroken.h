@@ -23,7 +23,8 @@ public:
 
 	bool verifyWithTarget(Enemy* target);
 
-private:
+protected:
+
 
 
 	float _brokenValue;

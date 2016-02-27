@@ -324,7 +324,7 @@ void SceneStore::onItemSelected(bool selected)
 		Vec2 origin = Director::getInstance()->getVisibleOrigin();
 		pep = PanelEnsurePurchase::create();
 		addChild(pep);
-		pep->setPosition(origin + visibleSize/2);
+		pep->setPosition(visibleSize.width/2 , visibleSize.height * 0.2);
 
 	}
 	else

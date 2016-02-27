@@ -68,13 +68,6 @@ void LayerEpisodeUnlock::setEpisodeUnlocked( int episode )
 	case 2:
 		{
 
-			int numberOfStars = 0;
-			std::vector<unsigned> v_stars = LevelManager::getInstance()->gradingOfLevels;
-			for (auto u:v_stars)
-			{
-				numberOfStars += u;
-			}
-			UserDefault::getInstance()->setIntegerForKey("number_of_stars",numberOfStars);
 			UserDefault::getInstance()->setBoolForKey("cannon_store_unlocked",true);
 			log("store unlock");
 		}

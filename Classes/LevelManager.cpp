@@ -199,36 +199,39 @@ void LevelManager::newLevelRecord(unsigned currentLevelgrading)
 
 	}
 
-	bool gradingFileNeedUpdate;
-	gradingFileNeedUpdate = false;
+	int newStarsToAdd = 0;
 
-	//level_record 加1
+
 	int levelRecord = UserDefault::getInstance()->getIntegerForKey("level_record",0);
 	if (levelRecord == _currentLevel)
 	{
 
 		UserDefault::getInstance()->setIntegerForKey("level_record",levelRecord + 1);
 		gradingOfLevels.push_back(currentLevelgrading);
-		gradingFileNeedUpdate = true;
+		newStarsToAdd = currentLevelgrading;
 
 	}
 	else if (currentLevelgrading > gradingOfLevels.at(_currentLevel-1))
 	{
-		int stars = UserDefault::getInstance()->getIntegerForKey("number_of_stars",0);
-		stars += (currentLevelgrading - gradingOfLevels.at(_currentLevel-1));
-		UserDefault::getInstance()->setIntegerForKey("number_of_stars",stars);
+		
+		newStarsToAdd = currentLevelgrading - gradingOfLevels.at(_currentLevel-1);
 		gradingOfLevels.at(_currentLevel-1) = currentLevelgrading;
-		gradingFileNeedUpdate = true;
+
 	}
 
 
 
-
-	//视情况变更grading的vector
-	if (gradingFileNeedUpdate)
+	//视情况变更grading的json
+	if (0!=newStarsToAdd)
 	{
 
+		//更新userDefault中总星数
+		int stars = UserDefault::getInstance()->getIntegerForKey("number_of_stars",0);
+		stars += newStarsToAdd;
+		UserDefault::getInstance()->setIntegerForKey("number_of_stars",stars);
 
+
+		//更新grading的json
 		auto  path =FileUtils::getInstance()->getWritablePath();
 		log("%s", path.c_str());
 		//在这个路径下添加一个json文件

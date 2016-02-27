@@ -39,7 +39,7 @@ void BulletTypeSpiral::explode()
 		{
 			if (pt.getDistance(e->getPosition())<_damageRadius)
 			{
-				float damageContributed = e->onShadowDamaged(_damage);
+				float damageContributed = e->onPhysicalDamaged(_damage);
 				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 			}
@@ -69,7 +69,7 @@ void BulletTypeSpiral::explode()
 			_damage = _damage / (float)total;
 			for (Enemy* e : targets)
 			{
-				float damageContributed = e->onShadowDamaged(_damage);
+				float damageContributed = e->onPhysicalDamaged(_damage);
 				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 			}
 		}

@@ -71,7 +71,7 @@ bool PanelEnsurePurchase::init()
 	msgBox->addChild(menu);
 
 	menu->setPosition(msgBox->getContentSize()/2);
-	menu->alignItemsHorizontallyWithPadding(10);
+	menu->alignItemsHorizontallyWithPadding(420);
 
 
 
