@@ -27,6 +27,7 @@ void CannonTypeLargeWave::attackOnce()
 
 	BulletTypeLargeWave* bullet = BulletTypeLargeWave::create();
 
+	getParent()->addChild(bullet);
 
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
@@ -34,7 +35,7 @@ void CannonTypeLargeWave::attackOnce()
 	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
-	getParent()->addChild(bullet);
+	
 
 
 	//

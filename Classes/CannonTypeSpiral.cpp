@@ -94,13 +94,19 @@ void CannonTypeSpiral::attackOnce()
 	}
 	else
 	{
+		int i = CCRANDOM_0_1()*3;
 		for (int k = 0 ; k<3 ; k++)
 		{
-			if (resource[k]<16)
+			if (resource[k]<resource[i])
 			{
-				resource[k]++;
+				i = k;
 			}
 		}
+		if (resource[i]<16)
+		{
+			resource[i]++;
+		}
+
 	}
 	
 	//¸üÐÂÑÕÉ«

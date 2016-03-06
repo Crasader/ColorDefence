@@ -2,6 +2,7 @@
 #include "BulletTypeDuplicate.h"
 #include "NumericalManager.h"
 #include "CannonManager.h"
+#include "ParticleEmitterManager.h"
 
 USING_NS_CC;
 
@@ -113,6 +114,17 @@ void CannonTypeDuplicate::duplicateAtPoint( cocos2d::Point point )
 	Sequence* sq_2 = Sequence::create(dt_2,sp_2,NULL);
 	cannon->runAction(sq_2);
 
+
+	//粒子系统 特效
+	ParticleSystem* emitter = ParticleSystemQuad::create("effects/Particle_Duplicate.plist");
+	(getParent())->addChild(emitter,10086);
+	emitter->setPosition(getPosition());
+	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
+
+	DelayTime* dt_3 = DelayTime::create(0.1f);
+	MoveTo* mt_3 = MoveTo::create(0.3f,point);
+	Sequence* sq_3 = Sequence::create(dt_3,mt_3,NULL);
+	emitter->runAction(sq_3);
 
 }
 

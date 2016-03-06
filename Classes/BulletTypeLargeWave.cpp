@@ -1,5 +1,6 @@
 #include "BulletTypeLargeWave.h"
 #include "BulletManager.h"
+#include "ParticleEmitterManager.h"
 
 
 USING_NS_CC;
@@ -37,10 +38,17 @@ void BulletTypeLargeWave::setTarget( Enemy* enemy )
 	
 	auto mv = MoveBy::create(2.2f,v);
 	auto expld = CallFunc::create([&]{
-		
+
 		explode();
 
 	});
+
+	//粒子系统 特效
+	emitter = ParticleSystemQuad::create("effects/Particle_LargeWave.plist");
+	emitter->setPosition(getContentSize().width/2,getContentSize().height/2);
+	(getParent())->addChild(emitter);
+	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
+
 
 	scheduleUpdate();
 	runAction(Sequence::create(mv,expld,NULL));
@@ -50,6 +58,8 @@ void BulletTypeLargeWave::setTarget( Enemy* enemy )
 
 void BulletTypeLargeWave::explode()
 {
+	emitter->setEmissionRate(0);
+
 
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);
@@ -87,6 +97,9 @@ void BulletTypeLargeWave::update( float delta )
 		}
 
 	}
+
+	emitter->setPosition(getPosition());
+
 }
 
 

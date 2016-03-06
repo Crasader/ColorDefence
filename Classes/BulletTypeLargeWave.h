@@ -32,5 +32,7 @@ protected:
 	EnemyManager* em;
 	cocos2d::Vector<Enemy*> enemiesDamaged;
 
+	cocos2d::ParticleSystem* emitter;
+
 };
 
