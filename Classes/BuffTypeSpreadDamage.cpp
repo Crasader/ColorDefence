@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "EnemyManager.h"
 #include "DamageContributionManager.h"
+#include "ParticleEmitterManager.h"
 
 
 USING_NS_CC;
@@ -122,5 +123,15 @@ void BuffTypeSpreadDamage::spreadDamage(Point position)
 
 
 	}
+
+	//ÌØÐ§
+	ParticleSystem* superPower = ParticleSystemQuad::create("effects/Particle_SpreadOnBoss.plist");
+	addChild(superPower);
+	superPower->setPosition(getPosition());
+	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(superPower);
+
+
+
+
 
 }

@@ -19,7 +19,9 @@ private:
 	
 	void attackOnce();
 
+	cocos2d::Sprite* _rot;
 
+	void setDirection();
 
 };
 

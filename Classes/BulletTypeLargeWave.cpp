@@ -16,6 +16,7 @@ bool BulletTypeLargeWave::init()
 	//BulletManager::getInstance()->bullets.pushBack(this);
 
 	setTexture("effects/Bullet_LargeWave.png");
+	setOpacity(0);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 

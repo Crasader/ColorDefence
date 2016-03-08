@@ -2,6 +2,9 @@
 #include "Enemy.h"
 #include "EnemyManager.h"
 #include "DamageContributionManager.h"
+#include "SoundManager.h"
+#include "ParticleEmitterManager.h"
+#include "BuffTypeSlow.h"
 
 
 USING_NS_CC;
@@ -75,14 +78,30 @@ bool BuffTypeExplodeOnDeath::verifyWithTarget( Enemy* target )
 void BuffTypeExplodeOnDeath::setAppearacneWithTarget( Enemy* target , bool show )
 {
 
-
 	if (show)
 	{
 		target->setBuffExplodeOnDeathState(true);
+
+		//SoundManager::getInstance()->playSoundEffect("sound/buff_slow.wav");
+
+		ParticleSystem* eod_buff = ParticleSystemQuad::create("effects/Particle_ExplodeOnDeath_buff.plist");
+		eod_buff->setPosition(getContentSize().width/2,getContentSize().height/2);
+		//target->addChild(slow_buff,10,_buffType);
+		addChild(eod_buff,10,_buffType);
+		ParticleEmitterManager::getInstance()->particleEmitters.pushBack(eod_buff);
 	}
 	else
 	{
 		target->setBuffExplodeOnDeathState(false);
+
+		if (getChildByTag(_buffType)!= nullptr)
+		{
+
+			((ParticleSystem*)(getChildByTag(_buffType)))->setEmissionRate(0);
+			ParticleEmitterManager::getInstance()->particleEmitters.eraseObject(((ParticleSystem*)(getChildByTag(_buffType))));
+			ParticleEmitterManager::getInstance()->emittersToRemove.pushBack(((ParticleSystem*)(getChildByTag(_buffType))));
+
+		}
 	}
 }
 
@@ -93,12 +112,23 @@ void BuffTypeExplodeOnDeath::explodeOnDeath(Point position)
 	for (Enemy* e : enemyManager->enemiesInSequence)
 	{
 
-		if ((!e->isBoss())&&(e->getPosition().getDistance(position)<_explodeRadius))
+		if ((e->getPosition().getDistance(position)<_explodeRadius))
 		{
+			//float damageContributed  = e->onRealDamaged(888);
 			float damageContributed  = e->onRealDamaged(_explodeDamage);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed );
+			e->setBuff(BuffTypeSlow::create(e,0.55,40));
 		}
 
 
 	}
+
+
+	//ÌØÐ§
+	ParticleSystem* superPower = ParticleSystemQuad::create("effects/Particle_ExplodeOnDeath_explode.plist");
+	addChild(superPower);
+	superPower->setPosition(getPosition());
+	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(superPower);
+
+
 }
