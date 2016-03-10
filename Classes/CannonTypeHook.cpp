@@ -101,7 +101,7 @@ void CannonTypeHook::catchOnce( bool catching , Point targetPosition)
 	_handle->setPosition(Point(0,0));
 	_handle->setScale(4,1);
 
-
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_hook.mp3");
 
 	if (catching)
 	{

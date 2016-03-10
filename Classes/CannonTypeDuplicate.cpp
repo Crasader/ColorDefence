@@ -114,6 +114,7 @@ void CannonTypeDuplicate::duplicateAtPoint( cocos2d::Point point )
 	Sequence* sq_2 = Sequence::create(dt_2,sp_2,NULL);
 	cannon->runAction(sq_2);
 
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_duplicate.mp3");
 
 	//粒子系统 特效
 	ParticleSystem* emitter = ParticleSystemQuad::create("effects/Particle_Duplicate.plist");

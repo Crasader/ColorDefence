@@ -60,7 +60,7 @@ void CannonTypeFlower::attackOnce()
 
 
 
-	//SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_shadow.mp3");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_flower.mp3");
 
 	for ( Cannon* c : CannonManager::getInstance()->cannons)
 	{

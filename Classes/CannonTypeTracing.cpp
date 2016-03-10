@@ -75,7 +75,7 @@ void CannonTypeTracing::attackOnce()
 	
 
 
-	//SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_bounce.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_tracing.mp3");
 
 
 

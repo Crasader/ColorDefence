@@ -153,6 +153,8 @@ void CannonTypeSpiral::setExtraState( bool on )
 
 	Cannon::setExtraState(on);
 
+	setColorInfo(getColorInfo());
+
 	_outter->setOpacity(on?255:150);
 
 }
