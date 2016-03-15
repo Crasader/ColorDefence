@@ -145,7 +145,7 @@ bool LayerForeground::init()
 
 		if (GameStateManager::getInstance()->currentActioningState)
 		{
-			cannonSelected->scheduleUpdate();
+			cannonSelected->schedule(schedule_selector(Cannon::update),1.0f/60.0f);
 			cannonSelected->resume();
 		}
 
@@ -361,7 +361,7 @@ void LayerForeground::onTouchEnded( cocos2d::Touch *touch, cocos2d::Event *unuse
 				
 
 				_eventDispatcher->dispatchCustomEvent("NOT_UPGRADING_SELECT",cannonSelected);
-				//cannonSelected->unscheduleUpdate();
+
 
 				return;
 			}
@@ -378,7 +378,7 @@ void LayerForeground::onTouchEnded( cocos2d::Touch *touch, cocos2d::Event *unuse
 			_eventDispatcher->dispatchCustomEvent("START_UPGRADING",cannonSelected);
 
 			
-			cannonSelected->unscheduleUpdate();
+			cannonSelected->unschedule(schedule_selector(Cannon::update));
 			cannonSelected->pause();
 
 		}

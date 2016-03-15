@@ -40,7 +40,7 @@ void BulletTypeMagic::explode()
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	starEmitter->setEmissionRate(0);
 	
-	unscheduleUpdate();
+	unschedule(schedule_selector(BulletTypeMagic::update));
 
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);
@@ -62,7 +62,7 @@ void BulletTypeMagic::setTarget( Enemy* enemy )
 	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(starEmitter);
 	
 
-	scheduleUpdate();
+	schedule(schedule_selector(BulletTypeMagic::update), 1.0f/60.0f);
 
 
 

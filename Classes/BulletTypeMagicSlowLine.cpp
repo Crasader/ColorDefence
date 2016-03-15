@@ -44,7 +44,7 @@ void BulletTypeMagicSlowLine::setTarget( Enemy* enemy )
 
 	});
 
-	scheduleUpdate();
+	schedule(schedule_selector(BulletTypeMagicSlowLine::update), 1.0f/60.0f);
 	runAction(Sequence::create(mv,expld,NULL));
 
 

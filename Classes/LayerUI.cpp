@@ -315,7 +315,7 @@ void LayerUI::showColorPad( bool visible )
 	{
 
 		
-		//unscheduleUpdate();
+
 
 		if (getChildByTag(menuBuilding_tag)!= nullptr)
 		{

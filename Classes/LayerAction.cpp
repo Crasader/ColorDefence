@@ -58,7 +58,7 @@ bool LayerAction::init()
 				
 				if (GameStateManager::getInstance()->currentActioningState)
 				{
-					c->scheduleUpdate();
+					c->schedule(schedule_selector(Cannon::update),1.0f/60.0f);
 					c->resume();
 
 				}
@@ -343,7 +343,7 @@ void LayerAction::update( float delta )
 	{
 		_eventDispatcher->dispatchCustomEvent("GAME_OVER_LOSE");
 		//log("lose");
-		unscheduleUpdate();
+		unschedule(schedule_selector(LayerAction::update));
 	}
 	else if ((enemyManager->enemiesLeft.size()== 0)&&(enemyManager->enemiesInSequence.size()==0))
 	{
@@ -351,7 +351,7 @@ void LayerAction::update( float delta )
 		levelManager->newLevelRecord(grading);
 		_eventDispatcher->dispatchCustomEvent("GAME_OVER_WIN",&grading);
 		//log("win");
-		unscheduleUpdate();
+		unschedule(schedule_selector(LayerAction::update));
 	}
 
 
@@ -360,7 +360,7 @@ void LayerAction::update( float delta )
 void LayerAction::startActioning( cocos2d::EventCustom* event )
 {
 	_enemieReleased = true;
-	scheduleUpdate();
+	schedule(schedule_selector(LayerAction::update),1.0f/60.0f);
 }
 
 void LayerAction::releaseOneEnemy()
@@ -401,12 +401,12 @@ void LayerAction::setGameActioning( bool actioning )
 		
 		if (_enemieReleased)
 		{
-			scheduleUpdate();
+			schedule(schedule_selector(LayerAction::update),1.0f/60.0f);
 		}
 		
 		for (Cannon* c : cm->cannons)
 		{
-			c->scheduleUpdate();
+			c->schedule(schedule_selector(Cannon::update),1.0f/60.0f);
 			c->resume();
 
 		}
@@ -433,11 +433,11 @@ void LayerAction::setGameActioning( bool actioning )
 	}
 	else
 	{
-		unscheduleUpdate();
+		unschedule(schedule_selector(LayerAction::update));
 		for (Cannon* c : cm->cannons)
 		{
 			c->pause();
-			c->unscheduleUpdate();
+			c->unschedule(schedule_selector(Cannon::update));
 			
 		}
 		for (Enemy* e : enemyManager->enemiesInSequence)

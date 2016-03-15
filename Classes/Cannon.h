@@ -53,6 +53,7 @@ public:
 
 	void setDamageContributerID();
 
+	virtual void update(float delta);
 
 protected:
 	
@@ -75,7 +76,7 @@ protected:
 
 	Enemy* _target;
 
-	virtual void update(float delta);
+
 
 	virtual void setDirection();
 

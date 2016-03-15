@@ -51,7 +51,8 @@ void BulletTypeLargeWave::setTarget( Enemy* enemy )
 	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
 
 
-	scheduleUpdate();
+	schedule(schedule_selector(BulletTypeLargeWave::update), 1.0f/60.0f);
+
 	runAction(Sequence::create(mv,expld,NULL));
 
 

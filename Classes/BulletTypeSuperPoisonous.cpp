@@ -47,7 +47,7 @@ void BulletTypeSuperPoisonous::explode()
 	}
 
 	//¶¯»­
-	unscheduleUpdate();
+	unschedule(schedule_selector(BulletTypeSuperPoisonous::update));
 	ps->setEmissionRate(0);
 	ParticleSystem* explode = ParticleSystemQuad::create("effects/Particle_SuperPoisonous_explode.plist");
 	(getParent())->addChild(explode,10086);
@@ -81,7 +81,7 @@ void BulletTypeSuperPoisonous::setTarget( Enemy* enemy )
 	(getParent())->addChild(ps);
 	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(ps);
 
-	scheduleUpdate();
+	schedule(schedule_selector(BulletTypeSuperPoisonous::update), 1.0f/60.0f);
 
 
 

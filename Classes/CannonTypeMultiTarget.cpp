@@ -40,8 +40,8 @@ void CannonTypeMultiTarget::attackOnce()
 
 			}
 		}
-		float dtt = _attackInterval/(_targets.size()+1);
-		Vector<FiniteTimeAction*> actions = Vector<FiniteTimeAction*>();
+		//float dtt = _attackInterval/(_targets.size()+1);
+		//Vector<FiniteTimeAction*> actions = Vector<FiniteTimeAction*>();
 		for (auto e:_targets)
 		{
 

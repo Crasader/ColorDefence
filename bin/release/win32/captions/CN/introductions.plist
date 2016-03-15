@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
+<plist version="1.0">  
+    <dict>  
+        <key>00</key>  
+        <string>入门武器 物理攻击 似乎没有什么其他功能</string>  
+        <key>01</key>  
+        <string>会溅射的塔 可同时对一定范围内的多个敌人造成物理伤害</string>  
+        <key>02</key>  
+        <string>可降低击中目标的移动速度 物理攻击 减速为魔法特效</string>  
+        <key>03</key>  
+        <string>攻击一条直线上的敌人 造成物理伤害</string>  
+        <key>04</key>  
+        <string>物理攻击 被击中的敌人将持续受到魔法伤害</string>  
+        <key>05</key>  
+        <string>当对一个目标连续攻击超过一定次数时便可以激发狂暴特效使攻击速度大大提升 造成物理伤害</string>  
+        <key>06</key>  
+        <string>魔法攻击 魔法伤害攻击单个敌人</string>  
+        <key>07</key>  
+        <string>可以同时攻击范围内的三个敌人物理攻击 物理伤害</string>  
+        <key>08</key>  
+        <string>攻击一条直线上的敌人 并在短时间内降低其移动速度 魔法攻击 魔法伤害</string>  
+        <key>09</key>  
+        <string>在攻击的同时可以获取和产生颜色资源物理攻击 物理伤害</string>  
+        <key>10</key>  
+        <string>造成极高的物理伤害但是要额外消耗资源作为代价</string>  
+        <key>11</key>  
+        <string>可以射出魔法绳索使敌人无法移动</string>  
+        <key>12</key>  
+        <string>射出一个弹射球弹射造成物理伤害并附带减速特效</string>  
+        <key>13</key>  
+        <string>使用大锤攻击敌人击碎敌人护甲并造成物理伤害</string>  
+        <key>14</key>  
+        <string>总是以范围内冲在最前方的敌人为目标若目标生命值低于一定比例 则直接秒杀</string>  
+        <key>15</key>  
+        <string>以塔基为中心向周围造成影伤害魔免单位伤害加倍非魔免单位伤害减半</string>  
+        <key>16</key>  
+        <string>喷出魔法毒雾使扇形区域内的敌人中毒</string>  
+        <key>17</key>  
+        <string>对单个目标造成高频魔法伤害 或将伤害分散给多个目标</string>  
+        <key>18</key>  
+        <string>物理攻击 物理伤害借助正在攻击的建筑来攻击额外的敌人</string>  
+        <key>19</key>  
+        <string>造成较低的物理伤害降低周围敌人的护甲</string>  
+        <key>20</key>  
+        <string>发射导弹跟踪敌人导弹飞行时间越久造成的物理伤害越高</string>  
+        <key>21</key>  
+        <string>可投掷一张网将敌人困住</string>  
+        <key>22</key>  
+        <string>每当攻击时能使所有同类塔额外攻击一次</string>  
+        <key>23</key>  
+        <string>锁定一个目标持续攻击 直至目标死亡或到达终点 若目标到达终点则消耗掉塔内资源进行一次拦截攻击</string>  
+        <key>24</key>  
+        <string>若被击中的目标处于中毒状态则加剧目标的毒伤害</string>  
+        <key>25</key>  
+        <string>当颜色为白色时则立即分裂为两个塔</string>  
+        <key>26</key>  
+        <string>喷出大波 对途经的敌人造成物理伤害</string>  
+        <key>27</key>  
+        <string>锁定BOSS 每当其受到伤害 则会波及周围的其他敌人</string>  
+        <key>28</key>  
+        <string>当攻击目标死亡时会对目标周围敌人造成伤害</string>  
+        <key>29</key>  
+        <string>可在攻击的同时吸收或释放自身资源</string>  
+        <key>30</key>  
+        <string>能放出一条沟壑阻挡敌人前进</string>  
+        <key>31</key>  
+        <string>可使用绳索把敌人拉至更近的位置</string>  
+        <key>1988</key>  
+        <string>每关可以选择六种武器666666</string>  
+    </dict>  
+</plist>  

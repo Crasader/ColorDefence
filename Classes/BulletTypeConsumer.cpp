@@ -28,7 +28,7 @@ bool BulletTypeConsumer::init()
 void BulletTypeConsumer::explode()
 {
 
-	unscheduleUpdate();
+	unschedule(schedule_selector(BulletTypeConsumer::update));
 	removeAllChildren();
 	for (int i = 0;i<3;i++)
 	{
@@ -101,7 +101,7 @@ void BulletTypeConsumer::setTarget( Enemy* enemy )
 	RepeatForever* rept = RepeatForever::create(ro);
 	runAction(rept);
 
-	scheduleUpdate();
+	schedule(schedule_selector(BulletTypeConsumer::update), 1.0f/60.0f);
 
 
 	float dis = getPosition().getDistance(_target->getPosition());
