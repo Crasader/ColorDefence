@@ -1,6 +1,7 @@
 #include "StoreItem.h"
 #include "CannonManager.h"
 #include "LevelGradingStar.h"
+#include "MultilanguageManager.h"
 
 USING_NS_CC;
 
@@ -37,13 +38,22 @@ void StoreItem::setCannonType( unsigned cannonType )
 		{
 			sName = "0"+ sName; 
 		}
-		sName = "collectionPage/CN/coPage_" + sName + ".png";
+		//sName = "collectionPage/CN/coPage_" + sName + ".png";
 
-		setTexture(sName);
+		setTexture("collectionPage/CN/coPage_empty.png");
 
 		Sprite* sp = Sprite::create(cm->getTextureFileName(_cannonType));
 		addChild(sp);
 		sp->setPosition(0.125*getContentSize().width, 0.64*getContentSize().height);
+
+		//介绍的文本
+		std::string intro = Dictionary::createWithContentsOfFile("captions/CN/introductions.plist")->valueForKey(sName)->getCString();
+		_introduction = Label::create(intro,"Arial",38);
+		addChild(_introduction);
+		_introduction->setPosition(0.6*getContentSize().width, 0.5*getContentSize().height);
+		_introduction->setMaxLineWidth(400);
+		_introduction->setDimensions(400,0);
+
 
 
 
@@ -70,10 +80,16 @@ void StoreItem::setCannonType( unsigned cannonType )
 		{
 			sName = "0"+ sName; 
 		}
-		sName = "collectionPage/CN/coPage_" + sName + ".png";
 
-		setTexture(sName);
+		setTexture("collectionPage/CN/coPage_empty.png");
 
+		//介绍的文本
+		std::string intro = MultilanguageManager::getIntroductionByKey(sName);
+		_introduction = Label::create(intro,"Arial",40);
+		addChild(_introduction);
+		_introduction->setPosition(0.6*getContentSize().width, 0.5*getContentSize().height);
+		_introduction->setMaxLineWidth(400);
+		_introduction->setDimensions(400,0);
 		
 		//价格
 		_price = 20;
@@ -124,6 +140,7 @@ void StoreItem::sold()
 {
 	_sold = true;
 	setColor(Color3B(100,100,100));
+	_introduction->setColor(Color3B(100,100,100));
 
 }
 

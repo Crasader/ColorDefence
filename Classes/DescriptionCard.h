@@ -27,7 +27,7 @@ private:
 	float colorAttributeGlobalMax[3];
 	ColorAttributeBar* cab[3];
 
-
+	cocos2d::Label* _introduction;
 
 };
 

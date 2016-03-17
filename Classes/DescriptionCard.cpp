@@ -1,6 +1,7 @@
 #include "DescriptionCard.h"
 #include "CannonManager.h"
 #include "NumericalManager.h"
+#include "MultilanguageManager.h"
 
 USING_NS_CC;
 
@@ -26,8 +27,7 @@ bool DescriptionCard::init()
 	_profile->setScale(2);
 
 
-	_description = Sprite::create("BLANK.png");
-	_description->setTextureRect(Rect(0,0,557,279));
+	_description = Sprite::create("collectionPage/CN/coPage_empty.png");
 	addChild(_description);
 	_description->setPosition(getContentSize().width/2,200);
 
@@ -47,6 +47,15 @@ bool DescriptionCard::init()
 	}
 
 
+	
+	//介绍的文本
+	std::string intro = "";
+	_introduction = Label::create(intro,"Arial",38);
+	_description->addChild(_introduction);
+	_introduction->setPosition(0.6*_description->getContentSize().width, 0.5*_description->getContentSize().height);
+	_introduction->setMaxLineWidth(400);
+	_introduction->setDimensions(400,0);
+
 
 	return true;
 }
@@ -63,9 +72,15 @@ void DescriptionCard::setCannonType( unsigned cannonType )
 	{
 		sName = "0"+ sName; 
 	}
-	sName = "collectionPage/CN/coPage_" + sName + ".png";
 
-	_description->setTexture(sName);
+	
+
+
+
+	//介绍的文本
+	std::string intro = MultilanguageManager::getIntroductionByKey(sName);
+	_introduction->setString(intro);
+
 
 
 	cab[0]->setAttribute(NumericalManager::getInstance()->getAttackByColor(Color3B(255,0,0),_cannonType),

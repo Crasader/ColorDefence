@@ -6,3 +6,8 @@ const char* MultilanguageManager::getStringByKey( const std::string& key )
 {
 	return Dictionary::createWithContentsOfFile("captions/CN/captions.plist")->valueForKey(key)->getCString();
 }
+
+const char* MultilanguageManager::getIntroductionByKey( const std::string& key )
+{
+	return Dictionary::createWithContentsOfFile("captions/CN/introductions.plist")->valueForKey(key)->getCString();
+}

@@ -35,5 +35,7 @@ private:
 
 	bool _available();
 
+	cocos2d::Label* _introduction;
+
 };
 
