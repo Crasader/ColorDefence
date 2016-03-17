@@ -52,7 +52,7 @@ void CannonTypeDuplicate::attackOnce()
 	bullet->setColor(getColorInfo());
 	//
 
-	//SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_splash.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_duplicate.mp3");
 
 
 	if (getColorInfo() == Color3B(255,255,255))

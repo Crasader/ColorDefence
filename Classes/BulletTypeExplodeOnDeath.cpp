@@ -16,7 +16,7 @@ bool BulletTypeExplodeOnDeath::init()
 
 	//BulletManager::getInstance()->bullets.pushBack(this);
 
-	setTexture("effects/Bullet_PoisonousOne.png");
+	setTexture("effects/Bullet_ExplodeOnDeath.png");
 
 	_explodeRadius = 1;
 	_explodeDamage = 1;

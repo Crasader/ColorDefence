@@ -66,7 +66,7 @@ void CannonTypeFocus::attackOnce()
 
 
 
-	//SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_splash.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_focus.mp3");
 
 	if (!_hasSight)
 	{
@@ -251,5 +251,18 @@ void CannonTypeFocus::setColorInfo( cocos2d::Color3B c3b )
 {
 	Cannon::setColorInfo(c3b);
 	_sight->setColor(c3b);
+}
+
+void CannonTypeFocus::pause()
+{
+	Cannon::pause();
+	_sight->pause();
+}
+
+void CannonTypeFocus::resume()
+{
+
+	_sight->resume();
+	Cannon::resume();
 }
 

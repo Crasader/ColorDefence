@@ -14,7 +14,7 @@ bool BulletTypeSpreadOnBoss::init()
 
 	//BulletManager::getInstance()->bullets.pushBack(this);
 
-	setTexture("effects/Bullet_Focus.png");
+	setTexture("effects/Bullet_SpreadOnBoss.png");
 
 
 	return true;

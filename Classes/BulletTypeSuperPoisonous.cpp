@@ -46,6 +46,11 @@ void BulletTypeSuperPoisonous::explode()
 		}
 	}
 
+
+	SoundManager::getInstance()->playSoundEffect("sound/bullet_explode_superPoisonous.wav");
+
+
+
 	//¶¯»­
 	unschedule(schedule_selector(BulletTypeSuperPoisonous::update));
 	ps->setEmissionRate(0);

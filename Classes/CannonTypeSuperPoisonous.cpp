@@ -51,7 +51,7 @@ void CannonTypeSuperPoisonous::attackOnce()
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));
 	//
 
-	//SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_splash.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_superPoisonous.mp3");
 
 
 

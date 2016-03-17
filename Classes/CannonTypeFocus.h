@@ -34,4 +34,7 @@ private:
 	void resetSight();
 
 
+	void pause();
+	void resume();
+
 };

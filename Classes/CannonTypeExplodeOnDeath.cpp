@@ -43,7 +43,7 @@ void CannonTypeExplodeOnDeath::attackOnce()
 	//
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));
 	//
-	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_slowOne.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_eod.mp3");
 
 
 

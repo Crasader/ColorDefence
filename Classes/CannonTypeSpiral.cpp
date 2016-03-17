@@ -2,6 +2,7 @@
 #include "BulletTypeSpiral.h"
 #include "NumericalManager.h"
 #include "ParticleEmitterManager.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -84,6 +85,12 @@ void CannonTypeSpiral::attackOnce()
 
 	if (extraStateOn)
 	{
+
+		SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_spiral_on.mp3");
+		
+		
+
+
 		for (int k = 0 ; k<3 ; k++)
 		{
 			if (resource[k]>1)
@@ -94,6 +101,11 @@ void CannonTypeSpiral::attackOnce()
 	}
 	else
 	{
+
+
+		SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_spiral.mp3");
+
+
 		int i = CCRANDOM_0_1()*3;
 		for (int k = 0 ; k<3 ; k++)
 		{
