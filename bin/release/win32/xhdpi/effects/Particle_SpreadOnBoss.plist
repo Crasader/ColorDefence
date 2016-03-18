@@ -47,9 +47,9 @@
 	<key>minRadius</key>
 	<real>0</real>
 	<key>particleLifespan</key>
-	<real>1</real>
+	<real>0.5</real>
 	<key>particleLifespanVariance</key>
-	<real>0.2</real>
+	<real>0.1</real>
 	<key>radialAccelVariance</key>
 	<real>0</real>
 	<key>radialAcceleration</key>

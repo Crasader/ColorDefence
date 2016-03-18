@@ -60,7 +60,7 @@ void CannonTypeBreaker::attackOnce()
 			BulletTypeBreaker* bullet = BulletTypeBreaker::create();
 			bullet->setPosition(getPosition());
 			bullet->setRotation(getRotation());
-			bullet->setDamage(_damage, 1000 , 350);
+			bullet->setDamage(_damage, 30 , 350);
 			bullet->setDamageContributerID(_damageContributerID);
 			getParent()->addChild(bullet);
 			bullet->setTarget(_target);

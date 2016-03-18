@@ -101,7 +101,7 @@ float Enemy::onPhysicalDamaged( float damage )
 		return 0;
 	}
 
-	int realDamage = damage - _armor;
+	float realDamage = damage * (float)(100.0f - _armor) / 100.0f;
 	if (realDamage<=1)
 	{
 		realDamage = 1;

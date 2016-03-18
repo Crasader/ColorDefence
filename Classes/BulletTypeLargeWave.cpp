@@ -93,7 +93,7 @@ void BulletTypeLargeWave::update( float delta )
 			if (getPosition().getDistance(e->getPosition())<_damageWidth)
 			{
 				enemiesDamaged.pushBack(e);
-				float damageContributed = e->onPhysicalDamaged(_damage);
+				float damageContributed = e->onMagicalDamaged(_damage);
 				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 			}
 		}

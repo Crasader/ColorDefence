@@ -30,11 +30,12 @@ void CannonTypeShadow::attackOnce()
 	BulletTypeShadow* bullet = BulletTypeShadow::create();
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
+	getParent()->addChild(bullet);
 	bullet->setDamage(_damage, attackRange);
 	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
-	getParent()->addChild(bullet);
+	
 
 	//
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));

@@ -82,6 +82,7 @@ void BulletTypeArmorRemover::explode()
 		{
 			rmvr->removeFromParent();
 		}
+		v_removers.clear();
 		removeFromParent();
 	});
 

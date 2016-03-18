@@ -106,18 +106,44 @@ void CannonTypeSpiral::attackOnce()
 		SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_spiral.mp3");
 
 
-		int i = CCRANDOM_0_1()*3;
-		for (int k = 0 ; k<3 ; k++)
+		//如果满了 粒子特效
+		if (getColorInfo() == Color3B(255,255,255))
 		{
-			if (resource[k]<resource[i])
+
+			//粒子系统 特效
+			ParticleSystem* emitter =  ParticleSystemQuad::create("effects/Particle_Spiral_full.plist");
+			SoundManager::getInstance()->playSoundEffect("sound/cannon_spiral_full.mp3");
+
+
+			(getParent())->addChild(emitter,10086);
+			emitter->setPosition(getPosition());
+			ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
+
+
+
+		}
+		else
+		//没满 加一个资源
+		{
+			int i = CCRANDOM_0_1()*3;
+			for (int k = 0 ; k<3 ; k++)
 			{
-				i = k;
+				if (resource[k]<resource[i])
+				{
+					i = k;
+				}
+			}
+			if (resource[i]<16)
+			{
+				resource[i]++;
 			}
 		}
-		if (resource[i]<16)
-		{
-			resource[i]++;
-		}
+
+
+
+
+
+
 
 	}
 	

@@ -17,7 +17,6 @@ public:
 
 	virtual void overrideWithNewBuff(Buff* newBuff);
 
-	virtual bool verifyWithTarget(Enemy* target);
 
 	virtual void setAppearacneWithTarget(Enemy* target , bool show);
 

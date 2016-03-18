@@ -24,6 +24,10 @@ protected:
 
 	virtual void explode();
 
+private:
+
+private:
+	cocos2d::Vector<cocos2d::Sprite*> v_explodes;
 
 };
 

@@ -3,6 +3,7 @@
 #include "EnemyManager.h"
 #include "DamageContributionManager.h"
 #include "ParticleEmitterManager.h"
+#include "SoundManager.h"
 
 
 USING_NS_CC;
@@ -87,12 +88,16 @@ void BuffTypeSpreadDamage::setAppearacneWithTarget( Enemy* target , bool show )
    		Sprite* sp = Sprite::create("effects/BuffTypeSpreadDamage.png");
 		addChild(sp,10,_buffType);
  		sp->setPosition(getContentSize().width/2,getContentSize().height/2);
- 		sp->setScale(500.0/600.0);
+ 		sp->setScale(0.6);
+		sp->runAction(ScaleTo::create(0.2,1));
 		auto fi = FadeIn::create(2.0);
 		auto fo = FadeOut::create(2.0);
   		Sequence* seq = Sequence::create(fi,fo,nullptr);
 		sp->runAction(RepeatForever::create(seq));
  		sp->runAction(RepeatForever::create(RotateBy::create(20,1080)));
+
+
+		SoundManager::getInstance()->playSoundEffect("sound/buff_sob.wav");
 
 	}
 	else
@@ -117,7 +122,7 @@ void BuffTypeSpreadDamage::spreadDamage(Point position)
 
 		if ((!e->isBoss())&&(e->getPosition().getDistance(position)<250))
 		{
-			float damageContributed  = e->onRealDamaged(25);
+			float damageContributed  = e->onRealDamaged(35);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed );
 		}
 

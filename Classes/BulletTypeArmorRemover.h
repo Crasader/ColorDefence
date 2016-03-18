@@ -32,7 +32,7 @@ protected:
 	virtual void explode();
 
 private:
-	cocos2d::Vector<Sprite*> v_removers;
+	cocos2d::Vector<cocos2d::Sprite*> v_removers;
 
 };
 

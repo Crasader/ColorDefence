@@ -64,16 +64,7 @@ void BuffTypeExplodeOnDeath::overrideWithNewBuff( Buff* newBuff )
 
 
 
-bool BuffTypeExplodeOnDeath::verifyWithTarget( Enemy* target )
-{
-	if ((!target->isAlive())||(target->isFloating))
-	{
-		return false;
-	}
 
-
-	return true;
-}
 
 void BuffTypeExplodeOnDeath::setAppearacneWithTarget( Enemy* target , bool show )
 {
@@ -82,7 +73,7 @@ void BuffTypeExplodeOnDeath::setAppearacneWithTarget( Enemy* target , bool show 
 	{
 		target->setBuffExplodeOnDeathState(true);
 
-		//SoundManager::getInstance()->playSoundEffect("sound/buff_slow.wav");
+		SoundManager::getInstance()->playSoundEffect("sound/buff_eod.mp3");
 
 		ParticleSystem* eod_buff = ParticleSystemQuad::create("effects/Particle_ExplodeOnDeath_buff.plist");
 		eod_buff->setPosition(getContentSize().width/2,getContentSize().height/2);

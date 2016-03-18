@@ -37,26 +37,27 @@ void BulletTypeShadow::explode()
 		{
 			float damageContributed = e->onShadowDamaged(_damage);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
-			/*
+
 			if (e->isAntiMagic())
 			{
-				Sprite* expld = Sprite::create("effects/shadow_explode.png");
-				e->getEquipment()->addChild(expld,10086);
-				expld->setPosition(e->getEquipment()->getContentSize()/2);
-				auto s_ex1 = FadeOut::create(0.25);
-				auto s_ex4 = CallFunc::create([&](){
-					expld->removeFromParent();
-					BulletManager::getInstance()->bullets.eraseObject(this);
-					
-				});
-				expld->runAction(Sequence::create(s_ex1,s_ex4,NULL));
+
+				Sprite* shadow_explode = Sprite::create("effects/effect_shadow_explode.png");
+				shadow_explode->setPosition(e->getPosition());
+				shadow_explode->setScale(3);
+				shadow_explode->setColor(Color3B(70,70,70));
+				getParent()->addChild(shadow_explode);
+				v_explodes.pushBack(shadow_explode);
 			}
-			*/
+
 		}
 
 	}
 
-	//动画
+
+
+
+
+	//整体的动画
 	setTexture("effects/Bullet_Shadow.png");
 	float ratio = 1.6*_damageRadius / getContentSize().height;
 	setScale(ratio);
@@ -67,10 +68,27 @@ void BulletTypeShadow::explode()
 
 	auto ex4 = CallFunc::create([&]{
 		BulletManager::getInstance()->bullets.eraseObject(this);
+		for (auto shexp:v_explodes)
+		{
+			shexp->removeFromParent();
+		}
 		removeFromParent();
 	});
 
 	runAction(Sequence::create(ex3,ex4,NULL));
+
+
+	//对于魔免怪的动画
+	for (auto rmvr:v_explodes)
+	{
+		auto s_ex1 = ScaleTo::create(0.5f,0.5f);
+		auto s_ex2 = FadeOut::create(0.5f);
+		auto s_ex3 = RotateBy::create(0.5f,180);
+		auto s_ex4 = Spawn::create(s_ex1,s_ex2,s_ex3,NULL);
+
+		rmvr->runAction(s_ex4);
+	}
+
 
 
 

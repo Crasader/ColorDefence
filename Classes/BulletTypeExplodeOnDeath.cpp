@@ -36,7 +36,7 @@ void BulletTypeExplodeOnDeath::explode()
 	//_target->setBuffPoisoning(_poisonousDamage,_poisonousTime);
 	
 	
-	auto buff = BuffTypeExplodeOnDeath::create(_target, _explodeRadius, _explodeDamage, 90);
+	auto buff = BuffTypeExplodeOnDeath::create(_target, _explodeRadius, _explodeDamage, 135);
 	buff->setDamageContributerID(_damageContributerID);
 	_target->setBuff(buff);
 
