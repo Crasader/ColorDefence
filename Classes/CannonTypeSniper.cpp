@@ -26,6 +26,13 @@ bool CannonTypeSniper::init()
 
 	//hasMoved = false;
 
+
+	getChildByTag(color_tag)->setOpacity(0);
+	_barrelColor = Sprite::create("cannons/CannonColor.png");
+	_barrel->addChild(_barrelColor, -1);
+	_barrelColor->setPosition(_barrel->getContentSize()/2);
+
+
 	return true;
 }
 
@@ -131,5 +138,12 @@ void CannonTypeSniper::resume()
 {
 	Sprite::resume();
 	_barrel->resume();
+}
+
+void CannonTypeSniper::setColorInfo( cocos2d::Color3B c3b )
+{
+	Cannon::setColorInfo(c3b);
+	_barrelColor->setColor(c3b);
+
 }
 

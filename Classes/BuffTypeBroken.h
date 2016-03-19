@@ -7,11 +7,12 @@ class BuffTypeBroken : public Buff
 {
 public:
 
+
 	//³õÊ¼»¯
-	virtual bool init(Enemy* enemy, float brokenValue ,float brokenTime);  
+	virtual bool init(Enemy* enemy, float brokenValue ,float brokenTime , bool accumulate);  
 
 	//createº¯Êý
-	static BuffTypeBroken* create(Enemy* enemy, float brokenValue ,float brokenTime);
+	static BuffTypeBroken* create(Enemy* enemy, float brokenValue ,float brokenTime , bool accumulate);
 
 	virtual void makeEffectWithTarget(Enemy* target);
 
@@ -23,9 +24,12 @@ public:
 
 	bool verifyWithTarget(Enemy* target);
 
+
+	bool canAccumulate();
+
 protected:
 
-
+	bool _accumulate;
 
 	float _brokenValue;
 

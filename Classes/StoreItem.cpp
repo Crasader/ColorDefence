@@ -51,8 +51,10 @@ void StoreItem::setCannonType( unsigned cannonType )
 		_introduction = Label::create(intro,"Arial",38);
 		addChild(_introduction);
 		_introduction->setPosition(0.6*getContentSize().width, 0.5*getContentSize().height);
-		_introduction->setMaxLineWidth(400);
+		_introduction->setLineBreakWithoutSpace(true);
+		//_introduction->setMaxLineWidth(400);
 		_introduction->setDimensions(400,0);
+		_introduction->setHorizontalAlignment(TextHAlignment::LEFT);
 
 
 
@@ -88,8 +90,10 @@ void StoreItem::setCannonType( unsigned cannonType )
 		_introduction = Label::create(intro,"Arial",40);
 		addChild(_introduction);
 		_introduction->setPosition(0.6*getContentSize().width, 0.5*getContentSize().height);
-		_introduction->setMaxLineWidth(400);
+		//_introduction->setMaxLineWidth(400);
+		_introduction->setLineBreakWithoutSpace(true);
 		_introduction->setDimensions(400,0);
+		//_introduction->setHorizontalAlignment(TextHAlignment::LEFT);
 		
 		//¼Û¸ñ
 		_price = 20;

@@ -35,7 +35,7 @@ void BulletTypeArmorRemover::explode()
 		if (pt.getDistance(e->getPosition())<_damageRadius)
 		{
 
-			bool bBuff = e->setBuff(BuffTypeBroken::create(_target,_armorReduce,_brokenTime));
+			bool bBuff = e->setBuff(BuffTypeBroken::create(_target,_armorReduce,_brokenTime, true));
 			float damageContributed = e->onPhysicalDamaged(_damage);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 

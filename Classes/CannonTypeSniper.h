@@ -26,10 +26,13 @@ private:
 	void setDirection();
 
 	cocos2d::Sprite* _barrel;
+	cocos2d::Sprite* _barrelColor;
 
 
 	void pause();
 	void resume();
+
+	void setColorInfo(cocos2d::Color3B c3b);
 
 
 };

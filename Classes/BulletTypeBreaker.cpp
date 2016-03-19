@@ -30,7 +30,7 @@ void BulletTypeBreaker::explode()
 
 	//_target->setBuffBroken(_armorReduce,_brokenTime);
 
-	_target->setBuff(BuffTypeBroken::create(_target,_armorReduce,_brokenTime));
+	_target->setBuff(BuffTypeBroken::create(_target,_armorReduce,_brokenTime , false));
 
 	float damageContributed = _target->onPhysicalDamaged(_damage);
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);

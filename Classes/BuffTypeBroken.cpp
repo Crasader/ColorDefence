@@ -5,7 +5,7 @@
 
 USING_NS_CC;
 
-bool BuffTypeBroken::init(Enemy* enemy, float brokenValue ,float brokenTime)
+bool BuffTypeBroken::init(Enemy* enemy, float brokenValue ,float brokenTime , bool accumulate)
 {
 
 	if ( !Buff::init() )
@@ -20,6 +20,8 @@ bool BuffTypeBroken::init(Enemy* enemy, float brokenValue ,float brokenTime)
 	//_target = enemy;
 	_brokenValue = brokenValue;
 	_buffTimeRest = brokenTime;
+
+	_accumulate = accumulate;
 
 
 	return true;
@@ -43,11 +45,11 @@ void BuffTypeBroken::makeEffectWithTarget(Enemy* target)
 
 }
 
-BuffTypeBroken* BuffTypeBroken::create(Enemy* enemy, float brokenValue ,float brokenTime)
+BuffTypeBroken* BuffTypeBroken::create(Enemy* enemy, float brokenValue ,float brokenTime , bool accumulate)
 {
 
 	BuffTypeBroken *pRet = new BuffTypeBroken(); 
-	if (pRet && pRet->init(enemy,  brokenValue , brokenTime)) 
+	if (pRet && pRet->init(enemy,  brokenValue , brokenTime , accumulate)) 
 	{
 		pRet->autorelease(); 
 		return pRet; 
@@ -64,9 +66,24 @@ BuffTypeBroken* BuffTypeBroken::create(Enemy* enemy, float brokenValue ,float br
 void BuffTypeBroken::overrideWithNewBuff( Buff* newBuff )
 {
 
-	_brokenValue = _brokenValue>((BuffTypeBroken*)newBuff)->_brokenValue?_brokenValue:((BuffTypeBroken*)newBuff)->_brokenValue;
+	
+
+	if (((BuffTypeBroken*)newBuff)->canAccumulate())
+	{
+
+		_brokenValue = _brokenValue + ((BuffTypeBroken*)newBuff)->_brokenValue;
+
+
+	}
+	else
+	{
+		_brokenValue = _brokenValue>((BuffTypeBroken*)newBuff)->_brokenValue?_brokenValue:((BuffTypeBroken*)newBuff)->_brokenValue;
+
+	}
 
 	_buffTimeRest = _buffTimeRest>((BuffTypeBroken*)newBuff)->_buffTimeRest?_buffTimeRest:((BuffTypeBroken*)newBuff)->_buffTimeRest;
+
+
 }
 
 void BuffTypeBroken::setAppearacneWithTarget( Enemy* target , bool show )
@@ -99,4 +116,9 @@ bool BuffTypeBroken::verifyWithTarget( Enemy* target )
 		return true;
 	}
 	return false;
+}
+
+bool BuffTypeBroken::canAccumulate()
+{
+	return _accumulate;
 }

@@ -58,7 +58,7 @@ void CannonTypeRage::attackOnce()
 	if (!_rage)
 	{
 		_countForRage++;
-		if (_countForRage>=5)
+		if (_countForRage>=4)
 		{
 			setRage(true);
 		}
