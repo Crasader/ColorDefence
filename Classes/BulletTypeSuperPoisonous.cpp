@@ -47,7 +47,7 @@ void BulletTypeSuperPoisonous::explode()
 	}
 
 
-	SoundManager::getInstance()->playSoundEffect("sound/bullet_explode_superPoisonous.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/bullet_explode_superPoisonous.mp3");
 
 
 

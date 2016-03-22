@@ -97,7 +97,7 @@ void BuffTypeSpreadDamage::setAppearacneWithTarget( Enemy* target , bool show )
  		sp->runAction(RepeatForever::create(RotateBy::create(20,1080)));
 
 
-		SoundManager::getInstance()->playSoundEffect("sound/buff_sob.wav");
+		SoundManager::getInstance()->playSoundEffect("sound/buff_sob.mp3");
 
 	}
 	else

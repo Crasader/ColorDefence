@@ -2,6 +2,8 @@
 #include "MapPointsManager.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
+#include "GameStateManager.h"
+
 
 
 USING_NS_CC;
@@ -21,16 +23,6 @@ bool TutorialLayer::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 
-	/*
-	auto touchListener=EventListenerTouchOneByOne::create();
-	touchListener->onTouchBegan=([&](cocos2d::Touch *touch, cocos2d::Event *unused){return true;});
-	touchListener->setSwallowTouches(true);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener,this);
-	*/
-
-
-
-
 	tutorialPage = TutorialPage::create(1);
 	addChild(tutorialPage,-1);
 	
@@ -44,9 +36,7 @@ bool TutorialLayer::init()
 	addChild(_content);
 	_content->setPosition(origin + visibleSize/2);
 
-
 	
-
 	//监听“游戏结束”的事件
 	auto listenerGameOverWin = EventListenerCustom ::create("GAME_OVER_WIN",[&](EventCustom* event){
 		removeFromParent();
@@ -60,9 +50,21 @@ bool TutorialLayer::init()
 
 	//监听“开始建造”的事件
 	auto listenerStartBuilding = EventListenerCustom ::create("START_BUILDING",[&](EventCustom* event){
-		setPage(4);
+
+			showNextPage();
 	});
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerStartBuilding,this);
+
+
+
+	//监听“开始升级”的事件
+	auto listenerStartUpgrading = EventListenerCustom ::create("START_UPGRADING",[&](EventCustom* event){
+
+			showNextPage();
+	});
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerStartUpgrading,this);
+
+
 
 
 	//监听“建造完成”的事件
@@ -71,6 +73,15 @@ bool TutorialLayer::init()
 
 	});
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerFinishBuilding,this);
+
+
+	//监听“升级完成”的事件
+	auto listenerFinishUpgrading = EventListenerCustom ::create("UPGRADE",[&](EventCustom* event){
+
+			showNextPage();
+
+	});
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerFinishUpgrading,this);
 
 
 	//监听“开始释放敌人”的事件
@@ -97,10 +108,10 @@ bool TutorialLayer::init()
 		unsigned* u = static_cast<unsigned*>(event->getUserData());
 		//setCannonType( *u);
 		
-		//if (*u != 0)
-		//{
-			setPage(5);
-		//}
+		if (*u != 0)
+		{
+			setPage(19);
+		}
 
 	});
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerChangeCannonType,this);
@@ -109,19 +120,29 @@ bool TutorialLayer::init()
 	//监听 自动播放下一页
 	auto listenerAutoNextPage = EventListenerCustom ::create("TUT_AUTO_NEXT_PAGE",[&](EventCustom* event){
 
-		if (_currentPageNumber == 12)
+		_currentPageNumber ++ ;
+		setPage(_currentPageNumber);
+	});
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerAutoNextPage,this);
+
+
+
+	//监听“超能力”的事件
+	auto listenerSuperPower = EventListenerCustom ::create("SUPER_POWER",[&](EventCustom* event){
+		
+
+		if (_currentPageNumber == 24)
 		{
-			this->removeFromParentAndCleanup(true);
-		}
-		else
-		{
-			_currentPageNumber ++ ;
-			setPage(_currentPageNumber);
+			showNextPage();
 		}
 		
 
 	});
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerAutoNextPage,this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerSuperPower,this);
+
+
+
+
 
 
 
@@ -132,6 +153,16 @@ bool TutorialLayer::init()
 		showNextPage();
 
 	});
+
+	Sprite* buttonNextArrow = Sprite::create("UI/UI_Tut_next_arrow.png");
+	item_next->addChild(buttonNextArrow);
+	buttonNextArrow->setPosition(item_next->getNormalImage()->getContentSize()/2);
+	ScaleTo* st1 = ScaleTo::create(0.2,0.8); 
+	ScaleTo* st2 = ScaleTo::create(0.2,1); 
+	Sequence* seq = Sequence::create(st1,st2,NULL);
+	RepeatForever* rep = RepeatForever::create(seq);
+	buttonNextArrow->runAction(rep);
+
 
 	item_end = MenuItemImage::create("UI/UI_Tut_quit.png","UI/UI_Tut_quit.png",[&](Ref* pSender){
 
@@ -172,7 +203,21 @@ bool TutorialLayer::init()
 	item_end_pre->setPosition(item_end_pre->getContentSize().width/2,150 + item_end_pre->getContentSize().height/2);
 
 
+
+	//一个箭头
+	_arrow = Sprite::create("UI/UI_Tut_arrow.png");
+	addChild(_arrow,10086);
+	ScaleTo* a_st1 = ScaleTo::create(0.8,0,1); 
+	ScaleTo* a_st2 = ScaleTo::create(0.8,1,1); 
+	Sequence* a_seq = Sequence::create(a_st1,a_st2,NULL);
+	RepeatForever* a_rep = RepeatForever::create(a_seq);
+	_arrow->runAction(a_rep);
+	_arrow->setVisible(false);
+
+
+
 	setPage(1);
+
 
 
 	return true;
@@ -184,11 +229,29 @@ void TutorialLayer::setPage( unsigned pageNumber )
 {
 	_currentPageNumber = pageNumber;
 
+
+
 	std::string sName = String::createWithFormat("%u",_currentPageNumber)->_string;
+
+	if (_currentPageNumber == 15)
+	{
+		sName = "10";
+	}
+	if ((_currentPageNumber == 16)||(_currentPageNumber == 21)||(_currentPageNumber == 23))
+	{
+		sName = "11";
+	}
+	if (_currentPageNumber == 20)
+	{
+		sName = "04";
+	}
+
 	while (sName.length()<2)
 	{
 		sName = "0"+ sName; 
 	}
+
+
 	sName = "tutorialPages/CN/tutorialPage_" + sName + ".png";
 
 	_content->setTexture(sName);
@@ -209,22 +272,62 @@ void TutorialLayer::setPage( unsigned pageNumber )
 
 	switch (_currentPageNumber)
 	{
-	case 3:
-	case 4:
-	case 5:
-	case 6:
+	case 1:
+	case 2:
 	case 7:
-	case 8:
-	case 9:
-	//case 10:
-	//case 11:
-	//case 12:
-		item_next->setVisible(false);
-		break;
-	default:
+	case 22:
+	case 25:
+
 		item_next->setVisible(true);
 		break;
+	default:
+		item_next->setVisible(false);
+		break;
 	}
+
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	switch (_currentPageNumber)
+	{
+
+	case 3:
+	case 8:
+	case 12:
+		_arrow->setVisible(true);
+		_arrow->setRotation(0);
+		_arrow->setPosition(MapPointsManager::getPointByIndex(LevelManager::getInstance()->getBaseLocation().front() - 8));
+		break;
+
+	case 4:
+	case 10:
+	case 15:
+	case 20:
+	case 24:
+		_arrow->setVisible(true);
+		_arrow->setRotation(270);
+		_arrow->setPosition(visibleSize.width * 0.3 , 75);
+		break;
+
+	case 5:
+	case 18:
+		_arrow->setVisible(true);
+		_arrow->setRotation(180);
+		_arrow->setPosition(visibleSize.width * 0.5 , 200);
+		break;
+
+	case 17:
+		_arrow->setVisible(true);
+		_arrow->setRotation(0);
+		_arrow->setPosition(MapPointsManager::getPointByIndex(LevelManager::getInstance()->getBaseLocation().back() - 8));
+		break;
+
+	default:
+		_arrow->setVisible(false);
+		break;
+	}
+
+
+
 }
 
 
@@ -236,9 +339,11 @@ void TutorialLayer::showNextPage()
 	{
 	case 1:
 	case 2:
+	case 7:
 		setPage(_currentPageNumber +1);
 		return;
-	case 12:
+
+	case 25:
 		this->removeFromParentAndCleanup(true);
 		return;
 	default:

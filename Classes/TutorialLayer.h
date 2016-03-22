@@ -29,5 +29,9 @@ private:
 	cocos2d::MenuItemImage* item_end;
 	cocos2d::MenuItemImage* item_end_pre;
 
+
+	cocos2d::Sprite* _arrow;
+
+
 };
 

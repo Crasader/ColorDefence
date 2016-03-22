@@ -131,7 +131,7 @@ void CannonTypeConsumer::attackOnce()
 			NumericalManager::getInstance()->getColorByResource(resource[2])));
 	}
 
-	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_consumer.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_consumer.mp3");
 
 
 }

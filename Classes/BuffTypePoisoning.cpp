@@ -78,7 +78,7 @@ void BuffTypePoisoning::setAppearacneWithTarget( Enemy* target , bool show )
 
 		target->setPoisoningState(true);
 
-		SoundManager::getInstance()->playSoundEffect("sound/buff_poisonous.wav");
+		SoundManager::getInstance()->playSoundEffect("sound/buff_poisonous.mp3");
 
 		ParticleSystem* slow_buff = ParticleSystemQuad::create("effects/Particle_Poisonous.plist");
 		slow_buff->setPosition(getContentSize().width/2,getContentSize().height/2);

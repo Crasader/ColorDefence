@@ -57,7 +57,7 @@ void CannonTypePoisonousMulti::attackOnce()
 	runAction(seq);
 
 	
-	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_poisonousMulti.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_poisonousMulti.mp3");
 
 
 	isAttacking = false;

@@ -44,7 +44,7 @@ void CannonTypeLargeWave::attackOnce()
 	//
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));
 	//
-	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_largeWave.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_largeWave.mp3");
 
 }
 

@@ -246,7 +246,7 @@ void CannonSampleHolder::hideSamples( bool isImmediately )
 
 		if (_cannonSamples.size()>1)
 		{
-			SoundManager::getInstance()->playSoundEffect("sound/UI_CSH_close.wav");
+			SoundManager::getInstance()->playSoundEffect("sound/UI_CSH_close.mp3");
 		}
 
 
@@ -342,7 +342,7 @@ cocos2d::Point CannonSampleHolder::getSamplePosition( unsigned index )
 	}
 
 
-
+	return Point(0,0);
 
 
 

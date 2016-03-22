@@ -106,7 +106,7 @@ void BuffTypeExplodeOnDeath::explodeOnDeath(Point position)
 		if ((e->getPosition().getDistance(position)<_explodeRadius))
 		{
 			//float damageContributed  = e->onRealDamaged(888);
-			float damageContributed  = e->onRealDamaged(_explodeDamage);
+			float damageContributed  = e->onMagicalDamaged(_explodeDamage);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed );
 			e->setBuff(BuffTypeSlow::create(e,0.55,40));
 		}

@@ -39,7 +39,7 @@ void BulletTypeProducer::explode()
 	//addChild(emitter);
 	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
 
-	SoundManager::getInstance()->playSoundEffect("sound/bullet_explode_producer.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/bullet_explode_producer.mp3");
 
 	schedule(schedule_selector(BulletTypeProducer::update), 1.0f/60.0f);
 
