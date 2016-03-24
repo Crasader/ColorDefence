@@ -43,7 +43,7 @@ bool BulletTypeTracing::init()
 void BulletTypeTracing::explode()
 {
 
-	unschedule(schedule_selector(BulletTypeTracing::update));
+	unscheduleUpdate();
 
 	float damageContributed = _target->onPhysicalDamaged(_damage);
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
@@ -95,7 +95,7 @@ void BulletTypeTracing::setTarget( Enemy* enemy )
 	//addChild(starEmitter);
 	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(_tail);
 
-	schedule(schedule_selector(BulletTypeTracing::update), 1.0f/60.0f);
+	scheduleUpdate();
 
 }
 

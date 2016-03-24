@@ -41,7 +41,7 @@ void BulletTypeMultiTarget::explode()
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 
 	
-	unschedule(schedule_selector(BulletTypeMultiTarget::update));
+	unscheduleUpdate();
 
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);
@@ -55,7 +55,7 @@ void BulletTypeMultiTarget::setTarget( Enemy* enemy )
 	_target = enemy;
 
 
-	schedule(schedule_selector(BulletTypeMultiTarget::update), 1.0f/60.0f);
+	scheduleUpdate();
 
 
 

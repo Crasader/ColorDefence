@@ -141,6 +141,21 @@ bool TutorialLayer::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerSuperPower,this);
 
 
+	//监听“箭头方向”的事件
+	auto listenerArrowDirection = EventListenerCustom ::create("TUT_ARROW_DIRECTION",[&](EventCustom* event){
+
+
+		if (_currentPageNumber == 18)
+		{
+			float* rot = static_cast<float*>(event->getUserData());
+			_arrow->setRotation(*rot);
+		}
+
+
+	});
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerArrowDirection,this);
+
+
 
 
 
@@ -205,13 +220,15 @@ bool TutorialLayer::init()
 
 
 	//一个箭头
-	_arrow = Sprite::create("UI/UI_Tut_arrow.png");
+	_arrow = Node::create();
+	Sprite* _arrowMoving = Sprite::create("UI/UI_Tut_arrow.png");
 	addChild(_arrow,10086);
-	ScaleTo* a_st1 = ScaleTo::create(0.8,0,1); 
-	ScaleTo* a_st2 = ScaleTo::create(0.8,1,1); 
-	Sequence* a_seq = Sequence::create(a_st1,a_st2,NULL);
+	_arrow->addChild(_arrowMoving);
+	MoveBy* a_mb1 = MoveBy::create(0.2,Vec2(0,-20)); 
+	MoveBy* a_mb2 = MoveBy::create(0.2,Vec2(0,20)); 
+	Sequence* a_seq = Sequence::create(a_mb1,a_mb2,NULL);
 	RepeatForever* a_rep = RepeatForever::create(a_seq);
-	_arrow->runAction(a_rep);
+	_arrowMoving->runAction(a_rep);
 	_arrow->setVisible(false);
 
 

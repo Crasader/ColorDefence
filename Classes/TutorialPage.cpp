@@ -154,7 +154,7 @@ bool TutorialPage::init(unsigned page)
 		case 24:
 
 			stencil = Sprite::create("tutorialPages/stc_03.png");
-			stencil->setPosition(80,75);
+			stencil->setPosition(75,75);
 
 
 		default:
@@ -191,7 +191,7 @@ bool TutorialPage::init(unsigned page)
 		GameStateManager::getInstance()->currentActioningState = true;
 
 
-		auto act1 = DelayTime::create(page == 23? 15:11);
+		auto act1 = DelayTime::create(page == 23? 11.0:(page == 21? 8.0:7.6));
 		auto act2 = CallFunc::create([&](){	 _eventDispatcher->dispatchCustomEvent("TUT_AUTO_NEXT_PAGE");  });
 
 		runAction(Sequence::create(act1,act2,NULL));
@@ -222,18 +222,43 @@ bool TutorialPage::onTouchBegan( cocos2d::Touch *touch, cocos2d::Event *unused )
 
 	switch (_selfPageNumber)
 	{
+
+
+	case 9:
+	case 13:
+	case 14:
+	case 18:
+
+		touchListener->setSwallowTouches(false);
+
+		if (stencil->boundingBox().containsPoint(Director::getInstance()->convertToGL(touch->getLocationInView())))
+		{
+
+			if (_selfPageNumber == 18)
+			{
+				float rot = 90;
+				_eventDispatcher->dispatchCustomEvent("TUT_ARROW_DIRECTION",&rot);
+			}
+
+			_cover->setVisible(false);
+			touchListener->setSwallowTouches(false);
+			return true;
+		}
+		else
+		{
+			touchListener->setSwallowTouches(true);
+			return true;
+		}
+
+
 	case 3:
 	case 4:
 	case 5:
 	case 8:
-	case 9:
 	case 10:
 	case 12:
-	case 13:
-	case 14:
 	case 15:
 	case 17:
-	case 18:
 	case 19:
 	case 20:
 	case 24:
@@ -267,13 +292,28 @@ bool TutorialPage::onTouchBegan( cocos2d::Touch *touch, cocos2d::Event *unused )
 void TutorialPage::onTouchEnded( cocos2d::Touch *touch, cocos2d::Event *unused )
 {
 
+
 	switch (_selfPageNumber)
 	{
-	case 3:
-	case 8:
-	
+	case 9:
+	case 13:
+	case 14:
+	case 18:
+		if (_selfPageNumber == 18)
+		{
+			float rot = 180;
+			_eventDispatcher->dispatchCustomEvent("TUT_ARROW_DIRECTION", &rot); 
+		}
+		_cover->setVisible(true);
+		break;
 
-		return;
+	default:
+		break;
+	}
+
+
+	switch (_selfPageNumber)
+	{
 
 	case 9:
 

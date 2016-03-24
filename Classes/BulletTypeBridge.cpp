@@ -47,7 +47,7 @@ void BulletTypeBridge::explode()
 				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 			}
 		}
-		unschedule(schedule_selector(BulletTypeBridge::update));
+		unscheduleUpdate();
 
 
 		//¶¯»­
@@ -110,7 +110,7 @@ void BulletTypeBridge::setTarget( Enemy* enemy )
 
 	if (_bridging)
 	{
-		schedule(schedule_selector(BulletTypeBridge::update), 1.0f/60.0f);
+		scheduleUpdate();
 	}
 	else
 	{

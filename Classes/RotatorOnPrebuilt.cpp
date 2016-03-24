@@ -14,11 +14,12 @@ bool RotatorOnPrebuilt::init()
 	}
 
 	//ms = MotionStreak::create(0.1,30,10,Color3B(255,255,255),"BLANK.png");
-	ms = DrawNode::create();ms->drawDot(Vec2(0,0),10,Color4F(Color3B(255,255,255)));
+	ms = DrawNode::create();
+	ms->drawDot(Vec2(0,0),10,Color4F(Color3B(255,255,255)));
 
 	addChild(ms);
 
-	it = 0;
+	it = PI * 0.5;
 	_dit = 0.04;
 	_radius = 100;
 

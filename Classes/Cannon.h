@@ -53,9 +53,13 @@ public:
 
 	void setDamageContributerID();
 
-	virtual void update(float delta);
+	
 
 protected:
+
+	virtual void update(float delta);
+
+
 	
 	bool _isActioning;
 

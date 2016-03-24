@@ -31,7 +31,7 @@ void BulletTypeTrapping::explode()
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	if (_isTrapping)
 	{
-		_target->setBuff(BuffTypeStun::create(_target,225));
+		_target->setBuff(BuffTypeStun::create(_target,305));
 // 		Point p = getPosition() - _target->getPosition();
 // 		removeFromParent();
 // 		_target->addChild(this); 

@@ -30,7 +30,7 @@ private:
 	cocos2d::MenuItemImage* item_end_pre;
 
 
-	cocos2d::Sprite* _arrow;
+	cocos2d::Node* _arrow;
 
 
 };

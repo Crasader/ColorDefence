@@ -85,7 +85,7 @@ void BulletTypeBounce::bounce()
 
 	if (v_target.empty())
 	{
-		unschedule(schedule_selector(BulletTypeBounce::update));
+		unscheduleUpdate();
 		_target = nullptr;
 		explode();
 		return;
@@ -127,7 +127,7 @@ void BulletTypeBounce::setTarget( Enemy* enemy )
 	_snow->setPosVar(Vec2(0,0));
 
 
-	schedule(schedule_selector(BulletTypeBounce::update), 1.0f/60.0f);
+	scheduleUpdate();
 
 }
 

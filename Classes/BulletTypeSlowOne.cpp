@@ -61,7 +61,7 @@ void BulletTypeSlowOne::setTarget( Enemy* enemy )
 	(getParent())->addChild(emitter);
 	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
 
-	schedule(schedule_selector(BulletTypeSlowOne::update), 1.0f/60.0f);
+	scheduleUpdate();
 }
 
 void BulletTypeSlowOne::update( float delta )

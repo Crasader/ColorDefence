@@ -51,7 +51,7 @@ bool Cannon::init()
 	if (GameStateManager::getInstance()->currentActioningState)
 	{
 		_isActioning = true;
-		schedule(schedule_selector(Cannon::update), 1.0f/60.0f);
+		scheduleUpdate();
 
 	}
 	else

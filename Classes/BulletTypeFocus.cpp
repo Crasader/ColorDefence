@@ -41,7 +41,7 @@ void BulletTypeFocus::explode()
 		runAction(RepeatForever::create(RotateBy::create(2,-180)));
 		runAction(RepeatForever::create(Sequence::create(FadeOut::create(1),FadeIn::create(1),NULL)));
 		
-		schedule(schedule_selector(BulletTypeFocus::update), 1.0f/60.0f);
+		scheduleUpdate();
 	}
 	else
 	{
@@ -67,7 +67,7 @@ void BulletTypeFocus::update( float delta )
 
 	if ((_target->isFloating)||(!_target->isAlive()))
 	{
-		unschedule(schedule_selector(BulletTypeFocus::update));
+		unscheduleUpdate();
 		removeFromParent();
 		BulletManager::getInstance()->bullets.eraseObject(this);
 		return;

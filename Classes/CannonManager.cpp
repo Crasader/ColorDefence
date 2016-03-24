@@ -447,29 +447,29 @@ unsigned CannonManager::getPriceByType( unsigned type )
 	{
 
 	case CANNON_TYPE_SHADOW:
-		return 2;
+		return 10;
 	case CANNON_TYPE_POISONOUS_MULTI:
-		return 1;
+		return 10;
 	case CANNON_TYPE_MULTI_TARGET:
-		return 1;
+		return 10;
 	case CANNON_TYPE_BRIDGE:
-		return 2;
+		return 10;
 	case CANNON_TYPE_ARMOR_REMOVER:
-		return 1;
+		return 10;
 	case CANNON_TYPE_TRACING:
-		return 2;
+		return 10;
 	case CANNON_TYPE_TRAPPING:
-		return 1;
+		return 10;
 	case CANNON_TYPE_FLOWER:
-		return 2;
+		return 10;
 	case CANNON_TYPE_FOCUS:
-		return 1;
+		return 10;
 	case CANNON_TYPE_SUPER_POISONOUS:
-		return 2;
+		return 10;
 	case CANNON_TYPE_DUPLICATE:
-		return 2;
+		return 10;
 	default:
-		return 1;
+		return 10;
 	}
 }
 

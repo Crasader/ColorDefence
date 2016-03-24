@@ -26,7 +26,7 @@ bool CannonTypeBounce::init()
 	_snow->setEmissionRate(10);
 
 	_bounceRange = 175;
-	_damageReduceFactor = 1.18;
+	_damageReduceFactor = 1.1;
 	_bounceTimes = 4;
 
 

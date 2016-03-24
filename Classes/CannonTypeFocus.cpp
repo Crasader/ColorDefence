@@ -197,7 +197,8 @@ void CannonTypeFocus::sacrifice()
 		{
 			if (e->getPosition().getDistance(_target->getPosition())<125)
 			{
-				e->onPhysicalDamaged(dmg);
+				float damageContributed = e->onRealDamaged(dmg);
+				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 			}
 		}
 		int c = NumericalManager::getInstance()->getColorByResource(1);

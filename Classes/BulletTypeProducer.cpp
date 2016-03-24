@@ -41,7 +41,7 @@ void BulletTypeProducer::explode()
 
 	SoundManager::getInstance()->playSoundEffect("sound/bullet_explode_producer.mp3");
 
-	schedule(schedule_selector(BulletTypeProducer::update), 1.0f/60.0f);
+	scheduleUpdate();
 
 
 
@@ -90,7 +90,7 @@ void BulletTypeProducer::backToStartingPoint()
 {
 	emitter->setEmissionRate(0);
 
-	unschedule(schedule_selector(BulletTypeProducer::update));
+	unscheduleUpdate();
 
 	removeFromParent();
 	BulletManager::getInstance()->bullets.eraseObject(this);

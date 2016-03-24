@@ -41,7 +41,7 @@ void BulletTypePenetrate::setTarget( Enemy* enemy )
 
 	});
 
-	schedule(schedule_selector(BulletTypePenetrate::update), 1.0f/60.0f);
+	scheduleUpdate();
 	runAction(Sequence::create(mv,expld,NULL));
 
 

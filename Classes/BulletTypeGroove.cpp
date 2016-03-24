@@ -49,7 +49,7 @@ void BulletTypeGroove::explode()
 
 
 	//碰到沟壑的怪也会被晕
-	schedule(schedule_selector(BulletTypeGroove::update), 1.0f/60.0f);
+	scheduleUpdate();
 
 
 
@@ -102,7 +102,7 @@ void BulletTypeGroove::update( float delta )
 	_stunTime --;
 	if (_stunTime<= 0)
 	{
-		unschedule(schedule_selector(BulletTypeGroove::update));
+		unscheduleUpdate();
 		BulletManager::getInstance()->bullets.eraseObject(this);
 		removeFromParent();
 		return;
