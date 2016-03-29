@@ -1,4 +1,4 @@
-#include "NumericalManager.h"
+ï»¿#include "NumericalManager.h"
 #include "json/rapidjson.h"  
 #include "json/document.h"
 
@@ -43,33 +43,33 @@ NumericalManager* NumericalManager::getInstance()
 void NumericalManager::importData()
 {
 
-	//Í¨ÓÃÊı¾İ
+	//é€šç”¨æ•°æ®
 	do 
 	{
 		String filename = "json/CANNON/general.json";
 		rapidjson::Document doc;
-		//ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ  
+		//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
 		if (!FileUtils::getInstance()->isFileExist(filename.getCString()))
 		{
 			//log("json file is not find [%s]", filename);
 			return ;
 		}
-		//¶ÁÈ¡ÎÄ¼şÊı¾İ£¬³õÊ¼»¯doc  
+		//è¯»å–æ–‡ä»¶æ•°æ®ï¼Œåˆå§‹åŒ–doc  
 		std::string data = FileUtils::getInstance()->getStringFromFile(filename.getCString());
 		doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
-		//ÅĞ¶Ï¶ÁÈ¡³É¹¦Óë·ñ ºÍ ÊÇ·ñÎªÊı×éÀàĞÍ  
+		//åˆ¤æ–­è¯»å–æˆåŠŸä¸å¦ å’Œ æ˜¯å¦ä¸ºæ•°ç»„ç±»å‹  
 		if (doc.HasParseError() || !doc.IsArray())
 		{
 			//log("get json data err!");
 			return ;
 		}
-		//´ÓµÚ2ĞĞ¿ªÊ¼£¬ÒòÎªµÚÒ»ĞĞÊÇÊôĞÔ  
+		//ä»ç¬¬2è¡Œå¼€å§‹ï¼Œå› ä¸ºç¬¬ä¸€è¡Œæ˜¯å±æ€§  
 		for (unsigned int i = 1; i<doc.Size(); i++)
 		{
-			//Öğ¸öÌáÈ¡Êı×éÔªËØ£¨ÉùÃ÷µÄ±äÁ¿±ØĞëÎªÒıÓÃ£©  
+			//é€ä¸ªæå–æ•°ç»„å…ƒç´ ï¼ˆå£°æ˜çš„å˜é‡å¿…é¡»ä¸ºå¼•ç”¨ï¼‰  
 			rapidjson::Value &v = doc[i];
 
-			//°´ÏÂ±êÌáÈ¡  
+			//æŒ‰ä¸‹æ ‡æå–  
 			int a = 0;
 
 			int id = v[a++].GetInt();
@@ -88,21 +88,21 @@ void NumericalManager::importData()
 
 	/*
 	
-	//¼¼ÄÜµÄÊı¾İ
+	//æŠ€èƒ½çš„æ•°æ®
 	do 
 	{
 		String filename = "json/CANNON/functional.json";
 		rapidjson::Document doc;
-		//ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ  
+		//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
 		if (!FileUtils::getInstance()->isFileExist(filename.getCString()))
 		{
 			//log("json file is not find [%s]", filename);
 			return ;
 		}
-		//¶ÁÈ¡ÎÄ¼şÊı¾İ£¬³õÊ¼»¯doc  
+		//è¯»å–æ–‡ä»¶æ•°æ®ï¼Œåˆå§‹åŒ–doc  
 		std::string data = FileUtils::getInstance()->getStringFromFile(filename.getCString());
 		doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
-		//ÅĞ¶Ï¶ÁÈ¡³É¹¦Óë·ñ ºÍ ÊÇ·ñÎªÊı×éÀàĞÍ  
+		//åˆ¤æ–­è¯»å–æˆåŠŸä¸å¦ å’Œ æ˜¯å¦ä¸ºæ•°ç»„ç±»å‹  
 		if (doc.HasParseError())
 		{
 			//log("get json data err!");
@@ -308,7 +308,7 @@ int NumericalManager::getIntervalByColor( cocos2d::Color3B c3b , short type)
 float NumericalManager::functionParabolic(float min, float max, int midX, float mid, int thisValueX)
 {
 
-	//¸ù¾İÈıµã×ø±êÉú³ÉÅ×ÎïÏß (0,min)(midX,mid)(255,max)
+	//æ ¹æ®ä¸‰ç‚¹åæ ‡ç”ŸæˆæŠ›ç‰©çº¿ (0,min)(midX,mid)(255,max)
 	int i =  min*((float)thisValueX-(float)midX)*((float)thisValueX-255)/((0-(float)midX)*(0-255))
 		+mid*((float)thisValueX-0)*((float)thisValueX-255)/(((float)midX-0)*((float)midX-255))
 		+max*((float)thisValueX-0)*((float)thisValueX-(float)midX)/((255-0)*(255-(float)midX));

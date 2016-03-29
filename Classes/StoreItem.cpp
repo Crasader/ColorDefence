@@ -1,4 +1,4 @@
-#include "StoreItem.h"
+ï»¿#include "StoreItem.h"
 #include "CannonManager.h"
 #include "LevelGradingStar.h"
 #include "MultilanguageManager.h"
@@ -46,7 +46,7 @@ void StoreItem::setCannonType( unsigned cannonType )
 		addChild(sp);
 		sp->setPosition(0.125*getContentSize().width, 0.64*getContentSize().height);
 
-		//½éÉÜµÄÎÄ±¾
+		//ä»‹ç»çš„æ–‡æœ¬
 		std::string intro = Dictionary::createWithContentsOfFile("captions/CN/introductions.plist")->valueForKey(sName)->getCString();
 		_introduction = Label::create(intro,"Arial",38);
 		addChild(_introduction);
@@ -59,7 +59,7 @@ void StoreItem::setCannonType( unsigned cannonType )
 
 
 
-		//¼Û¸ñ
+		//ä»·æ ¼
 		_price = cm->getPriceByType(_cannonType);
 		LabelTTF* label = LabelTTF::create(String::createWithFormat("%d",_price)->_string,"Arial",40);
 		addChild(label);
@@ -73,7 +73,7 @@ void StoreItem::setCannonType( unsigned cannonType )
 	}
 	else
 	{
-		//ÌØÊâÉÌÆ·
+		//ç‰¹æ®Šå•†å“
 
 		_cannonType = cannonType;
 
@@ -85,7 +85,7 @@ void StoreItem::setCannonType( unsigned cannonType )
 
 		setTexture("collectionPage/CN/coPage_empty.png");
 
-		//½éÉÜµÄÎÄ±¾
+		//ä»‹ç»çš„æ–‡æœ¬
 		std::string intro = MultilanguageManager::getIntroductionByKey(sName);
 		_introduction = Label::create(intro,"Arial",40);
 		addChild(_introduction);
@@ -95,7 +95,7 @@ void StoreItem::setCannonType( unsigned cannonType )
 		_introduction->setDimensions(400,0);
 		//_introduction->setHorizontalAlignment(TextHAlignment::LEFT);
 		
-		//¼Û¸ñ
+		//ä»·æ ¼
 		_price = 20;
 		LabelTTF* label = LabelTTF::create(String::createWithFormat("%d",_price)->_string,"Arial",40);
 		addChild(label);

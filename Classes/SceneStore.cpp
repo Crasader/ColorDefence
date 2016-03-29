@@ -1,4 +1,4 @@
-#include "SceneStore.h"
+ï»¿#include "SceneStore.h"
 #include "SceneLevels.h"
 #include "CannonManager.h"
 
@@ -38,9 +38,9 @@ bool SceneStore::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	//×Ü¹²³öÊÛµÄËşÊı
+	//æ€»å…±å‡ºå”®çš„å¡”æ•°
 	_total_cannons_for_sale = 17;
-	//ÓĞÒ»¸öÌØÊâÎïÆ·
+	//æœ‰ä¸€ä¸ªç‰¹æ®Šç‰©å“
 	_totalNumberOfItems = _total_cannons_for_sale + 1 ;
 
 
@@ -54,7 +54,7 @@ bool SceneStore::init()
 	Y_bottom = Y_top + (_totalNumberOfItems + 1) * single_cannon_height - visibleSize.height;
 
 
-	//¶Ô´¥ÃşÊÂ¼şµÄ¼àÌı
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(SceneStore::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(SceneStore::onTouchMoved,this);
@@ -67,20 +67,20 @@ bool SceneStore::init()
 
 
 
-	//Ò»¸ö±ê¼Ç
+	//ä¸€ä¸ªæ ‡è®°
 	LevelGradingStar* lgs = LevelGradingStar::create();
 	addChild(lgs);
 	lgs->setPosition(Vec2(visibleSize.width - lgs->getContentSize().width/2 ,visibleSize.height* 0.6));
 
 
-	//Ò»¸ölabel
+	//ä¸€ä¸ªlabel
 	numberOfStars = UserDefault::getInstance()->getIntegerForKey("number_of_stars",0);
 	labelOfStars = LabelTTF::create(String::createWithFormat("%d",numberOfStars)->_string,"Arial",40);
 	addChild(labelOfStars);
 	labelOfStars->setPosition(Vec2(lgs->getPositionX(),visibleSize.height* 0.5));
 
 
-	//Ò»¸ö°´Å¥
+	//ä¸€ä¸ªæŒ‰é’®
 	auto item_quit = MenuItemImage::create("UI/UI_col_quit.png","UI/UI_col_quit.png",[&](Ref* pSender){
 
 		SoundManager::getInstance()->playGeneralClickSound();
@@ -254,7 +254,7 @@ void SceneStore::initHolder()
 
 	}
 
-	//½âËøµÚÁù²Û ÌØÊâÉÌÆ·
+	//è§£é”ç¬¬å…­æ§½ ç‰¹æ®Šå•†å“
 	for (int i = _total_cannons_for_sale;i< _totalNumberOfItems; i++)
 	{
 		StoreItem* si = StoreItem::create();

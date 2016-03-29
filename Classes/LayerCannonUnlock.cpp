@@ -1,4 +1,4 @@
-#include "LayerCannonUnlock.h"
+ï»¿#include "LayerCannonUnlock.h"
 #include "CannonManager.h"
 #include "MultilanguageManager.h"
 
@@ -26,7 +26,7 @@ bool LayerCannonUnlock::init()
 	bg->setPosition(getContentSize()/2);
 
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(LayerCannonUnlock::onTouchBegan,this);
 	touchListener->setSwallowTouches(true);
@@ -47,7 +47,7 @@ void LayerCannonUnlock::setCannonTypeUnlocked( unsigned cannonType )
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	
 
-	//1¸ölabel 1¸öcannonÍ¼±ê 1¸ö°´Å¥
+	//1ä¸ªlabel 1ä¸ªcannonå›¾æ ‡ 1ä¸ªæŒ‰é’®
 
 	auto str = MultilanguageManager::getStringByKey("unlock");
 	auto label = LabelTTF::create(str,"Arial",40);

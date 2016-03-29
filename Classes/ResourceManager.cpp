@@ -1,4 +1,4 @@
-#include "ResourceManager.h"
+ï»¿#include "ResourceManager.h"
 #include "LevelManager.h"
 
 ResourceManager* ResourceManager::_resourceManager= nullptr;
@@ -26,7 +26,7 @@ ResourceManager* ResourceManager::getInstance()
 void ResourceManager::reset()
 {
 	//log ("init");
-	//¶ÁÈ¡¹Ø¿¨ĞÅÏ¢ ×ÊÔ´
+	//è¯»å–å…³å¡ä¿¡æ¯ èµ„æº
 	LevelManager* levelManager = LevelManager::getInstance();
 	for (int i = 0; i<3; i++)
 	{

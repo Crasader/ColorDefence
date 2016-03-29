@@ -1,4 +1,4 @@
-#include "CannonTypeConsumer.h"
+ï»¿#include "CannonTypeConsumer.h"
 #include "BulletTypeConsumer.h"
 #include "NumericalManager.h"
 #include "ParticleEmitterManager.h"
@@ -35,7 +35,7 @@ bool CannonTypeConsumer::init()
 	setTexture("cannons/CannonCover_Consumer_base.png");
 
 	
-	//extra state ±íÊ¾¹¥»÷Ä£Ê½¿ªÆô
+	//extra state è¡¨ç¤ºæ”»å‡»æ¨¡å¼å¼€å¯
 	hasExtraState = true;
 
 
@@ -94,7 +94,7 @@ void CannonTypeConsumer::attackOnce()
 	if (_consumeCount >80 )
 	{
 		_consumeCount-= 80;
-		//Á£×ÓÏµÍ³ ÌØĞ§
+		//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 		ParticleSystem* emitter = ParticleSystemQuad::create("effects/Particle_Consumer.plist");
 		(getParent())->addChild(emitter,10086);
 		emitter->setPosition(getPosition());
@@ -198,12 +198,12 @@ void CannonTypeConsumer::update( float delta )
 		return;
 	}
 
-	//ÈôÕıÔÚ¹¥»÷
+	//è‹¥æ­£åœ¨æ”»å‡»
 	if (isAttacking)
 	{
 
 
-		//Èô¹¥»÷¶ÔÏóËÀÁË»ò³¬³ö·¶Î§
+		//è‹¥æ”»å‡»å¯¹è±¡æ­»äº†æˆ–è¶…å‡ºèŒƒå›´
 		if ((!_target->isAlive())||(this->getPosition().getDistance(_target->getPosition())>attackRange)||(_target->isFloating))
 		{
 			isAttacking = false;
@@ -227,12 +227,12 @@ void CannonTypeConsumer::update( float delta )
 
 
 	}
-	//Èô²»ÔÚ¹¥»÷
+	//è‹¥ä¸åœ¨æ”»å‡»
 	else
 	{
 
 
-		//Èç¹ûÓĞ½øÈë·¶Î§µÄ
+		//å¦‚æœæœ‰è¿›å…¥èŒƒå›´çš„
 		tryGetTarget();
 
 	}

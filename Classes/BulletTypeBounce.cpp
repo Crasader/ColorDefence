@@ -1,4 +1,4 @@
-#include "BulletTypeBounce.h"
+ï»¿#include "BulletTypeBounce.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
@@ -114,7 +114,7 @@ void BulletTypeBounce::setTarget( Enemy* enemy )
 	_target = enemy;
 
 
-	//Á£×ÓÏµÍ³ ÌØÐ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	_snow = ParticleSystemQuad::create("effects/Particle_Slow.plist");
 	_snow->setPosition(getContentSize().width/2,getContentSize().height/2);
 	(getParent())->addChild(_snow);

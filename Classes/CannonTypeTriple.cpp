@@ -1,4 +1,4 @@
-#include "CannonTypeTriple.h"
+ï»¿#include "CannonTypeTriple.h"
 #include "NumericalManager.h"
 #include "Bullet.h"
 
@@ -97,12 +97,12 @@ void CannonTypeTriple::update( float delta )
 
 
 
-		//ÈôÕıÔÚ¹¥»÷
+		//è‹¥æ­£åœ¨æ”»å‡»
 		if (isAttacking_3[i])
 		{
 
 
-			//Èô¹¥»÷¶ÔÏóËÀÁË»ò³¬³ö·¶Î§
+			//è‹¥æ”»å‡»å¯¹è±¡æ­»äº†æˆ–è¶…å‡ºèŒƒå›´
 			if ((!_targets[i]->isAlive())||(this->getPosition().getDistance(_targets[i]->getPosition())>attackRange)||(_targets[i]->isFloating))
 			{
 				isAttacking_3[i] = false;
@@ -126,12 +126,12 @@ void CannonTypeTriple::update( float delta )
 
 
 		}
-		//Èô²»ÔÚ¹¥»÷
+		//è‹¥ä¸åœ¨æ”»å‡»
 		else
 		{
 
 
-			//Èç¹ûÓĞ½øÈë·¶Î§µÄ
+			//å¦‚æœæœ‰è¿›å…¥èŒƒå›´çš„
 			tryGetTarget(i);
 
 		}

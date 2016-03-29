@@ -1,4 +1,4 @@
-#include "MainPanel.h"
+ï»¿#include "MainPanel.h"
 #include "GameStateManager.h"
 #include "LayerSetting.h"
 #include "SoundManager.h"
@@ -28,10 +28,10 @@ bool MainPanel::init()
 	_childPanel->setTextureRect(Rect(0,0,visibleSize.width,150));
 	//_childPanel->setPosition(origin);
 
-	//menu °´Å¥
+	//menu æŒ‰é’®
 	settingLayerItem = MenuItemImage::create("UI/btn_menuLayer.png","UI/btn_menuLayer.png",CC_CALLBACK_1(MainPanel::settingLayerItemCallback,this));
 
-	//¿ªÊ¼·ÅµĞÈË °´Å¥
+	//å¼€å§‹æ”¾æ•Œäºº æŒ‰é’®
 	MenuItemImage* readyItem = MenuItemImage::create("UI/btn_release.png","UI/btn_release.png",CC_CALLBACK_1(MainPanel::readyForEnemiesCallback,this));
 
 	Menu* menu =Menu::create(readyItem,NULL);
@@ -94,10 +94,10 @@ void MainPanel::flip()
 
 
 
-		//ÔİÍ£°´Å¥
+		//æš‚åœæŒ‰é’®
 		pauseResumeItem = MenuItemImage::create("UI/btn_pause.png","UI/btn_pause.png",CC_CALLBACK_1(MainPanel::pauseResumeCallback,this));
 
-		//´óÕĞ°´Å¥
+		//å¤§æ‹›æŒ‰é’®
 		MenuItemImage* superPowerItem = MenuItemImage::create("UI/btn_superPower.png","UI/btn_superPower.png",CC_CALLBACK_1(MainPanel::superPowerItemCallback,this));
 
 		Menu* menu =Menu::create(superPowerItem,pauseResumeItem,NULL);
@@ -138,7 +138,7 @@ void MainPanel::readyForEnemiesCallback( cocos2d::Ref* pSender )
 	((Menu*)(_childPanel->getChildByTag(menu_tag)))->setEnabled(false);
 
 
-	//¸Ä±ämainPanel
+	//æ”¹å˜mainPanel
 	flip();
 
 }

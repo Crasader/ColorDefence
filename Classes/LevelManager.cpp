@@ -1,4 +1,4 @@
-#include "LevelManager.h"
+ï»¿#include "LevelManager.h"
 
 #include "json/rapidjson.h"  
 #include "json/writer.h"
@@ -88,25 +88,25 @@ void LevelManager::getLevelContent(int lv)
 
 	
 	rapidjson::Document doc;
-	//ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ  
+	//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
 	if (!FileUtils::getInstance()->isFileExist(filename))
 	{
 		//log("json file is not find [%s]", filename);
 		return ;
 	}
-	//¶ÁÈ¡ÎÄ¼þÊý¾Ý£¬³õÊ¼»¯doc  
+	//è¯»å–æ–‡ä»¶æ•°æ®ï¼Œåˆå§‹åŒ–doc  
 	std::string data = FileUtils::getInstance()->getStringFromFile(filename);
 	doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
-	//ÅÐ¶Ï¶ÁÈ¡³É¹¦Óë·ñ ºÍ ÊÇ·ñÎªÊý×éÀàÐÍ  
+	//åˆ¤æ–­è¯»å–æˆåŠŸä¸Žå¦ å’Œ æ˜¯å¦ä¸ºæ•°ç»„ç±»åž‹  
 	if (doc.HasParseError() || !doc.IsArray())
 	{
 		//log("get json data err!");
 		return ;
 	}
 
-	//´ÓµÚ2ÐÐ¿ªÊ¼£¬ÒòÎªµÚÒ»ÐÐÊÇÊôÐÔ  
+	//ä»Žç¬¬2è¡Œå¼€å§‹ï¼Œå› ä¸ºç¬¬ä¸€è¡Œæ˜¯å±žæ€§  
 
-	//Öð¸öÌáÈ¡Êý×éÔªËØ£¨ÉùÃ÷µÄ±äÁ¿±ØÐëÎªÒýÓÃ£©  
+	//é€ä¸ªæå–æ•°ç»„å…ƒç´ ï¼ˆå£°æ˜Žçš„å˜é‡å¿…é¡»ä¸ºå¼•ç”¨ï¼‰  
 	rapidjson::Value &v1 = doc[1];
 
 	int a = 0;
@@ -116,7 +116,7 @@ void LevelManager::getLevelContent(int lv)
 		_cannonBasesLocation.push_back(v1[a++].GetInt());
 	}
 
-	//Öð¸öÌáÈ¡Êý×éÔªËØ£¨ÉùÃ÷µÄ±äÁ¿±ØÐëÎªÒýÓÃ£©  
+	//é€ä¸ªæå–æ•°ç»„å…ƒç´ ï¼ˆå£°æ˜Žçš„å˜é‡å¿…é¡»ä¸ºå¼•ç”¨ï¼‰  
 	rapidjson::Value &v2 = doc[2];
 
 	a = 0;
@@ -126,7 +126,7 @@ void LevelManager::getLevelContent(int lv)
 		_path.push_back(v2[a++].GetInt());
 	}
 
-	//Öð¸öÌáÈ¡Êý×éÔªËØ£¨ÉùÃ÷µÄ±äÁ¿±ØÐëÎªÒýÓÃ£©  
+	//é€ä¸ªæå–æ•°ç»„å…ƒç´ ï¼ˆå£°æ˜Žçš„å˜é‡å¿…é¡»ä¸ºå¼•ç”¨ï¼‰  
 	rapidjson::Value &v3 = doc[3];
 
 	a = 0;
@@ -141,7 +141,7 @@ void LevelManager::getLevelContent(int lv)
 	}
 
 
-	//Öð¸öÌáÈ¡Êý×éÔªËØ£¨ÉùÃ÷µÄ±äÁ¿±ØÐëÎªÒýÓÃ£©  
+	//é€ä¸ªæå–æ•°ç»„å…ƒç´ ï¼ˆå£°æ˜Žçš„å˜é‡å¿…é¡»ä¸ºå¼•ç”¨ï¼‰  
 	rapidjson::Value &v4 = doc[4];
 
 	a = 0;
@@ -153,7 +153,7 @@ void LevelManager::getLevelContent(int lv)
 
 
 
-	//Öð¸öÌáÈ¡Êý×éÔªËØ£¨ÉùÃ÷µÄ±äÁ¿±ØÐëÎªÒýÓÃ£©  
+	//é€ä¸ªæå–æ•°ç»„å…ƒç´ ï¼ˆå£°æ˜Žçš„å˜é‡å¿…é¡»ä¸ºå¼•ç”¨ï¼‰  
 	rapidjson::Value &v5 = doc[5];
 
 	a = 0;
@@ -221,20 +221,20 @@ void LevelManager::newLevelRecord(unsigned currentLevelgrading)
 
 
 
-	//ÊÓÇé¿ö±ä¸ügradingµÄjson
+	//è§†æƒ…å†µå˜æ›´gradingçš„json
 	if (0!=newStarsToAdd)
 	{
 
-		//¸üÐÂuserDefaultÖÐ×ÜÐÇÊý
+		//æ›´æ–°userDefaultä¸­æ€»æ˜Ÿæ•°
 		int stars = UserDefault::getInstance()->getIntegerForKey("number_of_stars",0);
 		stars += newStarsToAdd;
 		UserDefault::getInstance()->setIntegerForKey("number_of_stars",stars);
 
 
-		//¸üÐÂgradingµÄjson
+		//æ›´æ–°gradingçš„json
 		auto  path =FileUtils::getInstance()->getWritablePath();
 		log("%s", path.c_str());
-		//ÔÚÕâ¸öÂ·¾¶ÏÂÌí¼ÓÒ»¸öjsonÎÄ¼þ
+		//åœ¨è¿™ä¸ªè·¯å¾„ä¸‹æ·»åŠ ä¸€ä¸ªjsonæ–‡ä»¶
 		path.append("levelGrading.json");
 
 		rapidjson::Document document;
@@ -310,16 +310,16 @@ void LevelManager::getLevelGrading()
 		std::string filename = FileUtils::getInstance()->getWritablePath() + "levelGrading.json";
 
 		rapidjson::Document doc;
-		//ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ  
+		//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
 		if (!FileUtils::getInstance()->isFileExist(filename))
 		{
 			//log("json file is not find [%s]", filename);
 			break ;
 		}
-		//¶ÁÈ¡ÎÄ¼þÊý¾Ý£¬³õÊ¼»¯doc  
+		//è¯»å–æ–‡ä»¶æ•°æ®ï¼Œåˆå§‹åŒ–doc  
 		std::string data = FileUtils::getInstance()->getStringFromFile(filename);
 		doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
-		//ÅÐ¶Ï¶ÁÈ¡³É¹¦Óë·ñ ºÍ ÊÇ·ñÎªÊý×éÀàÐÍ  
+		//åˆ¤æ–­è¯»å–æˆåŠŸä¸Žå¦ å’Œ æ˜¯å¦ä¸ºæ•°ç»„ç±»åž‹  
 		if (doc.HasParseError())
 		{
 			//log("get json data err!");
@@ -348,7 +348,7 @@ void LevelManager::getLevelGrading()
 		}
 	}while(0);
 
-	//ÑéÖ¤
+	//éªŒè¯
 	int levelRecord = UserDefault::getInstance()->getIntegerForKey("level_record",0);
 	while(gradingOfLevels.size()<levelRecord-1)
 	{

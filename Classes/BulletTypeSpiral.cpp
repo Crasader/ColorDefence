@@ -1,4 +1,4 @@
-#include "BulletTypeSpiral.h"
+ï»¿#include "BulletTypeSpiral.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 
@@ -79,7 +79,7 @@ void BulletTypeSpiral::explode()
 
 	}
 
-	//¶¯»­
+	//åŠ¨ç”»
 	float ratio = 1.6*_damageRadius / getContentSize().height;
 	setScale(ratio);
 

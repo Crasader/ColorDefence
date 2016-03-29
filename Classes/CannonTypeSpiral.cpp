@@ -1,4 +1,4 @@
-#include "CannonTypeSpiral.h"
+ï»¿#include "CannonTypeSpiral.h"
 #include "BulletTypeSpiral.h"
 #include "NumericalManager.h"
 #include "ParticleEmitterManager.h"
@@ -61,7 +61,7 @@ void CannonTypeSpiral::attackOnce()
 	
 
 
-	//³äÄÜ ÊÍ·Å
+	//å……èƒ½ é‡Šæ”¾
 	Color3B c3b = getColorInfo();
 	int resource[3];
 	resource[0]= NumericalManager::getInstance()->getResourceByColor(c3b.r);
@@ -106,11 +106,11 @@ void CannonTypeSpiral::attackOnce()
 		SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_spiral.mp3");
 
 
-		//Èç¹ûÂúÁË Á£×ÓÌØĞ§
+		//å¦‚æœæ»¡äº† ç²’å­ç‰¹æ•ˆ
 		if (getColorInfo() == Color3B(255,255,255))
 		{
 
-			//Á£×ÓÏµÍ³ ÌØĞ§
+			//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 			ParticleSystem* emitter =  ParticleSystemQuad::create("effects/Particle_Spiral_full.plist");
 			SoundManager::getInstance()->playSoundEffect("sound/cannon_spiral_full.mp3");
 
@@ -123,7 +123,7 @@ void CannonTypeSpiral::attackOnce()
 
 		}
 		else
-		//Ã»Âú ¼ÓÒ»¸ö×ÊÔ´
+		//æ²¡æ»¡ åŠ ä¸€ä¸ªèµ„æº
 		{
 			int i = CCRANDOM_0_1()*3;
 			for (int k = 0 ; k<3 ; k++)
@@ -147,7 +147,7 @@ void CannonTypeSpiral::attackOnce()
 
 	}
 	
-	//¸üĞÂÑÕÉ«
+	//æ›´æ–°é¢œè‰²
 	setColorInfo(Color3B(
 		NumericalManager::getInstance()->getColorByResource(resource[0]),
 		NumericalManager::getInstance()->getColorByResource(resource[1]),
@@ -155,7 +155,7 @@ void CannonTypeSpiral::attackOnce()
 
 
 /*
-	//Á£×ÓÏµÍ³ ÌØĞ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	ParticleSystem* emitter;
 	if (extraStateOn)
 	{

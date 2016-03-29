@@ -1,4 +1,4 @@
-#include "LayerEmbattle.h"
+ï»¿#include "LayerEmbattle.h"
 #include "LevelManager.h"
 #include "CannonManager.h"
 #include "LayerSetting.h"
@@ -65,7 +65,7 @@ bool LayerEmbattle::init()
 	_holder->setCascadeOpacityEnabled(true);
 
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(LayerEmbattle::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(LayerEmbattle::onTouchMoved,this);
@@ -76,7 +76,7 @@ bool LayerEmbattle::init()
 
 
 
-	//1¸ölabel 1¸ö°´Å¥
+	//1ä¸ªlabel 1ä¸ªæŒ‰é’®
 
 	const char* str = MultilanguageManager::getStringByKey("please_select");
 	auto label = LabelTTF::create(str,"Arial",40);
@@ -121,7 +121,7 @@ bool LayerEmbattle::init()
 	runAction(act);
 
 
-	//Ä¬ÈÏÈ« Î´Ñ¡ÖÐ
+	//é»˜è®¤å…¨ æœªé€‰ä¸­
 	LevelManager* lm = LevelManager::getInstance();
 	CannonManager* cm = CannonManager::getInstance();
 	lm->cannonTypeSelected.clear();
@@ -144,7 +144,7 @@ bool LayerEmbattle::init()
 	restButton->addChild(_restLabel);
 	_restLabel->setPosition(Vec2(restButton->getContentSize().width/2,restButton->getContentSize().height*0.6));
 
-	//Òþ²ØµÄ°´Å¥
+	//éšè—çš„æŒ‰é’®
 	buttonPreview = Sprite::create("UI/UI_pre_preview.png");
 	_msgbx->addChild(buttonPreview);
 	buttonPreview->setPosition(Vec2(_msgbx->getContentSize().width/2 + 200,0));
@@ -152,7 +152,7 @@ bool LayerEmbattle::init()
 
 
 
-	//¹ö¶¯Ïà¹Ø
+	//æ»šåŠ¨ç›¸å…³
 	Y_original = _holder->getPositionY();
 	Y_top = Y_original;
 	Y_bottom = Y_top + ((lm->getCannonType().size()-1)/5+1) * _msgbx->getContentSize().height*0.2 - _msgbx->getContentSize().height*0.6;
@@ -165,7 +165,7 @@ bool LayerEmbattle::init()
 
 
 
-	//menu °´Å¥
+	//menu æŒ‰é’®
 	settingLayerItem = MenuItemImage::create("UI/btn_menuLayer.png","UI/btn_menuLayer.png",[&](Ref* pSender){
 	
 		Size visibleSize = Director::getInstance()->getVisibleSize();

@@ -1,4 +1,4 @@
-#include "SceneMenu.h"
+ï»¿#include "SceneMenu.h"
 #include "SceneLevels.h"
 #include "NumericalManager.h"
 #include "ScenePlaying.h"
@@ -43,7 +43,7 @@ bool SceneMenu::init()
 
 
 
-	//¶Ô´¥ÃşÊÂ¼şµÄ¼àÌı
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(SceneMenu::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(SceneMenu::onTouchMoved,this);
@@ -59,7 +59,7 @@ bool SceneMenu::init()
 	*/
 
 	
-	//ÌáÇ°³õÊ¼»¯È«¾Ö±äÁ¿ ¼õÉÙºó±ßµÄ¿¨¶Ù
+	//æå‰åˆå§‹åŒ–å…¨å±€å˜é‡ å‡å°‘åè¾¹çš„å¡é¡¿
 	auto nm = NumericalManager::getInstance();
 	auto em = EnemyManager::getInstance();
 	

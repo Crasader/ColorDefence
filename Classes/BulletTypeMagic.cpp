@@ -1,4 +1,4 @@
-#include "BulletTypeMagic.h"
+ï»¿#include "BulletTypeMagic.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
@@ -53,7 +53,7 @@ void BulletTypeMagic::setTarget( Enemy* enemy )
 {
 	_target = enemy;
 
-	//Á£×ÓÏµÍ³ ÌØÐ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	starEmitter = ParticleSystemQuad::create("effects/Particle_Bullet_Magic.plist");
 	starEmitter->setPosition(getContentSize().width/2,getContentSize().height/2);
 	

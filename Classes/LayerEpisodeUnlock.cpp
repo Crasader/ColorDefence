@@ -1,4 +1,4 @@
-#include "LayerEpisodeUnlock.h"
+ï»¿#include "LayerEpisodeUnlock.h"
 #include "MultilanguageManager.h"
 #include "LevelManager.h"
 
@@ -29,7 +29,7 @@ bool LayerEpisodeUnlock::init()
 	addChild(caption);
 	caption->setPosition(getContentSize()/2);
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(LayerEpisodeUnlock::onTouchBegan,this);
 	touchListener->setSwallowTouches(true);

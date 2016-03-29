@@ -1,4 +1,4 @@
-#include "BulletTypeFocus.h"
+﻿#include "BulletTypeFocus.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "RotatorOnPrebuilt.h"
@@ -8,10 +8,10 @@ class CannonPrebuilt : public cocos2d::DrawNode
 {
 public:
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	CREATE_FUNC(CannonPrebuilt);
 
 	void setType(unsigned type);

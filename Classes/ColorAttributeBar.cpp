@@ -1,4 +1,4 @@
-#include "ColorAttributeBar.h"
+﻿#include "ColorAttributeBar.h"
 
 
 USING_NS_CC;

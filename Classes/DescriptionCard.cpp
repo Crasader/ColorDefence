@@ -1,4 +1,4 @@
-#include "DescriptionCard.h"
+ï»¿#include "DescriptionCard.h"
 #include "CannonManager.h"
 #include "NumericalManager.h"
 #include "MultilanguageManager.h"
@@ -48,7 +48,7 @@ bool DescriptionCard::init()
 
 
 	
-	//½éÉÜµÄÎÄ±¾
+	//ä»‹ç»çš„æ–‡æœ¬
 	std::string intro = "";
 	_introduction = Label::create(intro,"Arial",38);
 	_description->addChild(_introduction);
@@ -79,7 +79,7 @@ void DescriptionCard::setCannonType( unsigned cannonType )
 
 
 
-	//½éÉÜµÄÎÄ±¾
+	//ä»‹ç»çš„æ–‡æœ¬
 	std::string intro = MultilanguageManager::getIntroductionByKey(sName);
 	_introduction->setString(intro);
 

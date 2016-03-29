@@ -1,4 +1,4 @@
-#include "BuffTypeBroken.h"
+﻿#include "BuffTypeBroken.h"
 #include "Enemy.h"
 #include "SoundManager.h"
 #include "ParticleEmitterManager.h"

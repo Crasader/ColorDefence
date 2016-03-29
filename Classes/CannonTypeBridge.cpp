@@ -1,4 +1,4 @@
-#include "CannonTypeBridge.h"
+ï»¿#include "CannonTypeBridge.h"
 #include "NumericalManager.h"
 #include "BulletTypeBridge.h"
 #include "CannonManager.h"
@@ -95,7 +95,7 @@ void CannonTypeBridge::update( float delta )
 
 
 
-	//ÈôÕıÔÚ¹¥»÷
+	//è‹¥æ­£åœ¨æ”»å‡»
 	if (isAttacking)
 	{
 		if (_attackingCannon)
@@ -129,7 +129,7 @@ void CannonTypeBridge::update( float delta )
 		else
 		{
 
-			//Èô¹¥»÷¶ÔÏóËÀÁË»ò³¬³ö·¶Î§
+			//è‹¥æ”»å‡»å¯¹è±¡æ­»äº†æˆ–è¶…å‡ºèŒƒå›´
 			if ((!_target->isAlive())||(this->getPosition().getDistance(_target->getPosition())>attackRange)||(_target->isFloating))
 			{
 				isAttacking = false;
@@ -153,12 +153,12 @@ void CannonTypeBridge::update( float delta )
 
 
 	}
-	//Èô²»ÔÚ¹¥»÷
+	//è‹¥ä¸åœ¨æ”»å‡»
 	else
 	{
 
 
-		//Èç¹ûÓĞ½øÈë·¶Î§µÄ
+		//å¦‚æœæœ‰è¿›å…¥èŒƒå›´çš„
 		tryGetTarget();
 
 	}

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -34,14 +34,14 @@ private:
 
 	void importData();
 
-	//ËşµÄÊıÖµ Í¨ÓÃ
+	//å¡”çš„æ•°å€¼ é€šç”¨
 	std::vector<int> _attackLowerLimits;
 	std::vector<int> _attackUpperLimits;
 	std::vector<int> _rangeLowerLimits;
 	std::vector<int> _rangeUpperLimits;
 	std::vector<float> _intervalLowerLimits;
 	std::vector<float> _intervalUpperLimits;
-	//ËşµÄÊıÖµ ÌØÊâ¼¼ÄÜ
+	//å¡”çš„æ•°å€¼ ç‰¹æ®ŠæŠ€èƒ½
 	float _slowFactorLowerLimit;
 	float _slowFactorUpperLimit;
 

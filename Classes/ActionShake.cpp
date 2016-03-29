@@ -1,4 +1,4 @@
-#include "ActionShake.h"  
+﻿#include "ActionShake.h"  
 
 // not really useful, but I like clean default constructors  
 ActionShake::ActionShake() : _strength_x(0), _strength_y(0), _initial_x(0), _initial_y(0)  

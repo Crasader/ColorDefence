@@ -1,4 +1,4 @@
-#include "BulletTypeBridge.h"
+ï»¿#include "BulletTypeBridge.h"
 #include "BulletManager.h"
 
 USING_NS_CC;
@@ -50,7 +50,7 @@ void BulletTypeBridge::explode()
 		unscheduleUpdate();
 
 
-		//¶¯»­
+		//åŠ¨ç”»
 
 		auto ex1 = FadeOut::create(0.5);
 		auto ex2 = ScaleTo::create(0.3f,4);

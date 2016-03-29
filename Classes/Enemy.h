@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "HitPointBar.h"
@@ -10,10 +10,10 @@ class Enemy : public cocos2d::Sprite
 {
 public:
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	CREATE_FUNC(Enemy);
 
 	void setEnemyType(int enemyType);
@@ -45,7 +45,7 @@ public:
 
 	bool isAlive();
 	
-	//¹ØÓÚ²»Í¬ÖÖÀà¹Ö
+	//å…³äºä¸åŒç§ç±»æ€ª
 	virtual bool isAntiMagic();
 	virtual bool isBoss();
 	virtual bool hasArmor();
@@ -58,24 +58,24 @@ public:
 	cocos2d::Vec2 getMoveDirection();
 	float getMovingProgress();
 
-	//ÒÆ¶¯ËÙ¶È
+	//ç§»åŠ¨é€Ÿåº¦
 	float moveSpeed;
 
 
-	//¶¶¶¯
+	//æŠ–åŠ¨
 	void shake();
 
-	//ËÀÍö
+	//æ­»äº¡
 	virtual void onDeath();
 
-	//µÈ´ı¼ä¸ô
+	//ç­‰å¾…é—´éš”
 	int timeInterval;
 
 
 	//new
 	void solveBuff();
 
-	//Çø·ÖÊÇµĞÈË »¹ÊÇµĞÈË¼ä¸ô
+	//åŒºåˆ†æ˜¯æ•Œäºº è¿˜æ˜¯æ•Œäººé—´éš”
 	bool isRealEnemy;
 
 	void willArrive();
@@ -99,7 +99,7 @@ public:
 	cocos2d::Sprite* getAppearance();
 	cocos2d::Sprite* getEquipment();
 
-	//×°±¸ÉÏµÄÁ£×ÓÏµÍ³
+	//è£…å¤‡ä¸Šçš„ç²’å­ç³»ç»Ÿ
 	cocos2d::ParticleSystem* particles;
 
 	virtual void pause();
@@ -117,11 +117,11 @@ protected:
 
 	int _chancesCost;
 
-	//»¤¼×
+	//æŠ¤ç”²
 	float _armor;
 	float _armorFull;
 
-	//ÉúÃüÖµ
+	//ç”Ÿå‘½å€¼
 	float _hitPoint;
 	float _fullHitPoint;
 	HitPointBar* hpb;
@@ -136,16 +136,16 @@ private:
 	void setInactive();
 
 
-	//enemyµÄÏÔÊ¾Í¼Æ¬
+	//enemyçš„æ˜¾ç¤ºå›¾ç‰‡
 	cocos2d::Sprite* _appearance;
-	//enemyµÄ×°±¸
+	//enemyçš„è£…å¤‡
 	cocos2d::Sprite* _equipment;
 
 
 
 
 
-	//buffÏà¹Ø
+	//buffç›¸å…³
 	//new
 	cocos2d::Vector<Buff*> _buffs;
 	bool _hasBuffStun;

@@ -1,4 +1,4 @@
-#include "CannonTypeProducer.h"
+ï»¿#include "CannonTypeProducer.h"
 #include "NumericalManager.h"
 #include "BulletTypeProducer.h"
 #include "ParticleEmitterManager.h"
@@ -65,7 +65,7 @@ void CannonTypeProducer::attackOnce()
 	if (_attackCounter >= attacksPerProduce)
 	{
 		_attackCounter=0;
-		//Á£×ÓÏµÍ³ ÌØÐ§
+		//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 		ParticleSystem* emitter = ParticleSystemQuad::create("effects/Particle_Producer_getResource.plist");
 		(getParent())->addChild(emitter,10086);
 		emitter->setPosition(getPosition());

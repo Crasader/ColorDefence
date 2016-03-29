@@ -1,4 +1,4 @@
-#include "CannonSampleHolder.h"
+ï»¿#include "CannonSampleHolder.h"
 #include "LevelManager.h"
 #include "CannonManager.h"
 
@@ -61,7 +61,7 @@ bool CannonSampleHolder::init()
 	{
 
 
-		//cannonµÄÐ¡Í¼±ê
+		//cannonçš„å°å›¾æ ‡
 		auto cs = Sprite::create();
 		addChild(cs,-100);
 		_cannonSamples.pushBack(cs);
@@ -89,7 +89,7 @@ bool CannonSampleHolder::init()
 
 
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(CannonSampleHolder::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(CannonSampleHolder::onTouchMoved,this);
@@ -156,7 +156,7 @@ void CannonSampleHolder::onTouchEnded( cocos2d::Touch *touch, cocos2d::Event *un
 				setSelectedCannonSample(i);
 
 
-				//¸æÖªprebuilt¸üÐÂ
+				//å‘ŠçŸ¥prebuiltæ›´æ–°
 				unsigned t = getCurrentCannonType();
 				_eventDispatcher->dispatchCustomEvent("CHANGE_TYPE",&t);
 				_eventDispatcher->dispatchCustomEvent("CHANGE_COLOR");

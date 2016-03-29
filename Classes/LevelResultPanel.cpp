@@ -1,4 +1,4 @@
-#include "LevelResultPanel.h"
+ï»¿#include "LevelResultPanel.h"
 #include "SceneLevels.h"
 #include "ScenePlaying.h"
 #include "LevelManager.h"
@@ -26,7 +26,7 @@ bool LevelResultPanel::init()
 		return false;
 	}
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(LevelResultPanel::onTouchBegan,this);
 	touchListener->setSwallowTouches(true);
@@ -94,7 +94,7 @@ void LevelResultPanel::setGameResult( bool win , unsigned grading)
 		menu->alignItemsHorizontallyWithPadding(70);
 
 
-		//µÃÐÇ
+		//å¾—æ˜Ÿ
 		for (unsigned u = 0;u < grading;u++)
 		{
 			auto star = LevelGradingStar::create();
@@ -114,7 +114,7 @@ void LevelResultPanel::setGameResult( bool win , unsigned grading)
 		SoundManager::getInstance()->playSoundEffect("sound/gamelose.mp3");
 
 
-		//1¸ölabel Á½¸ö°´Å¥
+		//1ä¸ªlabel ä¸¤ä¸ªæŒ‰é’®
 
 		auto bar = Sprite::create("UI/UI_bar_lose.png");
 		_front->addChild(bar);
@@ -147,7 +147,7 @@ void LevelResultPanel::setGameResult( bool win , unsigned grading)
 
 
 
-	//ÏÈÏÔÊ¾×Ö È»ºó·­Ò³ È»ºóÏÔÊ¾°´Å¥
+	//å…ˆæ˜¾ç¤ºå­— ç„¶åŽç¿»é¡µ ç„¶åŽæ˜¾ç¤ºæŒ‰é’®
 	_back->setVisible(false);
 	//_front->setPositionY(_front->getPositionY()+visibleSize.height/2);
 	//_front->setScale(0.01,1);

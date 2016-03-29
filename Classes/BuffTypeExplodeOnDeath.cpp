@@ -1,4 +1,4 @@
-#include "BuffTypeExplodeOnDeath.h"
+﻿#include "BuffTypeExplodeOnDeath.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
 #include "DamageContributionManager.h"
@@ -115,7 +115,7 @@ void BuffTypeExplodeOnDeath::explodeOnDeath(Point position)
 	}
 
 
-	//��Ч
+	//特效
 	ParticleSystem* superPower = ParticleSystemQuad::create("effects/Particle_ExplodeOnDeath_explode.plist");
 	addChild(superPower);
 	superPower->setPosition(getPosition());

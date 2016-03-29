@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Enemy.h"
 
@@ -8,10 +8,10 @@ class EnemyTypeAntiMagic : public Enemy
 {
 public:
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	CREATE_FUNC(EnemyTypeAntiMagic);
 
 

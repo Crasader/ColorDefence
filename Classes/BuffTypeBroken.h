@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "Buff.h"
@@ -8,10 +8,10 @@ class BuffTypeBroken : public Buff
 public:
 
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init(Enemy* enemy, float brokenValue ,float brokenTime , bool accumulate);  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	static BuffTypeBroken* create(Enemy* enemy, float brokenValue ,float brokenTime , bool accumulate);
 
 	virtual void makeEffectWithTarget(Enemy* target);

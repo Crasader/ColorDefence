@@ -1,4 +1,4 @@
-#include "SoundManager.h"
+﻿#include "SoundManager.h"
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
 

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 class ResolutionManager
 {
@@ -6,8 +6,12 @@ class ResolutionManager
 
 public:
 
-	void setResolution();
+	static float BLOCK_WIDTH;
+	static float INFO_BAR_HEIGHT;
+	static float MAIN_PANEL_HEIGHT;
 
+	ResolutionManager();
+	~ResolutionManager();
 
 };
 

@@ -1,4 +1,4 @@
-#include "BulletTypeShadow.h"
+ï»¿#include "BulletTypeShadow.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 
@@ -57,7 +57,7 @@ void BulletTypeShadow::explode()
 
 
 
-	//ÕûÌåµÄ¶¯»­
+	//æ•´ä½“çš„åŠ¨ç”»
 	setTexture("effects/Bullet_Shadow.png");
 	float ratio = 1.6*_damageRadius / getContentSize().height;
 	setScale(ratio);
@@ -78,7 +78,7 @@ void BulletTypeShadow::explode()
 	runAction(Sequence::create(ex3,ex4,NULL));
 
 
-	//¶ÔÓÚÄ§Ãâ¹ÖµÄ¶¯»­
+	//å¯¹äºé­”å…æ€ªçš„åŠ¨ç”»
 	for (auto rmvr:v_explodes)
 	{
 		auto s_ex1 = ScaleTo::create(0.5f,0.5f);

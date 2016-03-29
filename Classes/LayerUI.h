@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "ResourceManager.h"
@@ -33,42 +33,42 @@ private:
 
 
 
-	//ÈıÖÖÑÕÉ«×ÊÔ´Ê£ÓàÁ¿µÄ±êÇ©
+	//ä¸‰ç§é¢œè‰²èµ„æºå‰©ä½™é‡çš„æ ‡ç­¾
 	cocos2d::LabelTTF* restResourceLabel[3];
 
-	//Ê£ÓàchancesµÄ±êÇ©
+	//å‰©ä½™chancesçš„æ ‡ç­¾
 	cocos2d::LabelTTF* chancesLeftLabel;
 
-	//µ±Ç°µÚ¼¸²¨µÄ±êÇ©
+	//å½“å‰ç¬¬å‡ æ³¢çš„æ ‡ç­¾
 	cocos2d::LabelTTF* waveLabel;
 
 
 
 
 
-	//¿ªÊ¼½¨Ôì µ¯³ö»ò¹Ø±ÕÑ¡É«°å
+	//å¼€å§‹å»ºé€  å¼¹å‡ºæˆ–å…³é—­é€‰è‰²æ¿
 	void showColorPad(bool visible);
 
-	//¿ªÊ¼Éı¼¶ µ¯³ö»ò¹Ø±ÕÑ¡É«°å
+	//å¼€å§‹å‡çº§ å¼¹å‡ºæˆ–å…³é—­é€‰è‰²æ¿
 	void showColorPadAsUpgrading(bool visible);
 	void showColorPadAsUpgrading(bool visible, unsigned cannonType, bool extraStateOn);
 
-	//½¨Ôì µã»÷FINISH
+	//å»ºé€  ç‚¹å‡»FINISH
 	void itemFinishBuilingCallback(cocos2d::Ref* pSender);
 
-	//½¨Ôì µã»÷CANCEL
+	//å»ºé€  ç‚¹å‡»CANCEL
 	void itemCancelBuilingCallback(cocos2d::Ref* pSender);
 
-	//Éı¼¶ µã»÷UPGRADE
+	//å‡çº§ ç‚¹å‡»UPGRADE
 	void itemUpgradeCallback(cocos2d::Ref* pSender);
 
-	//Éı¼¶ µã»÷cancel
+	//å‡çº§ ç‚¹å‡»cancel
 	void itemCancelUpgradingCallback(cocos2d::Ref* pSender);
 	
-	//Éı¼¶ µã»÷destroy
+	//å‡çº§ ç‚¹å‡»destroy
 	void itemDestroyCallback(cocos2d::Ref* pSender);
 
-	//×Ô¶¯²¹³ä µã»÷changeExtraState
+	//è‡ªåŠ¨è¡¥å…… ç‚¹å‡»changeExtraState
 	void itemChangeExtraStateCallback(cocos2d::Ref* pSender);
 
 	void showLevelResultPanel(bool win,unsigned grading);

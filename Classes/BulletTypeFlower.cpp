@@ -1,4 +1,4 @@
-#include "BulletTypeFlower.h"
+ï»¿#include "BulletTypeFlower.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 #include "NumericalManager.h"
@@ -54,7 +54,7 @@ void BulletTypeFlower::explode()
 
 
 
-	//¶¯»­
+	//åŠ¨ç”»
 	//setTexture("effects/Bullet_Shadow.png");
 
 

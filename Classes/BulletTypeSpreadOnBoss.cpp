@@ -1,4 +1,4 @@
-#include "BulletTypeSpreadOnBoss.h"
+﻿#include "BulletTypeSpreadOnBoss.h"
 #include "BulletManager.h"
 #include "BuffTypeSpreadDamage.h"
 

@@ -1,4 +1,4 @@
-#include "Buff.h"
+﻿#include "Buff.h"
 #include "Enemy.h"
 
 USING_NS_CC;

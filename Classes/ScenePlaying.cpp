@@ -1,4 +1,4 @@
-#include "ScenePlaying.h"
+ï»¿#include "ScenePlaying.h"
 #include "LayerUI.h"
 #include "LayerBackground.h"
 #include "LayerForeground.h"
@@ -88,7 +88,7 @@ bool ScenePlaying::init()
 
 
 
-	//ÊÔÍæÊı¾İ
+	//è¯•ç©æ•°æ®
 	//UserDefault::getInstance()->setBoolForKey("cannon_store_unlocked",true);
 	//UserDefault::getInstance()->setIntegerForKey("number_of_stars",666);
 

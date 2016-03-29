@@ -1,4 +1,4 @@
-#include "BulletTypeChains.h"
+ï»¿#include "BulletTypeChains.h"
 #include "BulletManager.h"
 #include "BuffTypeStun.h"
 
@@ -32,7 +32,7 @@ void BulletTypeChains::explode()
 	//_target->setBuffStun(_stunTime);
 	_target->setBuff(BuffTypeStun::create(_target,_stunTime));
 	
-	//¶¯»­
+	//åŠ¨ç”»
 
 	auto ex1 = DelayTime::create(_stunTime/60);
 	auto ex2 = FadeOut::create(0.12);

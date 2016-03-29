@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -12,7 +12,7 @@ public:
 
 	static EnemyManager* getInstance();
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();
 
 	void reset();  
@@ -50,7 +50,7 @@ private:
 
 	void initEnemyInfo();
 
-	//¸øenemy³õÊ¼»¯Ê±µÄĞÅÏ¢
+	//ç»™enemyåˆå§‹åŒ–æ—¶çš„ä¿¡æ¯
 	std::vector<int> _e_info_hp;
 	std::vector<float> _e_info_moveSpeed;
 	std::vector<int> _e_info_armor;

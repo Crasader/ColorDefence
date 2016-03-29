@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -6,10 +6,10 @@ class	MainPanel : public cocos2d::Sprite
 {
 public:
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	CREATE_FUNC(MainPanel);
 
 
@@ -25,7 +25,7 @@ private:
 	bool hasGamePaused;
 
 
-	//µã»÷ ×¼±¸ºÃÁË ¿ª´ò
+	//ç‚¹å‡» å‡†å¤‡å¥½äº† å¼€æ‰“
 	void readyForEnemiesCallback(cocos2d::Ref* pSender);
 
 
@@ -37,13 +37,13 @@ private:
 
 	void superPowerItemCallback(cocos2d::Ref* pSender);
 
-	//ÏÔÊ¾³ıÁËÉèÖÃ°´Å¥Ö®ÍâµÄ°´Å¥µÄÃæ°å
+	//æ˜¾ç¤ºé™¤äº†è®¾ç½®æŒ‰é’®ä¹‹å¤–çš„æŒ‰é’®çš„é¢æ¿
 	cocos2d::Sprite* _childPanel;
 
-	//ÔİÍ£ºÍ¼ÌĞøµÄ°´Å¥
+	//æš‚åœå’Œç»§ç»­çš„æŒ‰é’®
 	cocos2d::MenuItemImage* pauseResumeItem;
 
-	//Ö÷²Ëµ¥°´Å¥
+	//ä¸»èœå•æŒ‰é’®
 	cocos2d::MenuItemImage* settingLayerItem;
 
 

@@ -1,4 +1,4 @@
-#include "LayerAction.h"
+ï»¿#include "LayerAction.h"
 #include "CannonPrebuilt.h"
 #include "MapPointsManager.h"
 #include "NumericalManager.h"
@@ -33,19 +33,19 @@ bool LayerAction::init()
 
 	GameStateManager::getInstance()->currentActioningState = true;
 
-	//³õÊ¼ 10´Î»ú»á
+	//åˆå§‹ 10æ¬¡æœºä¼š
 	chancesLeft =10;
 
-	//µÚ1²¨¿ªÊ¼
+	//ç¬¬1æ³¢å¼€å§‹
 	currentWave = 1;
 
 	_enemieReleased= false;
 
-	//¼àÌı¡°Íê³É½¨Ôì¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå®Œæˆå»ºé€ â€çš„äº‹ä»¶
 	auto listenerStartBuilding = EventListenerCustom ::create("FINISH_BUILDING",CC_CALLBACK_1(LayerAction::finishBuilding, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerStartBuilding,this);
 
-	//¼àÌı¡°Éı¼¶½¨Ôì¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå‡çº§å»ºé€ â€çš„äº‹ä»¶
 	auto listenerUpgrade = EventListenerCustom ::create("UPGRADE",[&](EventCustom* event){
 	
 		CannonPrebuilt* cpb =  static_cast<CannonPrebuilt*>(event->getUserData());
@@ -71,7 +71,7 @@ bool LayerAction::init()
 
 
 
-	//¼àÌı¡°³¬ÄÜÁ¦¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œè¶…èƒ½åŠ›â€çš„äº‹ä»¶
 	auto listenerSuperPower = EventListenerCustom ::create("SUPER_POWER",[&](EventCustom* event){
 
 		if (!GameStateManager::getInstance()->currentActioningState )
@@ -137,7 +137,7 @@ bool LayerAction::init()
 
 
 
-	//¼àÌı¡°ÊÍ·ÅµĞÈË¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œé‡Šæ”¾æ•Œäººâ€çš„äº‹ä»¶
 	auto listenerReady = EventListenerCustom ::create("RELEASE_ENEMIES",CC_CALLBACK_1(LayerAction::startActioning, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerReady,this);
 
@@ -158,7 +158,7 @@ bool LayerAction::init()
 
 	_iterator = 0;
 
-	//¼àÌı¡°ÔİÍ£¡¢¼ÌĞø¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæš‚åœã€ç»§ç»­â€çš„äº‹ä»¶
 	auto listenerPause = EventListenerCustom ::create("PAUSE_ACTIONING",[&](Event* event){
 		setGameActioning(false);
 	});
@@ -202,7 +202,7 @@ void LayerAction::update( float delta )
 
 	
 	
-	//¹ÖµÄ³öÉú  iterator ´´½¨ĞÂ¹Ö ½øÈësequence
+	//æ€ªçš„å‡ºç”Ÿ  iterator åˆ›å»ºæ–°æ€ª è¿›å…¥sequence
 	if (enemyManager->enemiesLeft.size()>0)
 	{
 
@@ -219,7 +219,7 @@ void LayerAction::update( float delta )
 
 
 
-	//¹ÖµÄÒÆ¶¯  sequenceÖĞµÄ¹Ö °´ÕÕpathÒÆ¶¯
+	//æ€ªçš„ç§»åŠ¨  sequenceä¸­çš„æ€ª æŒ‰ç…§pathç§»åŠ¨
 	for (Enemy* e:enemyManager->enemiesInSequence)
 	{
 
@@ -235,7 +235,7 @@ void LayerAction::update( float delta )
 					e->currentDestination++;
 
 				}
-				else //enemyµ½´ïÖÕµã
+				else //enemyåˆ°è¾¾ç»ˆç‚¹
 				{
 
 					e->willArrive();
@@ -261,7 +261,7 @@ void LayerAction::update( float delta )
 	}
 
 
-	//µ½´ïÖÕµãµÄ¹Ö
+	//åˆ°è¾¾ç»ˆç‚¹çš„æ€ª
 	for (Enemy* e:enemyManager->enemiesArrive)
 	{
 		if ((enemyManager->enemiesInSequence.contains(e))&&(e->isAlive()))
@@ -292,7 +292,7 @@ void LayerAction::update( float delta )
 
 
 
-	//¹ÖµÄËÀÍö sequenceÖĞµÄ¹Ö ÉúÃüÖµµÍÓÚ0 ÒÆÈëdead
+	//æ€ªçš„æ­»äº¡ sequenceä¸­çš„æ€ª ç”Ÿå‘½å€¼ä½äº0 ç§»å…¥dead
 	for (Enemy* e:enemyManager->enemiesInSequence)
 	{
 		if (!e->isAlive())
@@ -315,7 +315,7 @@ void LayerAction::update( float delta )
 	
 
 
-	//Á£×ÓÏµÍ³ ÎŞÁ£×ÓµÄÁ£×ÓÏµÍ³½«Ïú»Ù
+	//ç²’å­ç³»ç»Ÿ æ— ç²’å­çš„ç²’å­ç³»ç»Ÿå°†é”€æ¯
 	for (ParticleSystem* ps:pem->particleEmitters)
 	{
 		if ((ps->getParticleCount()==0)&&(ps->getEmissionRate()==0))
@@ -338,7 +338,7 @@ void LayerAction::update( float delta )
 
 
 
-	//ÓÎÏ·½áÊøÅĞ¶Ï
+	//æ¸¸æˆç»“æŸåˆ¤æ–­
 	if (chancesLeft<=0)
 	{
 		_eventDispatcher->dispatchCustomEvent("GAME_OVER_LOSE");

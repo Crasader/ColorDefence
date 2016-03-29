@@ -1,4 +1,4 @@
-#include "BulletTypeTracing.h"
+ï»¿#include "BulletTypeTracing.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
 
@@ -83,7 +83,7 @@ void BulletTypeTracing::setTarget( Enemy* enemy )
 {
 	_target = enemy;
 
-	//Á£×ÓÏµÍ³ ÌØÐ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	_tail = ParticleSystemQuad::create("effects/Particle_Tracing.plist");
 	_tail->setPosition(getContentSize().width/2,getContentSize().height/2);
 	Color3B c3b = getColor();

@@ -1,4 +1,4 @@
-#include "MapPointsManager.h"
+﻿#include "MapPointsManager.h"
 
 const float blockWidth = 90.0;
 

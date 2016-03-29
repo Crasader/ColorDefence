@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "Enemy.h"
@@ -8,10 +8,10 @@ class CannonTypeConsumer : public Cannon
 {
 public:
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	CREATE_FUNC(CannonTypeConsumer);
 
 	void setColorInfo(cocos2d::Color3B c3b);

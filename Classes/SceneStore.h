@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "StoreItem.h"
@@ -20,7 +20,7 @@ public:
 
 private:
 
-	//¹ØÓÚ´¥ÃþÊÂ¼þ
+	//å…³äºŽè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);

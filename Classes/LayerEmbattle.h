@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -18,32 +18,32 @@ private:
 
 	cocos2d::Sprite* _msgbx;
 
-	//¹ØÓÚ´¥ÃşÊÂ¼ş
+	//å…³äºè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused);
 
-	//È«²¿µÄcannonÍ¼Ñù
+	//å…¨éƒ¨çš„cannonå›¾æ ·
 	cocos2d::Vector<Sprite*> samples;
 	
-	//¶ÔÓ¦cannonÊÇ·ñ±»Ñ¡ÖĞ
+	//å¯¹åº”cannonæ˜¯å¦è¢«é€‰ä¸­
 	std::vector<bool> selected;
 
 
-	//Ô¤Ñ¡µÄcannon
+	//é¢„é€‰çš„cannon
 	cocos2d::Sprite* sampleSelected;
 	int indexOfSelected;
 
-	//Ê£Óà¿ÉÑ¡µÄcannonÊıÁ¿
+	//å‰©ä½™å¯é€‰çš„cannonæ•°é‡
 	int _maxAllow;
 	int _rest;
 	cocos2d::LabelTTF* _restLabel;
 
-	//Òş²ØµÄ°´Å¥
+	//éšè—çš„æŒ‰é’®
 	cocos2d::Sprite* buttonPreview;
 
-	//²Ëµ¥ ¸ù¾İÒÑÑ¡Á¿ À´È·¶¨ ÊÇ·ñ½ûÓÃ
+	//èœå• æ ¹æ®å·²é€‰é‡ æ¥ç¡®å®š æ˜¯å¦ç¦ç”¨
 	cocos2d::MenuItemImage* buttonEndSelecting;
 
 
@@ -51,7 +51,7 @@ private:
 	void computeRest();
 
 
-	//¹ö¶¯Ïà¹Ø
+	//æ»šåŠ¨ç›¸å…³
 	float Y_original;
 	float Y_startingPoint;
 	float Y_top;

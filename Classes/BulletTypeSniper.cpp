@@ -1,4 +1,4 @@
-#include "BulletTypeSniper.h"
+﻿#include "BulletTypeSniper.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
 

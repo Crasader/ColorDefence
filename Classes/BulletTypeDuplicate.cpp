@@ -1,4 +1,4 @@
-#include "BulletTypeDuplicate.h"
+ï»¿#include "BulletTypeDuplicate.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 
@@ -39,7 +39,7 @@ void BulletTypeDuplicate::explode()
 		}
 	}
 
-	//¶¯»­
+	//åŠ¨ç”»
 	//setTexture("effects/splash.png");
 	//float ratio = 2*_damageRadius / getContentSize().height;
 	//setScale(ratio);

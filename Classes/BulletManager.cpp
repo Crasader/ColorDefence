@@ -1,4 +1,4 @@
-#include "BulletManager.h"
+﻿#include "BulletManager.h"
 
 
 BulletManager* BulletManager::_bulletManager= nullptr;

@@ -1,4 +1,4 @@
-#include "ColorPad.h"
+ï»¿#include "ColorPad.h"
 #include "SoundManager.h"
 
 
@@ -54,13 +54,13 @@ bool ColorPad::init()
 
 	}
 
-	//ÈôĞÂ½¨Ôì È«ÊÇ1 ÈôÔÚÒÑ½¨µÄËşÉÏ½¨ ÔòĞèÒªÓĞÏÂÏŞÖµ
+	//è‹¥æ–°å»ºé€  å…¨æ˜¯1 è‹¥åœ¨å·²å»ºçš„å¡”ä¸Šå»º åˆ™éœ€è¦æœ‰ä¸‹é™å€¼
 	_lowerLimit[0] = 1;
 	_lowerLimit[1] = 1;
 	_lowerLimit[2] = 1;
 
 
-	//¶Ô´¥ÃşÊÂ¼şµÄ¼àÌı
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(ColorPad::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(ColorPad::onTouchMoved,this);
@@ -121,7 +121,7 @@ bool ColorPad::onTouchBegan( cocos2d::Touch *touch, cocos2d::Event *unused )
 void ColorPad::onTouchMoved( cocos2d::Touch *touch, cocos2d::Event *unused )
 {
 
-	//½ûÓÃ´¥ÃşÔò·µ»Ø
+	//ç¦ç”¨è§¦æ‘¸åˆ™è¿”å›
 	if (!enableTouchEvent)
 	{
 		return;
@@ -129,7 +129,7 @@ void ColorPad::onTouchMoved( cocos2d::Touch *touch, cocos2d::Event *unused )
 
 	float boundY = Director::getInstance()->getVisibleOrigin().y + 150;
 
-	//´¥ÃşµãÔÚpad·¶Î§ÍâÔò·µ»Ø
+	//è§¦æ‘¸ç‚¹åœ¨padèŒƒå›´å¤–åˆ™è¿”å›
 	if ((_originalTouchingPoint.y< boundY )||(touch->getLocation().y < boundY))
 	{
 		return;
@@ -184,7 +184,7 @@ void ColorPad::onTouchMoved( cocos2d::Touch *touch, cocos2d::Event *unused )
 
 
 
-		//·¢ËÍÑÕÉ«¸øcannonPrebuilt
+		//å‘é€é¢œè‰²ç»™cannonPrebuilt
 		_eventDispatcher->dispatchCustomEvent("CHANGE_COLOR");
 
 	}

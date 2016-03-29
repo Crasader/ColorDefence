@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -18,7 +18,7 @@ public:
 
 	static LevelManager* getInstance();
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	void reset();  
 
 	std::vector<int> getEnemyPath();
@@ -35,7 +35,7 @@ public:
 	std::vector<unsigned> gradingOfLevels;
 
 
-	//³õÊ¼×ÊÔ´
+	//åˆå§‹èµ„æº
 	int initResourceRGB[3];
 
 	int totalWaves;
@@ -57,13 +57,13 @@ private:
 	static LevelManager* _levelManager;
 
 
-	//cannonBaseµÄÎ»ÖÃ
+	//cannonBaseçš„ä½ç½®
 	std::vector<int> _cannonBasesLocation;
 
-	//µĞÈËÂ·Ïß
+	//æ•Œäººè·¯çº¿
 	std::vector<int> _path;
 
-	//µĞÈËµÄĞòÁĞ
+	//æ•Œäººçš„åºåˆ—
 	std::vector<int> _enemyType;
 
 

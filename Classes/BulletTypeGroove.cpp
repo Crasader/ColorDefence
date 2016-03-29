@@ -1,4 +1,4 @@
-#include "BulletTypeGroove.h"
+ï»¿#include "BulletTypeGroove.h"
 #include "BulletManager.h"
 #include "BuffTypeStun.h"
 #include "EnemyManager.h"
@@ -29,7 +29,7 @@ bool BulletTypeGroove::init()
 void BulletTypeGroove::explode()
 {
 
-	//µ½¹µÛÖ¾àÀë×ã¹»µÄ¹Ö ¶¼»áÊÜµ½ÉËº¦ ¼ÓbuffÔÎ
+	//åˆ°æ²Ÿå£‘è·ç¦»è¶³å¤Ÿçš„æ€ª éƒ½ä¼šå—åˆ°ä¼¤å®³ åŠ buffæ™•
 	EnemyManager* em = EnemyManager::getInstance();
 
 	for (Enemy* e:em->enemiesInSequence)
@@ -48,7 +48,7 @@ void BulletTypeGroove::explode()
 	
 
 
-	//Åöµ½¹µÛÖµÄ¹ÖÒ²»á±»ÔÎ
+	//ç¢°åˆ°æ²Ÿå£‘çš„æ€ªä¹Ÿä¼šè¢«æ™•
 	scheduleUpdate();
 
 
@@ -109,7 +109,7 @@ void BulletTypeGroove::update( float delta )
 	}
 
 
-	//Åöµ½¹µÛÖµÄ¹Ö ÔÎÁË
+	//ç¢°åˆ°æ²Ÿå£‘çš„æ€ª æ™•äº†
 	EnemyManager* em = EnemyManager::getInstance();
 	for (Enemy* e:em->enemiesInSequence)
 	{

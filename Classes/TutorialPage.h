@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -19,22 +19,22 @@ private:
 	unsigned _selfPageNumber;
 
 
-	//ÕÚÕÖ
+	//é®ç½©
 	cocos2d::LayerColor* _cover;
-	//²Ã¼ô
+	//è£å‰ª
 	cocos2d::ClippingNode* m_clipping;
-	//ÏÔÊ¾¼¤»îµÄ°´Å¥
+	//æ˜¾ç¤ºæ¿€æ´»çš„æŒ‰é’®
 	cocos2d::Node * stencil; 
 
 
-	//¹ØÓÚ´¥ÃşÊÂ¼ş
+	//å…³äºè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	//virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);
 	//virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused);
 
 
-	//ÓÃÀ´¿ªÆôºÍ¹Ø±Õ´¥Ãş
+	//ç”¨æ¥å¼€å¯å’Œå…³é—­è§¦æ‘¸
 	cocos2d::EventListenerTouchOneByOne* touchListener;
 
 

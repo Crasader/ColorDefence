@@ -1,4 +1,4 @@
-#include "CannonTypeMagicSlowLine.h"
+﻿#include "CannonTypeMagicSlowLine.h"
 #include "BulletTypeMagicSlowLine.h"
 #include "NumericalManager.h"
 

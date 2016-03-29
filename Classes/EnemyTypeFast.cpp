@@ -1,4 +1,4 @@
-#include "EnemyTypeFast.h"
+﻿#include "EnemyTypeFast.h"
 #include "ParticleEmitterManager.h"
 
 USING_NS_CC;

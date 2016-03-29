@@ -1,4 +1,4 @@
-#include "MultilanguageManager.h"
+﻿#include "MultilanguageManager.h"
 
 USING_NS_CC;
 

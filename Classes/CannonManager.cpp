@@ -1,4 +1,4 @@
-#include "CannonManager.h"
+ï»¿#include "CannonManager.h"
 
 #include "json/rapidjson.h"  
 #include "json/writer.h"
@@ -333,16 +333,16 @@ void CannonManager::readAllCannonTypesUnlocked()
 		std::string filename = FileUtils::getInstance()->getWritablePath() + "cannonTypeUnlocked.json";
 
 		rapidjson::Document doc;
-		//ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ  
+		//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
 		if (!FileUtils::getInstance()->isFileExist(filename))
 		{
 			//log("json file is not find [%s]", filename);
 			break ;
 		}
-		//¶ÁÈ¡ÎÄ¼şÊı¾İ£¬³õÊ¼»¯doc  
+		//è¯»å–æ–‡ä»¶æ•°æ®ï¼Œåˆå§‹åŒ–doc  
 		std::string data = FileUtils::getInstance()->getStringFromFile(filename);
 		doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
-		//ÅĞ¶Ï¶ÁÈ¡³É¹¦Óë·ñ ºÍ ÊÇ·ñÎªÊı×éÀàĞÍ  
+		//åˆ¤æ–­è¯»å–æˆåŠŸä¸å¦ å’Œ æ˜¯å¦ä¸ºæ•°ç»„ç±»å‹  
 		if (doc.HasParseError())
 		{
 			//log("get json data err!");
@@ -376,14 +376,14 @@ void CannonManager::readAllCannonTypesUnlocked()
 
 void CannonManager::updateAllCannonTypesUnlocked()
 {
-	//ÊÓÇé¿ö±ä¸ügradingµÄvector
+	//è§†æƒ…å†µå˜æ›´gradingçš„vector
 	if (true)
 	{
 
 
 		auto  path =FileUtils::getInstance()->getWritablePath();
 		log("%s", path.c_str());
-		//ÔÚÕâ¸öÂ·¾¶ÏÂÌí¼ÓÒ»¸öjsonÎÄ¼ş
+		//åœ¨è¿™ä¸ªè·¯å¾„ä¸‹æ·»åŠ ä¸€ä¸ªjsonæ–‡ä»¶
 		path.append("cannonTypeUnlocked.json");
 
 		rapidjson::Document document;

@@ -1,4 +1,4 @@
-#include "BulletTypeTrapping.h"
+﻿#include "BulletTypeTrapping.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 #include "BuffTypeStun.h"

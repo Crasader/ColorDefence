@@ -1,4 +1,4 @@
-#include "ParticleEmitterManager.h"
+﻿#include "ParticleEmitterManager.h"
 
 
 ParticleEmitterManager* ParticleEmitterManager::_particleEmitterManager= nullptr;

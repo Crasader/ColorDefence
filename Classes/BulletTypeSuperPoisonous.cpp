@@ -1,4 +1,4 @@
-#include "BulletTypeSuperPoisonous.h"
+ï»¿#include "BulletTypeSuperPoisonous.h"
 #include "BulletManager.h"
 #include "EnemyManager.h"
 #include "BuffTypeSuperPoisoning.h"
@@ -51,7 +51,7 @@ void BulletTypeSuperPoisonous::explode()
 
 
 
-	//¶¯»­
+	//åŠ¨ç”»
 	unscheduleUpdate();
 	ps->setEmissionRate(0);
 	ParticleSystem* explode = ParticleSystemQuad::create("effects/Particle_SuperPoisonous_explode.plist");
@@ -81,7 +81,7 @@ void BulletTypeSuperPoisonous::setTarget( Enemy* enemy )
 	_target = enemy;
 
 
-	//Á£×ÓÏµÍ³ ÌØÐ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	ps = ParticleSystemQuad::create("effects/Particle_Bullet_SuperPoisonous.plist");
 	(getParent())->addChild(ps);
 	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(ps);

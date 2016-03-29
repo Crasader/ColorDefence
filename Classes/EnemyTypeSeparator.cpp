@@ -1,4 +1,4 @@
-#include "EnemyTypeSeparator.h"
+﻿#include "EnemyTypeSeparator.h"
 
 
 USING_NS_CC;

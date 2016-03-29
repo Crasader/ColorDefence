@@ -1,4 +1,4 @@
-#include "LayerUI.h"
+ï»¿#include "LayerUI.h"
 #include "CannonPrebuilt.h"
 #include "ColorPad.h"
 #include "LevelManager.h"
@@ -80,19 +80,19 @@ bool LayerUI::init()
 
 	GameStateManager::getInstance()->currentActioningState = true;
 
-	//¼àÌı¡°¿ªÊ¼½¨Ôì¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå¼€å§‹å»ºé€ â€çš„äº‹ä»¶
 	auto listenerStartBuilding = EventListenerCustom ::create("START_BUILDING",CC_CALLBACK_1(LayerUI::startBuilding, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerStartBuilding,this);
 
-	//¼àÌı¡°¿ªÊ¼Éı¼¶¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå¼€å§‹å‡çº§â€çš„äº‹ä»¶
 	auto listenerStartupgrading = EventListenerCustom ::create("START_UPGRADING",CC_CALLBACK_1(LayerUI::startUpgrading, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerStartupgrading,this);
 
 
-	//¼àÌı¡°Ñ¡ÁËÂú¼¶µÄËş¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œé€‰äº†æ»¡çº§çš„å¡”â€çš„äº‹ä»¶
 	auto listenerMaxLvCnSLTed = EventListenerCustom ::create("NOT_UPGRADING_SELECT",[&](EventCustom* event){
 
-		//ÏÔÊ¾Ô¤½¨Ôì
+		//æ˜¾ç¤ºé¢„å»ºé€ 
 		Cannon* c =  static_cast<Cannon*>(event->getUserData());
 		CannonPrebuilt* cannon = CannonPrebuilt::create();
 		if (c->extraStateOn)
@@ -104,7 +104,7 @@ bool LayerUI::init()
 		cannon->colorInfo = c->getColorInfo();
 
 
-		//ÏÔÊ¾Ñ¡É«°å
+		//æ˜¾ç¤ºé€‰è‰²æ¿
 		if (c->hasExtraState)
 		{
 			showColorPadAsUpgrading(true,c->getCannonType(),c->extraStateOn);
@@ -124,7 +124,7 @@ bool LayerUI::init()
 
 
 
-	//¼àÌı¡°¹Öµ½ÖÕµã ¼õÉÙ»ú»á¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæ€ªåˆ°ç»ˆç‚¹ å‡å°‘æœºä¼šâ€çš„äº‹ä»¶
 	auto listenerChancesLose = EventListenerCustom ::create("CHANCES_LOSE",[&](EventCustom* event){
 		int* cl = (int*)(event->getUserData());
 		chancesLeftLabel ->setString(String::createWithFormat("%d",*cl)->_string);
@@ -133,7 +133,7 @@ bool LayerUI::init()
 
 
 
-	//¼àÌı¡°ÏÂÒ»²¨¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œä¸‹ä¸€æ³¢â€çš„äº‹ä»¶
 	auto listenerNextWave = EventListenerCustom ::create("NEXT_WAVE",[&](EventCustom* event){
 		int max = LevelManager::getInstance()->totalWaves;
 		int* wv = (int*)(event->getUserData());
@@ -144,7 +144,7 @@ bool LayerUI::init()
 
 
 
-	//¼àÌı¡°ÓÎÏ·½áÊø¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæ¸¸æˆç»“æŸâ€çš„äº‹ä»¶
 	auto listenerGameOverWin = EventListenerCustom ::create("GAME_OVER_WIN",[&](EventCustom* event){
 		unsigned *u =  static_cast<unsigned*>(event->getUserData());
 		showLevelResultPanel(true, *u);
@@ -160,7 +160,7 @@ bool LayerUI::init()
 
 
 
-	//¼àÌı½¨ÔìÊ±×ÊÔ´²»¹»
+	//ç›‘å¬å»ºé€ æ—¶èµ„æºä¸å¤Ÿ
 	auto listenerResourceWhenBuilding = EventListenerCustom ::create("NOT_ENOUGH_RESOURCE_TO_BUILD",[&](EventCustom* event){
 		auto rm = ResourceManager::getInstance();
 		for (int i = 0; i<3; i++)
@@ -178,7 +178,7 @@ bool LayerUI::init()
 	
 
 	
-	//¼àÌıÉı¼¶Ê±×ÊÔ´²»¹»
+	//ç›‘å¬å‡çº§æ—¶èµ„æºä¸å¤Ÿ
 	auto listenerResourceWhenUpgrading = EventListenerCustom ::create("NOT_ENOUGH_RESOURCE_TO_UPGRADE",[&](EventCustom* event){
 		int* i = static_cast<int*>(event->getUserData());
 		restResourceLabel[*i]->stopAllActions();
@@ -205,9 +205,9 @@ void LayerUI::startBuilding( cocos2d::EventCustom* event )
 
 	
 
-	//ÏÔÊ¾Ñ¡É«°å
+	//æ˜¾ç¤ºé€‰è‰²æ¿
 	showColorPad(true);
-	//ÏÔÊ¾Ô¤½¨Ôì
+	//æ˜¾ç¤ºé¢„å»ºé€ 
 	Point* pt =  static_cast<Point*>(event->getUserData());
 	CannonPrebuilt* cannon = CannonPrebuilt::create();
 	addChild(cannon , prebuilt_z_order , prebuilt_tag);
@@ -226,7 +226,7 @@ void LayerUI::startUpgrading( cocos2d::EventCustom* event )
 {
 
 
-	//ÏÔÊ¾Ô¤½¨Ôì
+	//æ˜¾ç¤ºé¢„å»ºé€ 
 	Cannon* c =  static_cast<Cannon*>(event->getUserData());
 	CannonPrebuilt* cannon = CannonPrebuilt::create();
 	if (c->extraStateOn)
@@ -243,14 +243,14 @@ void LayerUI::startUpgrading( cocos2d::EventCustom* event )
 
 
 	/*
-	//¸æÖªprebuilt¸üĞÂ
+	//å‘ŠçŸ¥prebuiltæ›´æ–°
 	unsigned t = c->getCannonType();
 	_eventDispatcher->dispatchCustomEvent("CHANGE_TYPE",&t);
 	_eventDispatcher->dispatchCustomEvent("CHANGE_COLOR");
 	*/
 
 
-	//ÏÔÊ¾Ñ¡É«°å
+	//æ˜¾ç¤ºé€‰è‰²æ¿
 	if (c->hasExtraState)
 	{
 		showColorPadAsUpgrading(true,c->getCannonType(),c->extraStateOn);
@@ -273,7 +273,7 @@ void LayerUI::showColorPad( bool visible )
 		Size visibleSize = Director::getInstance()->getVisibleSize();
 		Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-		//ÏÔÊ¾µ÷É«°å
+		//æ˜¾ç¤ºè°ƒè‰²æ¿
 		auto colorpad = ColorPad::create();
 		this->addChild(colorpad,colorpad_z_order,colorpad_tag);
 
@@ -284,7 +284,7 @@ void LayerUI::showColorPad( bool visible )
 
 
 		
-		//ÏÔÊ¾Íê³É°´Å¥
+		//æ˜¾ç¤ºå®ŒæˆæŒ‰é’®
 		MenuItemImage* finishItem = MenuItemImage::create("UI/Button_Finish.png","UI/Button_Finish.png",CC_CALLBACK_1(LayerUI::itemFinishBuilingCallback,this));
 		MenuItemImage* cancelItem = MenuItemImage::create("UI/Button_Cancel.png","UI/Button_Cancel.png",CC_CALLBACK_1(LayerUI::itemCancelBuilingCallback,this));
 	
@@ -298,7 +298,7 @@ void LayerUI::showColorPad( bool visible )
 		buttonsMoveTogether(finishItem,cancelItem,true);
 
 
-		//ÏÔÊ¾Ñ¡ÔñcannonÖÖÀàµÄ½çÃæ
+		//æ˜¾ç¤ºé€‰æ‹©cannonç§ç±»çš„ç•Œé¢
 		CannonSampleHolder* csh =  CannonSampleHolder::create();
 		addChild(csh,cannonSampleHolder_z_order , cannonSampleHolder_tag);
 		//csh->setPosition(menu->getPosition());
@@ -360,7 +360,7 @@ void LayerUI::itemFinishBuilingCallback( cocos2d::Ref* pSender )
 		return;
 	}
 
-	//¸ù¾İcshÈ·¶¨cannonµÄÖÖÀà²¢Ö¸¶¨¸øprebuilt
+	//æ ¹æ®cshç¡®å®šcannonçš„ç§ç±»å¹¶æŒ‡å®šç»™prebuilt
 	((CannonPrebuilt*)getChildByTag(prebuilt_tag))->setCannonType( ((CannonSampleHolder*)getChildByTag(cannonSampleHolder_tag))->getCurrentCannonType());
 	
 
@@ -402,7 +402,7 @@ void LayerUI::itemCancelBuilingCallback( cocos2d::Ref* pSender )
 
 void LayerUI::update( float delta )
 {
-	//¸üĞÂÊ£ÓàÑÕÉ«×ÊÔ´µÄÏÔÊ¾
+	//æ›´æ–°å‰©ä½™é¢œè‰²èµ„æºçš„æ˜¾ç¤º
 	for (int i = 0; i<3;i++)
 	{	
 		restResourceLabel[i] ->setString(String::createWithFormat("%d",rm->restResource[i])->_string);
@@ -444,7 +444,7 @@ void LayerUI::initTopBar()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	//ÉÏ²¿µÄĞÅÏ¢Ãæ°å
+	//ä¸Šéƒ¨çš„ä¿¡æ¯é¢æ¿
 	auto topBar = Sprite::create("BG.png");
 	topBar->setTextureRect(Rect(0,0,visibleSize.width,50));
 	topBar->setPosition(Point(origin.x+ visibleSize.width/2, Y_topBarCenter));
@@ -452,7 +452,7 @@ void LayerUI::initTopBar()
 
 
 
-	//Ê£ÓàÉúÃü
+	//å‰©ä½™ç”Ÿå‘½
 	auto chances = Sprite::create("UI/info_chances.png");
 	chances->setPosition(Point(54, Y_topBarCenter));
 	addChild(chances,resoucePad_z_order);
@@ -464,7 +464,7 @@ void LayerUI::initTopBar()
 
 
 
-	//µ±Ç°µÚ¼¸²¨
+	//å½“å‰ç¬¬å‡ æ³¢
 	auto waves = Sprite::create("UI/info_wave.png");
 	waves->setPosition(Point(590, Y_topBarCenter));
 	addChild(waves,resoucePad_z_order);
@@ -478,7 +478,7 @@ void LayerUI::initTopBar()
 
 
 
-	//Ê£Óà×ÊÔ´RGB 3¸öblock 3¸ölabel
+	//å‰©ä½™èµ„æºRGB 3ä¸ªblock 3ä¸ªlabel
 
 	rm = ResourceManager::getInstance();
 
@@ -513,7 +513,7 @@ void LayerUI::showColorPadAsUpgrading( bool visible )
 		Size visibleSize = Director::getInstance()->getVisibleSize();
 		Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-		//ÏÔÊ¾µ÷É«°å
+		//æ˜¾ç¤ºè°ƒè‰²æ¿
 		auto colorpad = ColorPad::create();
 		this->addChild(colorpad,colorpad_z_order,colorpad_tag);
 		colorpad->initResource( ((CannonPrebuilt*)(getChildByTag(prebuilt_tag)))->colorInfo );
@@ -523,7 +523,7 @@ void LayerUI::showColorPadAsUpgrading( bool visible )
 
 
 
-		//ÏÔÊ¾Íê³É°´Å¥
+		//æ˜¾ç¤ºå®ŒæˆæŒ‰é’®
 		MenuItemImage* finishItem = MenuItemImage::create("UI/Button_Upgrade.png","UI/Button_Upgrade.png",CC_CALLBACK_1(LayerUI::itemUpgradeCallback,this));
 		MenuItemImage* keepItem = MenuItemImage::create("UI/Button_CancelUpgrading.png","UI/Button_CancelUpgrading.png",CC_CALLBACK_1(LayerUI::itemCancelUpgradingCallback,this));
 		MenuItemImage* cancelItem = MenuItemImage::create("UI/Button_Destroy.png","UI/Button_Destroy.png",CC_CALLBACK_1(LayerUI::itemDestroyCallback,this));
@@ -545,7 +545,7 @@ void LayerUI::showColorPadAsUpgrading( bool visible )
 		buttonsMoveTogether(finishItem,keepItem,true);
 
 
-		//ÏÔÊ¾Ñ¡ÔñcannonÖÖÀàµÄ½çÃæ ÊµÎªÕÚµ²
+		//æ˜¾ç¤ºé€‰æ‹©cannonç§ç±»çš„ç•Œé¢ å®ä¸ºé®æŒ¡
 		Sprite* csh =  Sprite::create("BG.png");
 		addChild(csh,cannonSampleHolder_z_order , cannonSampleHolder_tag);
 		csh->setTextureRect(Rect(0,0,visibleSize.width, Y_mainPanelCenter*2));
@@ -714,7 +714,7 @@ void LayerUI::itemChangeExtraStateCallback( cocos2d::Ref* pSender )
 
 
 	_eventDispatcher->dispatchCustomEvent("CHANGE_EXTRA_STATE");
-	//·¢ËÍÊÂ¼ş ¸Ä±äcannonSelectedµÄ×´Ì¬
+	//å‘é€äº‹ä»¶ æ”¹å˜cannonSelectedçš„çŠ¶æ€
 
 }
 

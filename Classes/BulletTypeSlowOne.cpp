@@ -1,4 +1,4 @@
-#include "BulletTypeSlowOne.h"
+ï»¿#include "BulletTypeSlowOne.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
 #include "BuffTypeSlow.h"
@@ -55,7 +55,7 @@ void BulletTypeSlowOne::setTarget( Enemy* enemy )
 	_target = enemy;
 
 
-	//Á£×ÓÏµÍ³ ÌØĞ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	emitter = ParticleSystemQuad::create("effects/Particle_Slow.plist");
 	emitter->setPosition(getContentSize().width/2,getContentSize().height/2);
 	(getParent())->addChild(emitter);

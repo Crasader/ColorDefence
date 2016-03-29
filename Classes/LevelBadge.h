@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "LevelGradingStar.h"
@@ -7,10 +7,10 @@ class LevelBadge : public cocos2d::Node
 {
 public:
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	CREATE_FUNC(LevelBadge);
 
 	void setLevel(int level);
@@ -30,7 +30,7 @@ private:
 	void toScenePlaying(cocos2d::Ref* pSender);
 
 
-	//µÚ¼¸¹ØµÄÊı×Ö
+	//ç¬¬å‡ å…³çš„æ•°å­—
 	unsigned _level;
 
 

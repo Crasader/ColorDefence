@@ -1,4 +1,4 @@
-#include "PanelEnsurePurchase.h"
+ï»¿#include "PanelEnsurePurchase.h"
 #include "SoundManager.h"
 
 USING_NS_CC;
@@ -31,7 +31,7 @@ bool PanelEnsurePurchase::init()
 
 
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(PanelEnsurePurchase::onTouchBegan,this);
 	touchListener->setSwallowTouches(true);
@@ -53,7 +53,7 @@ bool PanelEnsurePurchase::init()
 
 
 
-	//°´Å¥¼ÌÐøÓÎÏ·
+	//æŒ‰é’®ç»§ç»­æ¸¸æˆ
 	item_cancel = MenuItemImage::create("UI/UI_pre_OK__.png","UI/UI_pre_OK__.png",[&](Ref* pSender){
 
 		_eventDispatcher->dispatchCustomEvent("CANCEL_PURCHASE");

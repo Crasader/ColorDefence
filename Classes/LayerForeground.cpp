@@ -1,4 +1,4 @@
-#include "LayerForeground.h"
+ï»¿#include "LayerForeground.h"
 #include "MapPointsManager.h"
 #include "LevelManager.h"
 #include "PathEnd.h"
@@ -36,7 +36,7 @@ bool LayerForeground::init()
 	cannonManager = CannonManager::getInstance();
 	numericalManager = NumericalManager::getInstance();
 
-	//¶Ô´¥ÃşÊÂ¼şµÄ¼àÌı
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(LayerForeground::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(LayerForeground::onTouchMoved,this);
@@ -46,7 +46,7 @@ bool LayerForeground::init()
 
 
 
-	//¼àÌı¡°È¡Ïû½¨Ôì¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå–æ¶ˆå»ºé€ â€çš„äº‹ä»¶
 	auto listenerStartBuilding = EventListenerCustom ::create("CANCEL_BUILDING",[&](cocos2d::Ref*)
 	{
 		cannonBaseSelected->offSelected();
@@ -60,7 +60,7 @@ bool LayerForeground::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerStartBuilding,this);
 
 
-	//¼àÌı¡°Íê³É½¨Ôì¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå®Œæˆå»ºé€ â€çš„äº‹ä»¶
 	auto listenerFinishBuilding = EventListenerCustom ::create("FINISH_BUILDING",[&](cocos2d::Ref*){
 		
 		//cannonBaseSelected->removeFromParent();
@@ -77,7 +77,7 @@ bool LayerForeground::init()
 
 
 
-	//¼àÌı¡°²ğµô¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæ‹†æ‰â€çš„äº‹ä»¶
 	auto listenerDestroy = EventListenerCustom ::create("DESTROY",[&](cocos2d::EventCustom* event)
 	{
 		
@@ -127,7 +127,7 @@ bool LayerForeground::init()
 
 
 
-	//¼àÌı¡°È¡ÏûÉı¼¶¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå–æ¶ˆå‡çº§â€çš„äº‹ä»¶
 	auto listenerCancelUpgrading = EventListenerCustom ::create("CANCEL_UPGRADING",[&](EventCustom* event){
 
 		CannonPrebuilt* cpb = ((CannonPrebuilt*)(event->getUserData()));
@@ -164,7 +164,7 @@ bool LayerForeground::init()
 
 
 
-	//¼àÌı¡°¿ªÆô»ò¹Ø±Õ×Ô¶¯²¹³ä¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå¼€å¯æˆ–å…³é—­è‡ªåŠ¨è¡¥å……â€çš„äº‹ä»¶
 	auto llistenerAutoSPL = EventListenerCustom ::create("CHANGE_EXTRA_STATE",[&](EventCustom* event){
 
 		if (cannonSelected->extraStateOn)
@@ -187,7 +187,7 @@ bool LayerForeground::init()
 
 
 
-	//¼àÌıËş¸´ÖÆ¡¢¹³×ÓµÈ
+	//ç›‘å¬å¡”å¤åˆ¶ã€é’©å­ç­‰
 	auto llistenerCannonDuplicate = EventListenerCustom ::create("CANNON_DUPLICATE",CC_CALLBACK_1(LayerForeground::respondForDuplicate, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(llistenerCannonDuplicate,this);
 	auto llistenerCannonHook = EventListenerCustom ::create("CANNON_HOOK",CC_CALLBACK_1(LayerForeground::respondForHook, this));
@@ -207,7 +207,7 @@ bool LayerForeground::init()
 
 	}
 
-	//»æÖÆÆğµã ÖÕµã Â·Ïß
+	//ç»˜åˆ¶èµ·ç‚¹ ç»ˆç‚¹ è·¯çº¿
 	PathEnd* wayIn = PathEnd::create();
 	addChild(wayIn);
 	wayIn->setPosition(MapPointsManager::getPointByIndex(levelManager->getEnemyPath().front()));
@@ -219,7 +219,7 @@ bool LayerForeground::init()
 	wayOut->setIODirection(false);
 	
 
-	//Â·Ïß
+	//è·¯çº¿
 	for (int i= 0 ; i< (int)levelManager->getEnemyPath().size() - 1  ; i++)
 	{
 		Path* path = Path::create();
@@ -326,7 +326,7 @@ void LayerForeground::onTouchEnded( cocos2d::Touch *touch, cocos2d::Event *unuse
 
 
 
-			//ÔÚ´Ëbase´¦Ôìcannon ·¢ËÍ START_BUILDING ÊÂ¼ş
+			//åœ¨æ­¤baseå¤„é€ cannon å‘é€ START_BUILDING äº‹ä»¶
 
 
 			for (int i = 0; i<3;i++)
@@ -399,7 +399,7 @@ void LayerForeground::onTouchCancelled( cocos2d::Touch *touch, cocos2d::Event *u
 bool LayerForeground::isPointEmpty(cocos2d::Point point)
 {
 
-	//ÊÇ·ñÓĞËş»ù
+	//æ˜¯å¦æœ‰å¡”åŸº
 	for (CannonBase* cb:cannonBases)
 	{
 		if (point == cb->getPosition())
@@ -408,7 +408,7 @@ bool LayerForeground::isPointEmpty(cocos2d::Point point)
 		}
 	}
 
-	//ÊÇ·ñÓĞËş
+	//æ˜¯å¦æœ‰å¡”
 	for (Cannon* c:cannonManager->cannons)
 	{
 		if (point == c->getPosition())
@@ -418,7 +418,7 @@ bool LayerForeground::isPointEmpty(cocos2d::Point point)
 	}
 
 
-	//ÊÇ·ñÓëpathÏà½»
+	//æ˜¯å¦ä¸pathç›¸äº¤
 	for (Path* path : paths)
 	{
 		if (path->pathPassingPoint(point))
@@ -497,19 +497,19 @@ void LayerForeground::respondForHook( cocos2d::EventCustom* event )
 	Point pc = cannon->getPosition();
 	Point pe = enemy->getPosition();
 
-	//ÊÇ·ñ´æÔÚ½»µã
+	//æ˜¯å¦å­˜åœ¨äº¤ç‚¹
 	bool catching = false;
 	
-	//½»µã
+	//äº¤ç‚¹
 	Point pos = Point(0,0);
 	
-	//µĞÈËµ½½»µãÖ®¼äµÄ¾àÀë
+	//æ•Œäººåˆ°äº¤ç‚¹ä¹‹é—´çš„è·ç¦»
 	float dis = 0;
 
-	//µĞÈËµ½´ï½»µãºóµÄÄ¿±êµã
+	//æ•Œäººåˆ°è¾¾äº¤ç‚¹åçš„ç›®æ ‡ç‚¹
 	int destinationID = 0;
 
-	//ÅĞ¶Ï¹³×Ó¹ì¼£ÊÇ·ñÓëpathÏà½»
+	//åˆ¤æ–­é’©å­è½¨è¿¹æ˜¯å¦ä¸pathç›¸äº¤
 	for (int i =0 ; i<paths.size() ; i++)
 	{
 
@@ -517,7 +517,7 @@ void LayerForeground::respondForHook( cocos2d::EventCustom* event )
 		{
 			if (catching)
 			{
-				//Èç¹ûĞÂµÄ½»µãµ½µĞÈË¾àÀë¸üÔ¶ Ôò¸²¸ÇµôÔ­À´µÄ½»µã
+				//å¦‚æœæ–°çš„äº¤ç‚¹åˆ°æ•Œäººè·ç¦»æ›´è¿œ åˆ™è¦†ç›–æ‰åŸæ¥çš„äº¤ç‚¹
 				if ( (paths.at(i)->intersectingPoint(pc, pe)).getDistance(pe) > dis)
 				{
 					pos = paths.at(i)->intersectingPoint(pc, pe);

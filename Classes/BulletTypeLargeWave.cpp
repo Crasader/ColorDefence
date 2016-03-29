@@ -1,4 +1,4 @@
-#include "BulletTypeLargeWave.h"
+ï»¿#include "BulletTypeLargeWave.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
 
@@ -44,7 +44,7 @@ void BulletTypeLargeWave::setTarget( Enemy* enemy )
 
 	});
 
-	//Á£×ÓÏµÍ³ ÌØĞ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	emitter = ParticleSystemQuad::create("effects/Particle_LargeWave.plist");
 	emitter->setPosition(getContentSize().width/2,getContentSize().height/2);
 	(getParent())->addChild(emitter);

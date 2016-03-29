@@ -1,4 +1,4 @@
-#include "EnemyManager.h"
+ï»¿#include "EnemyManager.h"
 #include "json/rapidjson.h"  
 #include "json/document.h"
 #include "ParticleEmitterManager.h"
@@ -76,7 +76,7 @@ void EnemyManager::reset()
 
 
 
-	//Éú³Éenemy´æÈë left
+	//ç”Ÿæˆenemyå­˜å…¥ left
 	for (int i=levelManager->getEnemyType().size()-1; i>=0; i-=2 )
 	{
 
@@ -132,16 +132,16 @@ void EnemyManager::initEnemyInfo()
 
 	String filename = "json/ENEMY/info.json";
 	rapidjson::Document doc;
-	//ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ  
+	//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
 	if (!FileUtils::getInstance()->isFileExist(filename.getCString()))
 	{
 		//log("json file is not find [%s]", filename);
 		return ;
 	}
-	//¶ÁÈ¡ÎÄ¼şÊı¾İ£¬³õÊ¼»¯doc  
+	//è¯»å–æ–‡ä»¶æ•°æ®ï¼Œåˆå§‹åŒ–doc  
 	std::string data = FileUtils::getInstance()->getStringFromFile(filename.getCString());
 	doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
-	//ÅĞ¶Ï¶ÁÈ¡³É¹¦Óë·ñ ºÍ ÊÇ·ñÎªÊı×éÀàĞÍ  
+	//åˆ¤æ–­è¯»å–æˆåŠŸä¸å¦ å’Œ æ˜¯å¦ä¸ºæ•°ç»„ç±»å‹  
 	if (doc.HasParseError() || !doc.IsArray())
 	{
 		//log("get json data err!");
@@ -149,10 +149,10 @@ void EnemyManager::initEnemyInfo()
 	}
 	for (unsigned int i = 1; i<doc.Size(); i++)
 	{
-		//Öğ¸öÌáÈ¡Êı×éÔªËØ£¨ÉùÃ÷µÄ±äÁ¿±ØĞëÎªÒıÓÃ£©  
+		//é€ä¸ªæå–æ•°ç»„å…ƒç´ ï¼ˆå£°æ˜çš„å˜é‡å¿…é¡»ä¸ºå¼•ç”¨ï¼‰  
 		rapidjson::Value &v = doc[i];
    
-		//°´ÏÂ±êÌáÈ¡  
+		//æŒ‰ä¸‹æ ‡æå–  
 		int a = 0;
 
 		int lv = v[a++].GetInt();

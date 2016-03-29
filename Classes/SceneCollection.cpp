@@ -1,4 +1,4 @@
-#include "SceneCollection.h"
+ï»¿#include "SceneCollection.h"
 #include "SceneLevels.h"
 #include "CannonManager.h"
 #include "DescriptionCard.h"
@@ -59,7 +59,7 @@ bool SceneCollection::init()
 	updateOpacity();
 
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(SceneCollection::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(SceneCollection::onTouchMoved,this);
@@ -74,13 +74,13 @@ bool SceneCollection::init()
 
 /*
 	
-	//Ò»¸ö±ê¼Ç
+	//ä¸€ä¸ªæ ‡è®°
 	Sprite* sp = Sprite::create("UI/UI_col_total.png");
 	addChild(sp);
 	sp->setPosition(Vec2(visibleSize.width - sp->getContentSize().width/2 ,visibleSize.height* 0.6));
 
 
-	//Ò»¸ölabel
+	//ä¸€ä¸ªlabel
 	LabelTTF* label = LabelTTF::create(String::createWithFormat("%d",_totalNumberOfCannons)->_string,"Arial",40);
 	addChild(label);
 	label->setPosition(Vec2(sp->getPositionX(),visibleSize.height* 0.5));
@@ -88,7 +88,7 @@ bool SceneCollection::init()
 
 
 
-	//¼ò½éµÄ½çÃæ
+	//ç®€ä»‹çš„ç•Œé¢
 	dc = DescriptionCard::create();
 	addChild(dc);
 	dc->setPosition(visibleSize.width/2,950);
@@ -107,7 +107,7 @@ bool SceneCollection::init()
 	addChild(cover);
 	cover->setPosition(visibleSize/2);
 
-	//Ò»¸ö°´Å¥
+	//ä¸€ä¸ªæŒ‰é’®
 	auto item_quit = MenuItemImage::create("UI/UI_col_quit.png","UI/UI_col_quit.png",[&](Ref* pSender){
 
 		SoundManager::getInstance()->playGeneralClickSound();

@@ -1,4 +1,4 @@
-#include "Enemy.h"
+ï»¿#include "Enemy.h"
 #include "ActionShake.h"
 #include "ParticleEmitterManager.h"
 #include "ResourceManager.h"
@@ -258,7 +258,7 @@ void Enemy::onDeath()
 void Enemy::setMoveDirection( cocos2d::Vec2 direction )
 {
 
-	//ÐÐ×ßÊ± ÐèÒªµ÷ÕûÃæÏòµÄ·½Ïò
+	//è¡Œèµ°æ—¶ éœ€è¦è°ƒæ•´é¢å‘çš„æ–¹å‘
 	_moveDirection = direction;
 	_moveDirection.normalize();
 	_appearance->setRotation(CC_RADIANS_TO_DEGREES(atan2(_moveDirection.y, - _moveDirection.x)) + 90);
@@ -339,7 +339,7 @@ bool Enemy::isMoving()
 
 void Enemy::setInactive()
 {
-	//Çå³ýbuff
+	//æ¸…é™¤buff
 	//new
 	for (Buff* b : _buffs)
 	{

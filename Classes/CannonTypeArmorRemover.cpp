@@ -1,4 +1,4 @@
-#include "CannonTypeArmorRemover.h"
+﻿#include "CannonTypeArmorRemover.h"
 #include "BulletTypeArmorRemover.h"
 #include "NumericalManager.h"
 

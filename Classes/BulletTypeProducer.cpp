@@ -1,4 +1,4 @@
-#include "BulletTypeProducer.h"
+ï»¿#include "BulletTypeProducer.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
 
@@ -32,7 +32,7 @@ void BulletTypeProducer::explode()
 	setVisible(false);
 	
 
-	//Á£×ÓÏµÍ³ ÌØĞ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	emitter = ParticleSystemQuad::create("effects/Particle_Producer.plist");
 	emitter->setPosition(getContentSize().width/2,getContentSize().height/2);
 	(getParent())->addChild(emitter);

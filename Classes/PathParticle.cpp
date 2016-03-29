@@ -1,4 +1,4 @@
-#include "PathParticle.h"
+ï»¿#include "PathParticle.h"
 #include "LevelManager.h"
 #include "MapPointsManager.h"
 
@@ -76,7 +76,7 @@ void PathParticle::update( float delta )
 			_currentDestination++;
 
 		}
-		else //enemyµ½´ïÖÕµã
+		else //enemyåˆ°è¾¾ç»ˆç‚¹
 		{
 
 			reset();

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "CannonBase.h"
@@ -16,7 +16,7 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(LayerForeground);
 
-	//¹ØÓÚ´¥ÃşÊÂ¼ş
+	//å…³äºè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);
@@ -24,15 +24,15 @@ public:
 
 private:
 
-	//Ç°¾°²ãÉÏËùÓĞµÄpath
+	//å‰æ™¯å±‚ä¸Šæ‰€æœ‰çš„path
 	cocos2d::Vector<Path*> paths;
 
-	//Ç°¾°²ãÉÏËùÓĞµÄcannonBase¼¯ºÏ
+	//å‰æ™¯å±‚ä¸Šæ‰€æœ‰çš„cannonBaseé›†åˆ
 	cocos2d::Vector<CannonBase*> cannonBases;
 	
-	//µ±Ç°Ñ¡ÖĞµÄcannonbase
+	//å½“å‰é€‰ä¸­çš„cannonbase
 	CannonBase* cannonBaseSelected;
-	//µ±Ç°Ñ¡ÖĞµÄcannon
+	//å½“å‰é€‰ä¸­çš„cannon
 	Cannon* cannonSelected;
 
 	CannonManager* cannonManager;
@@ -40,7 +40,7 @@ private:
 	NumericalManager* numericalManager;
 
 
-	//ÓĞ¹ØËşµÄÏàÓ¦ÊÂ¼ş
+	//æœ‰å…³å¡”çš„ç›¸åº”äº‹ä»¶
 	void respondForDuplicate(cocos2d::EventCustom* event);
 	void respondForHook(cocos2d::EventCustom* event);
 

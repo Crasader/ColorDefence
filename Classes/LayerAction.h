@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "Cannon.h"
@@ -18,10 +18,10 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(LayerAction);
 
-	//×Ü¹²10´Î»ú»á
+	//æ€»å…±10æ¬¡æœºä¼š
 	int chancesLeft;
 
-	//µ±Ç°µÚ¼¸²¨
+	//å½“å‰ç¬¬å‡ æ³¢
 	int currentWave;
 
 
@@ -32,7 +32,7 @@ private:
 
 	void setGameActioning(bool actioning);
 
-	//¼ÆÊ±µü´úÆ÷
+	//è®¡æ—¶è¿­ä»£å™¨
 	int _iterator; 
 
 	EnemyManager* enemyManager;
@@ -41,7 +41,7 @@ private:
 
 	LevelManager* levelManager;
 
-	//Íê³É½¨Ôì
+	//å®Œæˆå»ºé€ 
 	void finishBuilding(cocos2d::EventCustom* event);
 
 	void startActioning(cocos2d::EventCustom* event);

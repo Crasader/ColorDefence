@@ -1,4 +1,4 @@
-#include "BulletTypeConsumer.h"
+ï»¿#include "BulletTypeConsumer.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 #include "ParticleEmitterManager.h"
@@ -48,7 +48,7 @@ void BulletTypeConsumer::explode()
 		}
 	}
 
-	//¶¯»­
+	//åŠ¨ç”»
 	ParticleSystem* explode = ParticleSystemQuad::create("effects/Particle_Consumer_explode.plist");
 	(getParent())->addChild(explode,10086);
 	explode->setPosition(getPosition());

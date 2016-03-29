@@ -1,24 +1,24 @@
-/*
+ï»¿/*
 
-//´´½¨ÄÜÁ¿Ìõ
+//åˆ›å»ºèƒ½é‡æ¡
 auto *hpSprite = Sprite::create("UI/box_bg.png");
 energyBar = ProgressTimer::create(hpSprite);
 energyBar->setType(ProgressTimer::Type::BAR);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-//´Ó×óµ½ÓÒ
+//ä»Žå·¦åˆ°å³
 //progressTimer->setMidpoint(ccp(0, 0.5));
 //progressTimer->setBarChangeRate(ccp(1, 0));
 
-//´ÓÓÒµ½×ó
+//ä»Žå³åˆ°å·¦
 //    progressTimer->setMidpoint(ccp(1, 0.5));
 //    progressTimer->setBarChangeRate(ccp(1, 0));
 
-//´ÓÉÏµ½ÏÂ
+//ä»Žä¸Šåˆ°ä¸‹
 //    progressTimer->setMidpoint(ccp(0.5, 1));
 //    progressTimer->setBarChangeRate(ccp(0, 1));
 
-//´ÓÏÂµ½ÉÏ
+//ä»Žä¸‹åˆ°ä¸Š
 //    progressTimer->setMidpoint(ccp(0.5, 0));
 //    progressTimer->setBarChangeRate(ccp(0, 1));
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@ energyBar->setType(ProgressTimer::Type::BAR);
 energyBar->setMidpoint(Vec2(0, 0.5));
 energyBar->setBarChangeRate(Vec2(1, 0));
 
-energyBar->setPercentage(100);//ÂúÖµ 100%
+energyBar->setPercentage(100);//æ»¡å€¼ 100%
 
 
 energyBar->setAnchorPoint(Vec2(0,1));
@@ -77,7 +77,7 @@ bool HitPointBar::init()
 	_hpBar->setMidpoint(Vec2(0, 0.5));
 	_hpBar->setBarChangeRate(Vec2(1, 0));
 
-	_hpBar->setPercentage(100);//ÂúÖµ 100%
+	_hpBar->setPercentage(100);//æ»¡å€¼ 100%
 
 
 	addChild(_hpBar);

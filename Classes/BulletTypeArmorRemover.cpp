@@ -1,4 +1,4 @@
-#include "BulletTypeArmorRemover.h"
+ï»¿#include "BulletTypeArmorRemover.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 #include "BuffTypeBroken.h"
@@ -66,7 +66,7 @@ void BulletTypeArmorRemover::explode()
 
 
 
-	//¶¯»­
+	//åŠ¨ç”»
 	setTexture("effects/Bullet_ArmorRemover.png");
 	float ratio = 2*_damageRadius / getContentSize().height;
 	setScale(ratio);

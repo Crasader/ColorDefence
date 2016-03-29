@@ -1,4 +1,4 @@
-#include "LevelGradingStar.h"
+﻿#include "LevelGradingStar.h"
 
 USING_NS_CC;
 

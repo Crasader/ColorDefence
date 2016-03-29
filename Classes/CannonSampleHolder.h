@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -29,20 +29,20 @@ private:
 
 	int totalAmount;
 
-	//ÈİÆ÷
+	//å®¹å™¨
 	cocos2d::Vector<cocos2d::Sprite*> _cannonSamples;
 
-	//µ±Ç°µÄ½ø¶È ÊÇµÚxÒ³
+	//å½“å‰çš„è¿›åº¦ æ˜¯ç¬¬xé¡µ
 	unsigned _cannonSampleIndex;
 
 
-	//¹ØÓÚ´¥ÃşÊÂ¼ş
+	//å…³äºè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused);
 
-	//´¥ÃşÆğÊ¼µãµÄx×ø±ê
+	//è§¦æ‘¸èµ·å§‹ç‚¹çš„xåæ ‡
 	float touchStartingPointX;
 	float touchStartingPointY;
 

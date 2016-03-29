@@ -1,4 +1,4 @@
-#include "TutorialPage.h"
+ï»¿#include "TutorialPage.h"
 #include "MapPointsManager.h"
 #include "LevelManager.h"
 #include "ResourceManager.h"
@@ -48,7 +48,7 @@ bool TutorialPage::init(unsigned page)
 
 
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(TutorialPage::onTouchBegan,this);
 	touchListener->onTouchEnded=CC_CALLBACK_2(TutorialPage::onTouchEnded,this);
@@ -68,9 +68,9 @@ bool TutorialPage::init(unsigned page)
 
 
 
-		//ÕÚÕÖ ºÍ ²Ã¼ôµÄ¶´
+		//é®ç½© å’Œ è£å‰ªçš„æ´ž
 		_cover = CCLayerColor::create(ccc4(0, 0, 0, 200));
-		//²Ã¼ô
+		//è£å‰ª
 		m_clipping = ClippingNode::create();
 		addChild(m_clipping);
 		m_clipping->addChild(_cover,-1);
@@ -167,7 +167,7 @@ bool TutorialPage::init(unsigned page)
 
 
 
-	//×Ô¶¯²¥·ÅÏÂÒ»Ò³
+	//è‡ªåŠ¨æ’­æ”¾ä¸‹ä¸€é¡µ
 	if (page == 6)
 	{
 		auto act1 = DelayTime::create(7.5);
@@ -176,7 +176,7 @@ bool TutorialPage::init(unsigned page)
 	}
 
 
-	//»áÔÝÍ£ÓÎÏ·
+	//ä¼šæš‚åœæ¸¸æˆ
 	if ((page == 7)||(page == 12)||(page == 17)||(page == 22)||(page == 24))
 	{
 		_eventDispatcher->dispatchCustomEvent("PAUSE_ACTIONING");
@@ -184,14 +184,14 @@ bool TutorialPage::init(unsigned page)
 	}
 
 
-	//»á»Ö¸´ÓÎÏ·  ×Ô¶¯ÌøÏÂÒ»Ò³
+	//ä¼šæ¢å¤æ¸¸æˆ  è‡ªåŠ¨è·³ä¸‹ä¸€é¡µ
 	if ((page == 11)||(page == 16)||(page == 21)||(page == 23))
 	{
 		_eventDispatcher->dispatchCustomEvent("RESUME_ACTIONING");
 		GameStateManager::getInstance()->currentActioningState = true;
 
 
-		auto act1 = DelayTime::create(page == 23? 11.0:(page == 21? 8.0:7.6));
+		auto act1 = DelayTime::create(page == 23? 11.0:(page == 21? 9.0:7.6));
 		auto act2 = CallFunc::create([&](){	 _eventDispatcher->dispatchCustomEvent("TUT_AUTO_NEXT_PAGE");  });
 
 		runAction(Sequence::create(act1,act2,NULL));
@@ -200,7 +200,7 @@ bool TutorialPage::init(unsigned page)
 	}
 
 
-	//»á·Å³¬¼¶ÎäÆ÷
+	//ä¼šæ”¾è¶…çº§æ­¦å™¨
 	if (page == 25)
 	{
 		_eventDispatcher->dispatchCustomEvent("RESUME_ACTIONING");

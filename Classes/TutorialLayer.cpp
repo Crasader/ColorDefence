@@ -1,4 +1,4 @@
-#include "TutorialLayer.h"
+ï»¿#include "TutorialLayer.h"
 #include "MapPointsManager.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
@@ -29,7 +29,7 @@ bool TutorialLayer::init()
 	_currentPageNumber = 1;
 
 
-	//½Ì³ÌÒ³ÃæµÄÄÚÈİ
+	//æ•™ç¨‹é¡µé¢çš„å†…å®¹
 	_content = Sprite::create();
 	_content->setTexture("BLANK.png");
 	_content->setTextureRect(Rect(0,0,visibleSize.width,visibleSize.height));
@@ -37,7 +37,7 @@ bool TutorialLayer::init()
 	_content->setPosition(origin + visibleSize/2);
 
 	
-	//¼àÌı¡°ÓÎÏ·½áÊø¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæ¸¸æˆç»“æŸâ€çš„äº‹ä»¶
 	auto listenerGameOverWin = EventListenerCustom ::create("GAME_OVER_WIN",[&](EventCustom* event){
 		removeFromParent();
 	});
@@ -48,7 +48,7 @@ bool TutorialLayer::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerGameOverLose,this);
 
 
-	//¼àÌı¡°¿ªÊ¼½¨Ôì¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå¼€å§‹å»ºé€ â€çš„äº‹ä»¶
 	auto listenerStartBuilding = EventListenerCustom ::create("START_BUILDING",[&](EventCustom* event){
 
 			showNextPage();
@@ -57,7 +57,7 @@ bool TutorialLayer::init()
 
 
 
-	//¼àÌı¡°¿ªÊ¼Éı¼¶¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå¼€å§‹å‡çº§â€çš„äº‹ä»¶
 	auto listenerStartUpgrading = EventListenerCustom ::create("START_UPGRADING",[&](EventCustom* event){
 
 			showNextPage();
@@ -67,7 +67,7 @@ bool TutorialLayer::init()
 
 
 
-	//¼àÌı¡°½¨ÔìÍê³É¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå»ºé€ å®Œæˆâ€çš„äº‹ä»¶
 	auto listenerFinishBuilding = EventListenerCustom ::create("FINISH_BUILDING",[&](EventCustom* event){
 		showNextPage();
 
@@ -75,7 +75,7 @@ bool TutorialLayer::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerFinishBuilding,this);
 
 
-	//¼àÌı¡°Éı¼¶Íê³É¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå‡çº§å®Œæˆâ€çš„äº‹ä»¶
 	auto listenerFinishUpgrading = EventListenerCustom ::create("UPGRADE",[&](EventCustom* event){
 
 			showNextPage();
@@ -84,7 +84,7 @@ bool TutorialLayer::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerFinishUpgrading,this);
 
 
-	//¼àÌı¡°¿ªÊ¼ÊÍ·ÅµĞÈË¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå¼€å§‹é‡Šæ”¾æ•Œäººâ€çš„äº‹ä»¶
 	auto listenerReady = EventListenerCustom ::create("RELEASE_ENEMIES",[&](EventCustom* event){
 		showNextPage();
 
@@ -93,7 +93,7 @@ bool TutorialLayer::init()
 
 
 
-	//¼àÌı¡°×ÊÔ´Ê¹ÓÃÁ¿µ÷Õû¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œèµ„æºä½¿ç”¨é‡è°ƒæ•´â€çš„äº‹ä»¶
 	auto listenerAdjustResourceUsage = EventListenerCustom ::create("TUT_COLOR_CHANGED",[&](EventCustom* event){
 		showNextPage();
 
@@ -102,7 +102,7 @@ bool TutorialLayer::init()
 
 
 
-	//¼àÌı¡°ËşÖÖÀàµ÷Õû¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œå¡”ç§ç±»è°ƒæ•´â€çš„äº‹ä»¶
 	auto listenerChangeCannonType = EventListenerCustom ::create("CHANGE_TYPE",[&](EventCustom* event){
 		
 		unsigned* u = static_cast<unsigned*>(event->getUserData());
@@ -117,7 +117,7 @@ bool TutorialLayer::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerChangeCannonType,this);
 
 
-	//¼àÌı ×Ô¶¯²¥·ÅÏÂÒ»Ò³
+	//ç›‘å¬ è‡ªåŠ¨æ’­æ”¾ä¸‹ä¸€é¡µ
 	auto listenerAutoNextPage = EventListenerCustom ::create("TUT_AUTO_NEXT_PAGE",[&](EventCustom* event){
 
 		_currentPageNumber ++ ;
@@ -127,7 +127,7 @@ bool TutorialLayer::init()
 
 
 
-	//¼àÌı¡°³¬ÄÜÁ¦¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œè¶…èƒ½åŠ›â€çš„äº‹ä»¶
 	auto listenerSuperPower = EventListenerCustom ::create("SUPER_POWER",[&](EventCustom* event){
 		
 
@@ -141,7 +141,7 @@ bool TutorialLayer::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerSuperPower,this);
 
 
-	//¼àÌı¡°¼ıÍ··½Ïò¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œç®­å¤´æ–¹å‘â€çš„äº‹ä»¶
 	auto listenerArrowDirection = EventListenerCustom ::create("TUT_ARROW_DIRECTION",[&](EventCustom* event){
 
 
@@ -161,7 +161,7 @@ bool TutorialLayer::init()
 
 
 
-	//Á½¸ö°´Å¥
+	//ä¸¤ä¸ªæŒ‰é’®
 	item_next = MenuItemImage::create("UI/UI_Tut_next.png","UI/UI_Tut_next.png",[&](Ref* pSender){
 	
 		SoundManager::getInstance()->playGeneralClickSound();
@@ -208,7 +208,7 @@ bool TutorialLayer::init()
 
 	});
 
-	//²Ëµ¥
+	//èœå•
 	auto menu = Menu::create(item_end,item_next,item_end_pre,NULL);
 	addChild(menu);
 	menu->setPosition(Vec2(0,0));
@@ -219,7 +219,7 @@ bool TutorialLayer::init()
 
 
 
-	//Ò»¸ö¼ıÍ·
+	//ä¸€ä¸ªç®­å¤´
 	_arrow = Node::create();
 	Sprite* _arrowMoving = Sprite::create("UI/UI_Tut_arrow.png");
 	addChild(_arrow,10086);

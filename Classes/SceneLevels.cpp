@@ -1,4 +1,4 @@
-#include "SceneLevels.h"
+ï»¿#include "SceneLevels.h"
 #include "ScenePlaying.h"
 #include "LevelManager.h"
 #include "SceneCollection.h"
@@ -46,7 +46,7 @@ bool SceneLevels::init()
 
 
 	
-	//¶ÁÈ¡ Íæµ½µÚ¼¸¹ØµÄĞÅÏ¢ 1±íÊ¾µÚ1¹Ø ÒÔ´ËÀàÍÆ
+	//è¯»å– ç©åˆ°ç¬¬å‡ å…³çš„ä¿¡æ¯ 1è¡¨ç¤ºç¬¬1å…³ ä»¥æ­¤ç±»æ¨
 	int levelRecord;
 	levelRecord = UserDefault::getInstance()->getIntegerForKey("level_record",0);
 	if (levelRecord==0)
@@ -63,13 +63,13 @@ bool SceneLevels::init()
 
 
 
-	//¼àÌı¡°ÏûÒş¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæ¶ˆéšâ€çš„äº‹ä»¶
 	auto listenerSceneFade = EventListenerCustom ::create("SCENE_FADE",CC_CALLBACK_1(SceneLevels::sceneFade, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerSceneFade,this);
 
 
 
-	//Á½¸ö°´Å¥
+	//ä¸¤ä¸ªæŒ‰é’®
 	auto item_tutorial = MenuItemImage::create("UI/UI_lvs_tutorial.png","UI/UI_lvs_tutorial.png",[&](Ref* pSender){
 
 		LevelManager::getInstance()->setCurrentLevel(0);
@@ -96,7 +96,7 @@ bool SceneLevels::init()
 
 
 	
-	//ÉÌµê ÊÇ·ñ½âËø
+	//å•†åº— æ˜¯å¦è§£é”
 	if (UserDefault::getInstance()->getBoolForKey("cannon_store_unlocked",false))
 	{
 		auto item_store = MenuItemImage::create("UI/UI_lvs_store.png","UI/UI_lvs_store.png",[&](Ref* pSender){
@@ -115,7 +115,7 @@ bool SceneLevels::init()
 
 
 
-	//ÏÔÊ¾ÏÂÒ»Ò³µÄ°´Å¥
+	//æ˜¾ç¤ºä¸‹ä¸€é¡µçš„æŒ‰é’®
 	auto item_nextPage = MenuItemImage::create("UI/UI_lvs_nextPage.png","UI/UI_lvs_nextPage.png",[&](Ref* pSender){
 
 		_pageNumber ++;
@@ -128,7 +128,7 @@ bool SceneLevels::init()
 	menuL->setPosition(Vec2(visibleSize.width - item_nextPage->getContentSize().width/2,visibleSize.height - item_nextPage->getContentSize().height/2 ));
 
 
-	//ÊÇ·ñÔÚµ±Ç°Ò³ÏÔÊ¾ÉÏÒ»Ò³µÄ°´Å¥
+	//æ˜¯å¦åœ¨å½“å‰é¡µæ˜¾ç¤ºä¸Šä¸€é¡µçš„æŒ‰é’®
 	auto item_lastPage = MenuItemImage::create("UI/UI_lvs_lastPage.png","UI/UI_lvs_lastPage.png",[&](Ref* pSender){
 
 		if (_pageNumber>1)
@@ -154,7 +154,7 @@ bool SceneLevels::init()
 
 
 
-	//¶Ô´¥ÃşÊÂ¼şµÄ¼àÌı
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(SceneLevels::onTouchBegan,this);
 	touchListener->onTouchMoved=CC_CALLBACK_2(SceneLevels::onTouchMoved,this);
@@ -258,7 +258,7 @@ void SceneLevels::setPage( int pageNumber , bool withAnimation)
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 
-	//Ñ¡¹Ø²Ëµ¥
+	//é€‰å…³èœå•
 	std::vector<unsigned> v_stars = LevelManager::getInstance()->gradingOfLevels;
 	for (int i = 0; i<= thisPageLast - thisPageFirst; i++)
 	{
@@ -276,7 +276,7 @@ void SceneLevels::setPage( int pageNumber , bool withAnimation)
 		}
 		else if (thisPageFirst + i==levelRecord)
 		{
-			//×ª¶¯
+			//è½¬åŠ¨
 			levelBadge->setState(1);
 
 		}
@@ -309,7 +309,7 @@ void SceneLevels::setPage( int pageNumber , bool withAnimation)
 
 
 
-	//ÊÇ·ñÔÚµ±Ç°Ò³ÏÔÊ¾ÏÂÒ»Ò³µÄ°´Å¥
+	//æ˜¯å¦åœ¨å½“å‰é¡µæ˜¾ç¤ºä¸‹ä¸€é¡µçš„æŒ‰é’®
 	if (_pageNumber != ((levelRecord>totalLevels?totalLevels:levelRecord)-1)/30 + 1)
 	{
 		getChildByTag(nextPage_item_Tag)->setVisible(true);
@@ -319,7 +319,7 @@ void SceneLevels::setPage( int pageNumber , bool withAnimation)
 		getChildByTag(nextPage_item_Tag)->setVisible(false);
 	}
 
-	//ÊÇ·ñÔÚµ±Ç°Ò³ÏÔÊ¾ÉÏÒ»Ò³µÄ°´Å¥
+	//æ˜¯å¦åœ¨å½“å‰é¡µæ˜¾ç¤ºä¸Šä¸€é¡µçš„æŒ‰é’®
 	if (pageNumber!=1)
 	{
 		getChildByTag(lastPage_item_Tag)->setVisible(true);

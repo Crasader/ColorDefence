@@ -1,4 +1,4 @@
-#include "CannonTypeSpreadOnBoss.h"
+﻿#include "CannonTypeSpreadOnBoss.h"
 #include "BulletTypeSpreadOnBoss.h"
 #include "NumericalManager.h"
 

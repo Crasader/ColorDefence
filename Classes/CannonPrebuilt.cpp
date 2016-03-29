@@ -1,4 +1,4 @@
-#include "CannonPrebuilt.h"
+ï»¿#include "CannonPrebuilt.h"
 #include "ResourceManager.h"
 #include "LevelManager.h"
 
@@ -29,14 +29,14 @@ bool CannonPrebuilt::init()
 	//this->addChild(draw);
 
 
-	//¼àÌýÖÖÀà±ä»¯
+	//ç›‘å¬ç§ç±»å˜åŒ–
 	auto listenerChangeType = EventListenerCustom ::create("CHANGE_TYPE",CC_CALLBACK_1(CannonPrebuilt::UpdateType, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerChangeType,this);
-	//¼àÌý¡°ÑÕÉ«µ÷ÕûÍê±Ï¡±µÄÊÂ¼þ
+	//ç›‘å¬â€œé¢œè‰²è°ƒæ•´å®Œæ¯•â€çš„äº‹ä»¶
 	auto listenerChangeColor = EventListenerCustom ::create("CHANGE_COLOR",CC_CALLBACK_1(CannonPrebuilt::UpdateColorInfo, this));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerChangeColor,this);
 
-	//¼àÌý ±ä¸üextraState
+	//ç›‘å¬ å˜æ›´extraState
 	auto listenerChangeExtraState = EventListenerCustom ::create("CHANGE_EXTRA_STATE",[&](EventCustom* event){
 		_extraState = !_extraState;
 		updateAppearance();
@@ -51,7 +51,7 @@ bool CannonPrebuilt::init()
 	rotatorOnPrebuilt->setPosition(Point(getContentSize().width/2 , getContentSize().height/2));
 
 
-	//³õÊ¼×´Ì¬
+	//åˆå§‹çŠ¶æ€
 	Color3B c3b = Color3B(
 		numericalManager->getColorByResource(ResourceManager::getInstance()->resourceUsage[0]),
 		numericalManager->getColorByResource(ResourceManager::getInstance()->resourceUsage[1]),

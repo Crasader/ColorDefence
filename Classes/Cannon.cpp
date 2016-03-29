@@ -1,4 +1,4 @@
-#include "Cannon.h"
+ï»¿#include "Cannon.h"
 #include "Bullet.h"
 #include "NumericalManager.h"
 #include "GameStateManager.h"
@@ -118,12 +118,12 @@ void Cannon::update( float delta )
 		return;
 	}
 
-	//ÈôÕıÔÚ¹¥»÷
+	//è‹¥æ­£åœ¨æ”»å‡»
 	if (isAttacking)
 	{
 		
 
-		//Èô¹¥»÷¶ÔÏóËÀÁË»ò³¬³ö·¶Î§
+		//è‹¥æ”»å‡»å¯¹è±¡æ­»äº†æˆ–è¶…å‡ºèŒƒå›´
 		if ((!_target->isAlive())||(this->getPosition().getDistance(_target->getPosition())>attackRange)||(_target->isFloating))
 		{
 			isAttacking = false;
@@ -146,13 +146,13 @@ void Cannon::update( float delta )
 		
 
 	}
-	//Èô²»ÔÚ¹¥»÷
+	//è‹¥ä¸åœ¨æ”»å‡»
 	else
 	{
 
 
 
-		//Èç¹ûÓĞ½øÈë·¶Î§µÄ
+		//å¦‚æœæœ‰è¿›å…¥èŒƒå›´çš„
 		tryGetTarget();
 
 	}

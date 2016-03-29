@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -12,7 +12,7 @@ public:
 
 	static DamageContributionManager* getInstance();
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	void reset();  
 
 

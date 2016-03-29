@@ -1,4 +1,4 @@
-#include "LayerSetting.h"
+ï»¿#include "LayerSetting.h"
 #include "SceneLevels.h"
 #include "ScenePlaying.h"
 #include "SoundManager.h"
@@ -39,7 +39,7 @@ bool LayerSetting::init()
 
 
 
-	//¶Ô´¥ÃþÊÂ¼þµÄ¼àÌý
+	//å¯¹è§¦æ‘¸äº‹ä»¶çš„ç›‘å¬
 	auto touchListener=EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan=CC_CALLBACK_2(LayerSetting::onTouchBegan,this);
 	touchListener->setSwallowTouches(true);
@@ -48,13 +48,13 @@ bool LayerSetting::init()
 
 
 
-// 	//1¸ölabel ËÄ¸ö°´Å¥
+// 	//1ä¸ªlabel å››ä¸ªæŒ‰é’®
 // 
 // 	auto label = LabelTTF::create("MENU","Arial",40);
 // 	msgBox->addChild(label);
 // 	label->setPosition(Vec2(msgBox->getContentSize().width/2,0.6*msgBox->getContentSize().height));
 
-	//°´Å¥»ØÖ÷²Ëµ¥
+	//æŒ‰é’®å›žä¸»èœå•
 	item_menu = MenuItemImage::create("UI/msgBox_menu.png","UI/msgBox_menu.png",[&](Ref* pSender){
 	
 		SoundManager::getInstance()->playGeneralClickSound();
@@ -62,7 +62,7 @@ bool LayerSetting::init()
 
 	});
 
-	//°´Å¥¿ª¹ØÒôÐ§
+	//æŒ‰é’®å¼€å…³éŸ³æ•ˆ
 	item_sound = MenuItemToggle::createWithCallback([&](Ref* pSender){
 
 		SoundManager::getInstance()->playGeneralClickSound();
@@ -81,7 +81,7 @@ bool LayerSetting::init()
 		item_sound->setSelectedIndex(1);
 	}
 
-	//°´Å¥ÖØÐÂ¿ªÊ¼
+	//æŒ‰é’®é‡æ–°å¼€å§‹
 	item_replay = MenuItemImage::create("UI/msgBox_replay.png","UI/msgBox_replay.png",[&](Ref* pSender){
 
 		SoundManager::getInstance()->playGeneralClickSound();
@@ -89,10 +89,10 @@ bool LayerSetting::init()
 
 	});
 
-	//°´Å¥¼ÌÐøÓÎÏ·
+	//æŒ‰é’®ç»§ç»­æ¸¸æˆ
 	item_resume = MenuItemImage::create("UI/btn_menuLayer.png","UI/btn_menuLayer.png",[&](Ref* pSender){
 
-		//»Ö¸´mainPanel
+		//æ¢å¤mainPanel
 		_eventDispatcher->dispatchCustomEvent("ENABLE_MAINPANEL");
 		this->menuContract();
 	
@@ -129,7 +129,7 @@ bool LayerSetting::onTouchBegan( cocos2d::Touch *touch, cocos2d::Event *unused )
 void LayerSetting::menuExpand()
 {
 
-	//Õ¹¿ª
+	//å±•å¼€
 	SoundManager::getInstance()->playSoundEffect("sound/UI_setting.wav");
 
 
@@ -152,7 +152,7 @@ void LayerSetting::menuExpand()
 void LayerSetting::menuContract()
 {
 
-	//ÊÕÆð
+	//æ”¶èµ·
 	SoundManager::getInstance()->playSoundEffect("sound/UI_setting.wav");
 
 

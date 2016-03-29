@@ -1,4 +1,4 @@
-#include "GameStateManager.h"
+﻿#include "GameStateManager.h"
 
 
 GameStateManager* GameStateManager::_gameStateManager= nullptr;

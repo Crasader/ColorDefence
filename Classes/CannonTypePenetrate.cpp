@@ -1,4 +1,4 @@
-#include "CannonTypePenetrate.h"
+﻿#include "CannonTypePenetrate.h"
 #include "BulletTypePenetrate.h"
 #include "NumericalManager.h"
 

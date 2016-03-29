@@ -1,4 +1,4 @@
-#include "BulletTypeSplash.h"
+ï»¿#include "BulletTypeSplash.h"
 #include "EnemyManager.h"
 #include "BulletManager.h"
 
@@ -42,7 +42,7 @@ void BulletTypeSplash::explode()
 		}
 	}
 
-	//¶¯»­
+	//åŠ¨ç”»
 	setTexture("effects/splash.png");
 	float ratio = 2*_damageRadius / getContentSize().height;
 	setScale(ratio);

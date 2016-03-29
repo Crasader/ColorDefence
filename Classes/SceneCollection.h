@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "DescriptionCard.h"
@@ -19,7 +19,7 @@ public:
 
 private:
 
-	//¹ØÓÚ´¥ÃþÊÂ¼þ
+	//å…³äºŽè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);
@@ -45,7 +45,7 @@ private:
 
 
 
-	//¹ö¶¯Ïà¹Ø
+	//æ»šåŠ¨ç›¸å…³
 	float Y_original;
 	float Y_startingPoint;
 	float Y_top;

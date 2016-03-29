@@ -1,4 +1,4 @@
-#include "PathEnd.h"
+ï»¿#include "PathEnd.h"
 
 USING_NS_CC;
 
@@ -24,7 +24,7 @@ void PathEnd::setIODirection( bool wayIn )
 
 
 
-	//»æÖÆÆðµã ÖÕµã Â·Ïß
+	//ç»˜åˆ¶èµ·ç‚¹ ç»ˆç‚¹ è·¯çº¿
 	Sprite* inner_1 = Sprite::create("path/circle.png");
 	addChild(inner_1);
 	inner_1->setPosition(getContentSize().width/2,getContentSize().height/2);

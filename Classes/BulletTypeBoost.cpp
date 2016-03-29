@@ -1,4 +1,4 @@
-#include "BulletTypeBoost.h"
+ï»¿#include "BulletTypeBoost.h"
 #include "BulletManager.h"
 
 USING_NS_CC;
@@ -31,7 +31,7 @@ void BulletTypeBoost::explode()
 	_targetCannon->isBoosted = true;
 
 
-	//¶¯»­
+	//åŠ¨ç”»
 	setTexture("effects/splash.png");
 
 

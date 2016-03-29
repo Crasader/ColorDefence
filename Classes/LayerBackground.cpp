@@ -1,11 +1,11 @@
-#include "LayerBackground.h"
+ï»¿#include "LayerBackground.h"
 #include "MapPointsManager.h"
 
 
 const float Y_topBarBound = 1230.0f;
 const float Y_mainPanelBound = 150.0f;
 
-const int whiteBar_tag = 221;  //×¢Òâ Õ¼ÓÃÁË221 222 223
+const int whiteBar_tag = 221;  //æ³¨æ„ å ç”¨äº†221 222 223
 const int bottom_bar_tag = 88;
 
 USING_NS_CC;
@@ -54,25 +54,25 @@ bool LayerBackground::init()
 			
 			if (j == 0)
 			{
-				//µÚÒ»ÁĞ
+				//ç¬¬ä¸€åˆ—
 				block->setAnchorPoint(block->getAnchorPoint()+Vec2(0.25,0));
 			}
 			else if (j == 7)
 			{
-				//×îºóÒ»ÁĞ
+				//æœ€åä¸€åˆ—
 				block->setAnchorPoint(block->getAnchorPoint()+Vec2(-0.25,0));
 
 			}
 			
 			if (i == 0)
 			{
-				//µÚÒ»ĞĞ
+				//ç¬¬ä¸€è¡Œ
 				block->setAnchorPoint(block->getAnchorPoint()+Vec2(0,0.25));
 
 			}
 			else if (i == 11)
 			{
-				//×îºóÒ»ĞĞ
+				//æœ€åä¸€è¡Œ
 				block->setAnchorPoint(block->getAnchorPoint()+Vec2(0,-0.25));
 
 			}
@@ -102,7 +102,7 @@ bool LayerBackground::init()
 	
 
 
-	//¼àÌı¡°ÓÎÏ·½áÊø¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæ¸¸æˆç»“æŸâ€çš„äº‹ä»¶
 	auto listenerGameOverWin = EventListenerCustom ::create("GAME_OVER_WIN",[&](EventCustom* event){
 		gameOverAnimation(true);
 	});
@@ -116,7 +116,7 @@ bool LayerBackground::init()
 
 
 
-	//¼àÌı¡°ÊÍ·ÅµĞÈË¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œé‡Šæ”¾æ•Œäººâ€çš„äº‹ä»¶
 	auto listenerReady = EventListenerCustom ::create("RELEASE_ENEMIES",[&](EventCustom* event){
 
 		auto act1 = FadeOut::create(0.29);
@@ -130,7 +130,7 @@ bool LayerBackground::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerReady,this);
 
 
-	//¼àÌı ³¬ÄÜÁ¦Õğµ´ ÊÂ¼ş
+	//ç›‘å¬ è¶…èƒ½åŠ›éœ‡è¡ äº‹ä»¶
 	//auto listenerSuperPower = EventListenerCustom ::create("SUPER_POWER",[&](EventCustom* event){
 	auto listenerSuperPower = EventListenerCustom ::create("SUPER_SHAKE",[&](EventCustom* event){
 

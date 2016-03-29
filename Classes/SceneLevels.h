@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "LevelBadge.h"
@@ -27,11 +27,11 @@ private:
 	cocos2d::Vector<LevelBadge*> levelBadges;
 
 
-	//³¡¾°ÏûÒş ÇĞ»»³¡¾°Ê±ÓÃ
+	//åœºæ™¯æ¶ˆéš åˆ‡æ¢åœºæ™¯æ—¶ç”¨
 	void sceneFade(cocos2d::EventCustom* event);
 
 
-	//¹ØÓÚ´¥ÃşÊÂ¼ş
+	//å…³äºè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);

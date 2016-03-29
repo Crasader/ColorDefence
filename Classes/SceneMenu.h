@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 #include "Cannon.h"
@@ -16,12 +16,12 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(SceneMenu);
 
-	//¿ªÊ¼ÓÎÏ·
+	//å¼€å§‹æ¸¸æˆ
 	void toSceneLevels();
 
 private:
 
-	//¹ØÓÚ´¥ÃşÊÂ¼ş
+	//å…³äºè§¦æ‘¸äº‹ä»¶
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused);
@@ -39,7 +39,7 @@ private:
 
 /*
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-	//ÏìÓ¦°´¼ü
+	//å“åº”æŒ‰é”®
 	void onKeyReleased(cocos2d::EventKeyboard::KeyCode keycode, cocos2d::Event* event);
 
 

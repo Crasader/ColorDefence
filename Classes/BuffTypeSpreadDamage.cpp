@@ -1,4 +1,4 @@
-#include "BuffTypeSpreadDamage.h"
+ï»¿#include "BuffTypeSpreadDamage.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
 #include "DamageContributionManager.h"
@@ -84,7 +84,7 @@ void BuffTypeSpreadDamage::setAppearacneWithTarget( Enemy* target , bool show )
 	if (show)
 	{
 		target->setSpreadDamageState(true);
-		//ÏÔÊ¾Ò»¸ö´óÔ²
+		//æ˜¾ç¤ºä¸€ä¸ªå¤§åœ†
    		Sprite* sp = Sprite::create("effects/BuffTypeSpreadDamage.png");
 		addChild(sp,10,_buffType);
  		sp->setPosition(getContentSize().width/2,getContentSize().height/2);
@@ -103,7 +103,7 @@ void BuffTypeSpreadDamage::setAppearacneWithTarget( Enemy* target , bool show )
 	else
 	{
 		target->setSpreadDamageState(false);
-		//Òþ²Ø´óÔ²
+		//éšè—å¤§åœ†
  		if (getChildByTag(_buffType)!= nullptr)
 		{
 
@@ -129,7 +129,7 @@ void BuffTypeSpreadDamage::spreadDamage(Point position)
 
 	}
 
-	//ÌØÐ§
+	//ç‰¹æ•ˆ
 	ParticleSystem* superPower = ParticleSystemQuad::create("effects/Particle_SpreadOnBoss.plist");
 	addChild(superPower);
 	superPower->setPosition(getPosition());

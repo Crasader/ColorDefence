@@ -1,4 +1,4 @@
-#include "CannonTypeDuplicate.h"
+ï»¿#include "CannonTypeDuplicate.h"
 #include "BulletTypeDuplicate.h"
 #include "NumericalManager.h"
 #include "CannonManager.h"
@@ -90,18 +90,18 @@ void CannonTypeDuplicate::duplicateAtPoint( cocos2d::Point point )
 	cannon->_damageContributerID = _damageContributerID;
 	
 	
-	//×ÊÔ´ÊôÐÔ±ä»¯
+	//èµ„æºå±žæ€§å˜åŒ–
 	float color = NumericalManager::getInstance()->getColorByResource(8);
 	cannon->setColorInfo(Color3B(color,color,color));
 	setColorInfo(Color3B(color,color,color));
 
-	//¶¯»­×¼±¸
+	//åŠ¨ç”»å‡†å¤‡
 	stopAllActions();
 	setScale(1);
 	cannon->setScale(0.01);
 
 
-	//¶¯»­
+	//åŠ¨ç”»
 	ScaleTo* st_1 = ScaleTo::create(0.2f,0.01f);
 	ScaleTo* st_b_1 = ScaleTo::create(0.2f,1);
 	Sequence* sq_1 = Sequence::create(st_1,st_b_1,NULL);
@@ -116,7 +116,7 @@ void CannonTypeDuplicate::duplicateAtPoint( cocos2d::Point point )
 
 	SoundManager::getInstance()->playSoundEffect("sound/cannon_duplicate.mp3");
 
-	//Á£×ÓÏµÍ³ ÌØÐ§
+	//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 	ParticleSystem* emitter = ParticleSystemQuad::create("effects/Particle_Duplicate.plist");
 	(getParent())->addChild(emitter,10086);
 	emitter->setPosition(getPosition());

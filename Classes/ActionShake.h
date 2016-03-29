@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 #include "cocos2d.h"  
@@ -11,16 +11,16 @@ public:
 	ActionShake();  
 
 	// Create the action with a time and a strength (same in x and y)  
-	// ²úÉúÕğ¶¯Ğ§¹ûµÄ³õÊ¼»¯º¯Êı²ÎÊı,Á½¸ö·½ÏòÏàÍ¬  
-	// @param d Õğ¶¯³ÖĞøµÄÊ±¼ä  
-	// @param strength Õğ¶¯µÄ·ù¶È  
+	// äº§ç”Ÿéœ‡åŠ¨æ•ˆæœçš„åˆå§‹åŒ–å‡½æ•°å‚æ•°,ä¸¤ä¸ªæ–¹å‘ç›¸åŒ  
+	// @param d éœ‡åŠ¨æŒç»­çš„æ—¶é—´  
+	// @param strength éœ‡åŠ¨çš„å¹…åº¦  
 	static ActionShake* create(float d, float strength);  
 	// Create the action with a time and strengths (different in x and y)  
-	// ²úÉúÕğ¶¯Ğ§¹ûµÄ³õÊ¼»¯º¯Êı,Á½¸ö·½ÏòÖµ²»Ò»Ñù  
+	// äº§ç”Ÿéœ‡åŠ¨æ•ˆæœçš„åˆå§‹åŒ–å‡½æ•°,ä¸¤ä¸ªæ–¹å‘å€¼ä¸ä¸€æ ·  
 	static ActionShake* create(float d, float strength_x, float strength_y);  
 	bool initWithDuration(float d, float strength_x, float strength_y);  
 
-	//ÒÔÏÂ¶¼ÊÇÖØĞ´¸¸Àà³éÏóÀàµÄº¯Êı(±ØĞëÖØĞ´)  
+	//ä»¥ä¸‹éƒ½æ˜¯é‡å†™çˆ¶ç±»æŠ½è±¡ç±»çš„å‡½æ•°(å¿…é¡»é‡å†™)  
 	virtual ActionShake* clone() const override;  
 	virtual ActionShake* reverse(void) const override;  
 	virtual void startWithTarget(Node *target) override;  
@@ -29,9 +29,9 @@ public:
 
 protected:  
 	// Initial position of the shaked node  
-	// ¾«ÁéµÄÎ»ÖÃ  
+	// ç²¾çµçš„ä½ç½®  
 	float _initial_x, _initial_y;  
 	// Strength of the action  
-	// ¶¶¶¯µÄ·ù¶È  
+	// æŠ–åŠ¨çš„å¹…åº¦  
 	float _strength_x, _strength_y;  
 };  

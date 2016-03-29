@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Bullet.h"
 #include "EnemyManager.h"
@@ -8,10 +8,10 @@ class BulletTypePoisonousMulti : public Bullet
 {
 public:
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	virtual bool init();  
 
-	//createº¯Êı
+	//createå‡½æ•°
 	CREATE_FUNC(BulletTypePoisonousMulti);
 
 	float _damageRadius;

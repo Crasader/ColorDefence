@@ -1,4 +1,4 @@
-#include "LevelBadge.h"
+ï»¿#include "LevelBadge.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
 
@@ -35,7 +35,7 @@ bool LevelBadge::init()
 	Menu* menu = Menu::create(menuItemSprite,NULL);
 	
 	
-	//¿ÉÏàÓ¦×óÓÒ»¬¶¯
+	//å¯ç›¸åº”å·¦å³æ»‘åŠ¨
 	menu->setSwallowsTouches(false);
 	
 	
@@ -87,14 +87,14 @@ void LevelBadge::setState( unsigned state )
 	switch (state)
 	{
 	case 0:
-		//ÒÑ¹ý¹Ø
+		//å·²è¿‡å…³
 		break;
 	case 1:
-		//µ±Ç°×î¸ß¹Ø
+		//å½“å‰æœ€é«˜å…³
 		((MenuItemSprite*)(((Menu*)(getChildByTag(menuItem_tag)))->getChildren().front()))->runAction(rept);
 		break;
 	case 2:
-		//Î´½âËø¹Ø¿¨
+		//æœªè§£é”å…³å¡
 		((MenuItemSprite*)(((Menu*)(getChildByTag(menuItem_tag)))->getChildren().front()))->setEnabled(false);
 		((LabelTTF*)getChildByTag(levelLabel_tag))->setColor(Color3B(90,90,90));
 		break;

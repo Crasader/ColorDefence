@@ -1,4 +1,4 @@
-#include "CannonTypeFocus.h"
+ï»¿#include "CannonTypeFocus.h"
 #include "BulletTypeFocus.h"
 #include "NumericalManager.h"
 #include "ParticleEmitterManager.h"
@@ -30,7 +30,7 @@ bool CannonTypeFocus::init()
 
 
 
-	//¼àÌı¡°µĞÈË½«Òªµ½´ïÖÕµã¡±µÄÊÂ¼ş
+	//ç›‘å¬â€œæ•Œäººå°†è¦åˆ°è¾¾ç»ˆç‚¹â€çš„äº‹ä»¶
 	auto listenerEnemyWillArrive = EventListenerCustom ::create("ENEMY_WILL_ARRIVE",[&](EventCustom* event){
 		
 		Enemy* e = static_cast<Enemy*>(event->getUserData());
@@ -104,12 +104,12 @@ void CannonTypeFocus::update( float delta )
 		return;
 	}
 
-	//ÈôÕıÔÚ¹¥»÷
+	//è‹¥æ­£åœ¨æ”»å‡»
 	if (isAttacking)
 	{
 
 
-		//Èô¹¥»÷¶ÔÏóËÀÁË
+		//è‹¥æ”»å‡»å¯¹è±¡æ­»äº†
 		if ((!_target->isAlive())||(_target->isFloating)||((!_hasSight)&&(this->getPosition().getDistance(_target->getPosition())>attackRange)))
 		{
 			isAttacking = false;
@@ -134,12 +134,12 @@ void CannonTypeFocus::update( float delta )
 
 
 	}
-	//Èô²»ÔÚ¹¥»÷
+	//è‹¥ä¸åœ¨æ”»å‡»
 	else
 	{
 
 
-		//Èç¹ûÓĞ½øÈë·¶Î§µÄ
+		//å¦‚æœæœ‰è¿›å…¥èŒƒå›´çš„
 		tryGetTarget();
 
 	}
@@ -159,7 +159,7 @@ void CannonTypeFocus::sacrifice()
 	else
 	{
 
-		//Á£×ÓÏµÍ³ ÌØĞ§
+		//ç²’å­ç³»ç»Ÿ ç‰¹æ•ˆ
 		auto emitter_1 = ParticleSystemQuad::create("effects/Particle_Sacrifice.plist");
 		auto emitter_2 = ParticleSystemQuad::create("effects/Particle_Sacrifice.plist");
 		auto emitter_3 = ParticleSystemQuad::create("effects/Particle_Consumer.plist");

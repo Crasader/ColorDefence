@@ -1,4 +1,4 @@
-#include "AppDelegate.h"
+ï»¿#include "AppDelegate.h"
 #include "SceneMenu.h"
 
 USING_NS_CC;
@@ -21,7 +21,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	}
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-	//ÒÔºìÃ×ÊÖ»úµÄÏÔÊ¾·Ö±æÂÊÎªÉè¼ÆÄ¿±ê1280x720
+	//ä»¥çº¢ç±³æ‰‹æœºçš„æ˜¾ç¤ºåˆ†è¾¨ç‡ä¸ºè®¾è®¡ç›®æ ‡1280x720
 	glview->setFrameSize(720,1280);
 	glview->setFrameZoomFactor(0.5);
 
@@ -30,30 +30,30 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	glview->setDesignResolutionSize(720,1280, ResolutionPolicy::SHOW_ALL);
 
-	//Í¼Ïñ×ÊÔ´Â·¾¶
-	//»ñÈ¡µ±Ç°Éè±¸ÆÁÄ»³ß´ç
+	//å›¾åƒèµ„æºè·¯å¾„
+	//è·å–å½“å‰è®¾å¤‡å±å¹•å°ºå¯¸
 	Size frameSize = glview->getFrameSize();
 	std::vector<std::string> searchPath;
-	//Èç¹ûÆÁÄ»³ß´ç¿í>smallResourceËØ²Ä³ß´ç¿í
+	//å¦‚æœå±å¹•å°ºå¯¸å®½>smallResourceç´ æå°ºå¯¸å®½
 	//if (frameSize.width > 1080 )
 	if (frameSize.width > 108000 )
 	{
-		//Ê¹ÓÃ´ó³ß´çµÄËØ²Ä
+		//ä½¿ç”¨å¤§å°ºå¯¸çš„ç´ æ
 		searchPath.push_back("xxxhdpi/");
 		director->setContentScaleFactor(2.0);
 	}
 	else
 	{
-		//Ê¹ÓÃĞ¡³ß´çµÄËØ²Ä
+		//ä½¿ç”¨å°å°ºå¯¸çš„ç´ æ
 		searchPath.push_back("xhdpi/");
 		director->setContentScaleFactor(1.0);
 	}
 
-	// ÉèÖÃËØ²ÄÂ·¾¶Ä¿Â¼
+	// è®¾ç½®ç´ æè·¯å¾„ç›®å½•
 	FileUtils::getInstance()->setSearchPaths(searchPath);
 
 
-	//ÔÚwindowsÏÂÔËĞĞÊ±°´0.5±ÈÀıÏÔÊ¾ ÒÔÔ¤ÀÀÕû¸ö½çÃæ
+	//åœ¨windowsä¸‹è¿è¡Œæ—¶æŒ‰0.5æ¯”ä¾‹æ˜¾ç¤º ä»¥é¢„è§ˆæ•´ä¸ªç•Œé¢
 
 
 	// turn on display FPS
