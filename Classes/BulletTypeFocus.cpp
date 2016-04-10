@@ -62,6 +62,8 @@ void BulletTypeFocus::setDamage(float damage , bool isSight)
 
 }
 
+
+
 void BulletTypeFocus::update( float delta )
 {
 

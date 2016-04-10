@@ -86,7 +86,7 @@ protected:
 
 	virtual void attackOnce();
 
-	int _iterator;
+	float _iterator;
 
 	virtual void onExit();
 

@@ -62,6 +62,7 @@ void BulletTypePenetrate::setDamage( float damage , float damageWidth )
 }
 
 
+
 void BulletTypePenetrate::update( float delta )
 {
 	for (Enemy* e : em->enemiesInSequence)

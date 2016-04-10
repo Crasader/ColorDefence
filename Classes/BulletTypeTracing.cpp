@@ -99,6 +99,7 @@ void BulletTypeTracing::setTarget( Enemy* enemy )
 
 }
 
+
 void BulletTypeTracing::update( float delta )
 {
 
@@ -120,17 +121,17 @@ void BulletTypeTracing::update( float delta )
 
 	setRotation(CC_RADIANS_TO_DEGREES(atan2(dir.y, - dir.x)) - 90);
 	
-	dir = _initSpeed*dir;
+	dir = _initSpeed * delta *dir;
 	setPosition(getPosition()+dir);
 	_tail->setPosition(getPosition());
 
 	if (_initSpeed <= _speedMax)
 	{
-		_initSpeed+= _speedFactor;
+		_initSpeed+= _speedFactor*delta;
 	}
 	if (_damage <= _damageMax)
 	{
-		_damage+= _damageFactor;
+		_damage+= _damageFactor*delta;
 	}
 
 

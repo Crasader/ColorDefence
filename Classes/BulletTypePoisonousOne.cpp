@@ -34,7 +34,6 @@ void BulletTypePoisonousOne::explode()
 
 	//_target->setBuffPoisoning(_poisonousDamage,_poisonousTime);
 	
-	
 	auto buff = BuffTypePoisoning::create(_target,_poisonousDamage,_poisonousTime);
 	buff->setDamageContributerID(_damageContributerID);
 	_target->setBuff(buff);

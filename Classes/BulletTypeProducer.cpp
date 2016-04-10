@@ -64,6 +64,7 @@ void BulletTypeProducer::setTarget( Enemy* enemy , Point startPoint)
 
 }
 
+
 void BulletTypeProducer::update( float delta )
 {
 
@@ -71,7 +72,7 @@ void BulletTypeProducer::update( float delta )
 	Vec2 dir = _startingPoint - getPosition();
 	dir.normalize();
 	//setRotation(CC_RADIANS_TO_DEGREES(atan2(dir.y, - dir.x)) - 90);
-	dir = 9*dir;
+	dir = 540.0 * delta *dir;
 	setPosition(getPosition()+dir);
 	
 

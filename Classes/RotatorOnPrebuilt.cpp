@@ -30,10 +30,13 @@ bool RotatorOnPrebuilt::init()
 	return true;
 }
 
+
+
+
 void RotatorOnPrebuilt::update( float delta )
 {
 
-	it += _dit;
+	it += _dit * delta;
 	if (it > 2*PI)
 	{
 		it = it - 2*PI ;
@@ -54,7 +57,7 @@ void RotatorOnPrebuilt::setRadius( float r )
 void RotatorOnPrebuilt::setSpeed( float interval )
 {
 	
-	_dit = 0.2*PI / interval;
+	_dit = 0.2*PI * 60.0 / interval;
 	
 }
 

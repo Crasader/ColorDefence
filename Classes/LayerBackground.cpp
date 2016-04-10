@@ -158,6 +158,7 @@ bool LayerBackground::init()
 	return true;
 }
 
+
 void LayerBackground::update( float delta )
 {
 	

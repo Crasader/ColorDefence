@@ -13,8 +13,6 @@ public:
 	//create函数
 	static BuffTypeStun* create(Enemy* enemy, float stunTime);
 
-	virtual void makeEffectWithTarget(Enemy* target);
-
 	virtual void overrideWithNewBuff(Buff* newBuff);
 
 	virtual bool verifyWithTarget(Enemy* target);

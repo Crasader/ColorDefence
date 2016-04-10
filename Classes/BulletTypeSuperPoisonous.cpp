@@ -98,6 +98,8 @@ void BulletTypeSuperPoisonous::setTarget( Enemy* enemy )
 	runAction(sqe);
 }
 
+
+
 void BulletTypeSuperPoisonous::update( float delta )
 {
 	if (ps!=nullptr)

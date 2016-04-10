@@ -13,8 +13,6 @@ public:
 	//create函数
 	static BuffTypeSpreadDamage* create(Enemy* enemy, float buffTime);
 
-	virtual void makeEffectWithTarget(Enemy* target);
-
 	virtual void overrideWithNewBuff(Buff* newBuff);
 
 	virtual bool verifyWithTarget(Enemy* target);

@@ -26,14 +26,14 @@ bool BuffTypeSuperPoisoning::init(Enemy* enemy, float poisonousDamage ,float poi
 	return true;
 }
 
-void BuffTypeSuperPoisoning::makeEffectWithTarget(Enemy* target)
+void BuffTypeSuperPoisoning::makeEffectWithTarget(Enemy* target, float delta)
 {
 
-	Buff::makeEffectWithTarget(target);
+	Buff::makeEffectWithTarget(target,delta);
 
  	if (_buffTimeRest > 0)
  	{
-		float damageContributed = target->onMagicalDamaged(_poisonousDamage);
+		float damageContributed = target->onMagicalDamaged(_poisonousDamage * delta);
 		DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
  	}
 

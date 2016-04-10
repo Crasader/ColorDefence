@@ -76,12 +76,14 @@ void BulletTypeLargeWave::setDamage( float damage , float damageWidth )
 }
 
 
+
+
 void BulletTypeLargeWave::update( float delta )
 {
 
 	if (_damageWidth < 480)
 	{
-		_damageWidth+=2.6f;
+		_damageWidth+= 140.0f * delta;
 		setScale(_damageWidth/180.0);
 	}
 

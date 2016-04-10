@@ -69,11 +69,11 @@ public:
 	virtual void onDeath();
 
 	//等待间隔
-	int timeInterval;
+	float timeInterval;
 
 
-	//new
-	void solveBuff();
+	//计算buff 关联帧率
+	void solveBuff(float delta);
 
 	//区分是敌人 还是敌人间隔
 	bool isRealEnemy;

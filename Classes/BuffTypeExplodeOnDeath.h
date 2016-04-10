@@ -13,7 +13,6 @@ public:
 	//create函数
 	static BuffTypeExplodeOnDeath* create(Enemy* enemy, float explodeRadius , float explodeDamage, float buffTime);
 
-	virtual void makeEffectWithTarget(Enemy* target);
 
 	virtual void overrideWithNewBuff(Buff* newBuff);
 

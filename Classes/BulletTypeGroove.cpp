@@ -97,9 +97,11 @@ void BulletTypeGroove::setDamage( float dmg , float stunTime  ,float grooveLengt
 	_grooveLength = grooveLength;
 }
 
+
+
 void BulletTypeGroove::update( float delta )
 {
-	_stunTime --;
+	_stunTime -= delta;
 	if (_stunTime<= 0)
 	{
 		unscheduleUpdate();

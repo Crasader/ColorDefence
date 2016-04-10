@@ -33,7 +33,7 @@ private:
 	void setGameActioning(bool actioning);
 
 	//计时迭代器
-	int _iterator; 
+	float _iterator; 
 
 	EnemyManager* enemyManager;
 

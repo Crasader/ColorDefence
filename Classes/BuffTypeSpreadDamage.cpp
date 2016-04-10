@@ -31,12 +31,6 @@ bool BuffTypeSpreadDamage::init(Enemy* enemy, float buffTime)
 	return true;
 }
 
-void BuffTypeSpreadDamage::makeEffectWithTarget(Enemy* target)
-{
-
-	Buff::makeEffectWithTarget(target);
-	
-}
 
 BuffTypeSpreadDamage* BuffTypeSpreadDamage::create(Enemy* enemy, float buffTime)
 {

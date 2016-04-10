@@ -15,7 +15,7 @@ bool EnemyTypeSeparator::init()
 
 
 
-	timeInterval = 400;
+	timeInterval = 6.6f;
 	isRealEnemy = false;
 
 

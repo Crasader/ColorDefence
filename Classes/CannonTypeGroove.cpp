@@ -42,7 +42,7 @@ void CannonTypeGroove::attackOnce()
 	BulletTypeGroove* bullet = BulletTypeGroove::create();
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, 90,155);
+	bullet->setDamage(_damage, 1.5,155);
 
 	bullet->setTarget(_target);
 	bullet->setDamageContributerID(_damageContributerID);

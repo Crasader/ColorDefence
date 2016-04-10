@@ -25,10 +25,10 @@ bool BuffTypeSlow::init(Enemy* enemy, float slowFactor ,float slowTime)
 	return true;
 }
 
-void BuffTypeSlow::makeEffectWithTarget(Enemy* target)
+void BuffTypeSlow::makeEffectWithTarget(Enemy* target, float delta)
 {
 
-	Buff::makeEffectWithTarget(target);
+	Buff::makeEffectWithTarget(target,delta);
 
  	if (_buffTimeRest <= 0)
  	{

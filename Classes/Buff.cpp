@@ -23,14 +23,13 @@ bool Buff::init()
 	return true;
 }
 
-void Buff::makeEffectWithTarget(Enemy* target)
+void Buff::makeEffectWithTarget(Enemy* target , float delta)
 {
-	_buffTimeRest -- ;
+	_buffTimeRest -= delta ;
 
  	if (_buffTimeRest <= 0)
  	{
 
- 		//release();
 		_end = true;
  	}
 }

@@ -105,13 +105,11 @@ void CannonTypeHook::catchOnce( bool catching , Point targetPosition)
 
 	if (catching)
 	{
-		_target->setBuff(BuffTypeStun::create(_target,30));
-		//_target->setPosition(targetPosition);
 		
-		auto dt_tar = DelayTime::create(0.1f);
 		Vec2 mv_tar_dir = targetPosition - _target->getPosition(); 
 		float mv_tar_dur = mv_tar_dir.length() * 0.1 / dis;
-
+		
+		auto dt_tar = DelayTime::create(0.1f);
 		auto mv_tar = MoveBy::create(mv_tar_dur,mv_tar_dir);
 		auto mv_updt = CallFunc::create([&]{
 
@@ -119,6 +117,9 @@ void CannonTypeHook::catchOnce( bool catching , Point targetPosition)
 
 		});
 		auto seq = Sequence::create(dt_tar,mv_tar,mv_updt,NULL);
+
+		_target->setBuff(BuffTypeStun::create(_target,0.1f + mv_tar_dur));
+
 		_target->runAction(seq);
 
 		

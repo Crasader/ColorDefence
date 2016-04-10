@@ -115,7 +115,7 @@ void BulletTypeBridge::setTarget( Enemy* enemy )
 	else
 	{
 		float dis = _target->getPosition().getDistance(getPosition());
-		MoveTo* move = MoveTo::create(0.2f , _target->getPosition());
+		MoveTo* move = MoveTo::create( 0.2f , _target->getPosition());
 		ActionInstant* explode = CallFunc::create(CC_CALLBACK_0(BulletTypeBridge::explode,this));
 
 		Sequence* sqe = Sequence::create(move,explode,NULL);
@@ -158,6 +158,7 @@ void BulletTypeBridge::bridge()
 
 }
 
+
 void BulletTypeBridge::update( float delta )
 {
 	if ((_target->isFloating)||(!_target->isAlive()))
@@ -172,7 +173,7 @@ void BulletTypeBridge::update( float delta )
 	Vec2 dir = _target->getPosition() - getPosition();
 	dir.normalize();
 	//setRotation(CC_RADIANS_TO_DEGREES(atan2(dir.y, - dir.x)) - 90);
-	dir = 12*dir;
+	dir = 720*delta*dir;
 	setPosition(getPosition()+dir);
 
 

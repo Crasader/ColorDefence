@@ -38,7 +38,7 @@ bool EnemyTypeFast::init()
 void EnemyTypeFast::setEnemyParameter(int hp, float ms, float arm )
 {
 
-	_moveSpeedFull = ms*2.0+0.2;
+	_moveSpeedFull = ms*2.0 + 12.0;
 	moveSpeed = _moveSpeedFull;
 
 	_armorFull = 0;

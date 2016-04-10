@@ -22,7 +22,7 @@ public:
 
 	unsigned getBuffType();
 
-	virtual void makeEffectWithTarget(Enemy* target);
+	virtual void makeEffectWithTarget(Enemy* target, float delta);
 
 	virtual void overrideWithNewBuff(Buff* newBuff);
 

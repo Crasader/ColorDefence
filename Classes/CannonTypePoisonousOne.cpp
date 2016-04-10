@@ -34,7 +34,7 @@ void CannonTypePoisonousOne::attackOnce()
 
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, 0.6 , 1500);
+	bullet->setDamage(_damage, 36.0 , 25.0);
 	bullet->setDamageContributerID(_damageContributerID);
 
 

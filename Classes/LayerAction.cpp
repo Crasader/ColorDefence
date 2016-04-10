@@ -196,6 +196,8 @@ void LayerAction::finishBuilding(cocos2d::EventCustom* event)
 
 }
 
+
+
 void LayerAction::update( float delta )
 {
 
@@ -206,11 +208,13 @@ void LayerAction::update( float delta )
 	if (enemyManager->enemiesLeft.size()>0)
 	{
 
-		_iterator++;
+		_iterator += delta;
 
-		if (_iterator>= enemyManager->enemiesLeft.back()->timeInterval)
+		float tmp = enemyManager->enemiesLeft.back()->timeInterval;
+
+		if (_iterator>= tmp)
 		{
-			_iterator = 0;
+			_iterator -= tmp;
 
 			releaseOneEnemy();
 
@@ -225,7 +229,7 @@ void LayerAction::update( float delta )
 
 		if (e->isMoving())
 		{
-			if (e->getPosition().getDistance(_enemyPath.at(e->currentDestination))<e->moveSpeed)
+			if (e->getPosition().getDistance(_enemyPath.at(e->currentDestination))<e->moveSpeed*delta)
 			{
 				e->setPosition(_enemyPath.at(e->currentDestination));
 				if (e->currentDestination< _enemyPath.size() -1)
@@ -251,7 +255,7 @@ void LayerAction::update( float delta )
 			}
 			else
 			{
-				e->setPosition(e->getPosition()+ e->moveSpeed * e->getMoveDirection());
+				e->setPosition(e->getPosition()+ e->moveSpeed* delta * e->getMoveDirection());
 			}
 
 		}
@@ -286,8 +290,8 @@ void LayerAction::update( float delta )
 
 	for (Enemy* e : enemyManager->enemiesInSequence)
 	{
-		//e->computeBuff();
-		e->solveBuff();
+
+		e->solveBuff(delta);
 	}
 
 

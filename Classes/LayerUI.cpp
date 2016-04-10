@@ -400,6 +400,7 @@ void LayerUI::itemCancelBuilingCallback( cocos2d::Ref* pSender )
 
 
 
+
 void LayerUI::update( float delta )
 {
 	//更新剩余颜色资源的显示

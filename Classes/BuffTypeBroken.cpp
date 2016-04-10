@@ -27,10 +27,10 @@ bool BuffTypeBroken::init(Enemy* enemy, float brokenValue ,float brokenTime , bo
 	return true;
 }
 
-void BuffTypeBroken::makeEffectWithTarget(Enemy* target)
+void BuffTypeBroken::makeEffectWithTarget(Enemy* target , float delta)
 {
 
-	Buff::makeEffectWithTarget(target);
+	Buff::makeEffectWithTarget(target,delta);
 
  	if (_buffTimeRest <= 0)
  	{

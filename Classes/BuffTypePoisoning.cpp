@@ -26,14 +26,14 @@ bool BuffTypePoisoning::init(Enemy* enemy, float poisonousDamage ,float poisonou
 	return true;
 }
 
-void BuffTypePoisoning::makeEffectWithTarget(Enemy* target)
+void BuffTypePoisoning::makeEffectWithTarget(Enemy* target , float delta)
 {
 
-	Buff::makeEffectWithTarget(target);
+	Buff::makeEffectWithTarget(target,delta);
 
  	if (_buffTimeRest > 0)
  	{
- 		float damageContributed = target->onMagicalDamaged(_poisonousDamage);
+ 		float damageContributed = target->onMagicalDamaged(_poisonousDamage * delta);
 		DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
  	}
 

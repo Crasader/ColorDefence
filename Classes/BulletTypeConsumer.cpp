@@ -105,13 +105,14 @@ void BulletTypeConsumer::setTarget( Enemy* enemy )
 
 
 	float dis = getPosition().getDistance(_target->getPosition());
-	MoveTo* move = MoveTo::create(dis / 270 , _target->getPosition());
+	MoveTo* move = MoveTo::create(dis / 270.0 , _target->getPosition());
 	ActionInstant* explode = CallFunc::create(CC_CALLBACK_0(BulletTypeConsumer::explode,this));
 
 	Sequence* sqe = Sequence::create(move,explode,NULL);
 
 	runAction(sqe);
 }
+
 
 void BulletTypeConsumer::update( float delta )
 {

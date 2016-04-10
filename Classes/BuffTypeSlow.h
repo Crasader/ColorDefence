@@ -13,7 +13,7 @@ public:
 	//create函数
 	static BuffTypeSlow* create(Enemy* enemy, float slowFactor ,float slowTime);
 
-	virtual void makeEffectWithTarget(Enemy* target);
+	virtual void makeEffectWithTarget(Enemy* target, float delta);
 
 	virtual void overrideWithNewBuff(Buff* newBuff);
 

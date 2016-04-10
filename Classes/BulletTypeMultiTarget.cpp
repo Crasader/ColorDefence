@@ -61,6 +61,7 @@ void BulletTypeMultiTarget::setTarget( Enemy* enemy )
 
 }
 
+
 void BulletTypeMultiTarget::update( float delta )
 {
 
@@ -75,7 +76,7 @@ void BulletTypeMultiTarget::update( float delta )
 	Vec2 dir = _target->getPosition() - getPosition();
 	dir.normalize();
 	//setRotation(CC_RADIANS_TO_DEGREES(atan2(dir.y, - dir.x)) - 90);
-	dir = 6.8*dir;
+	dir = 410.0 * delta *dir;
 	setPosition(getPosition()+dir);
 	
 

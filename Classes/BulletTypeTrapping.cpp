@@ -31,12 +31,13 @@ void BulletTypeTrapping::explode()
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 	if (_isTrapping)
 	{
-		_target->setBuff(BuffTypeStun::create(_target,305));
+		float stunTime = 5.5;
+		_target->setBuff(BuffTypeStun::create(_target,stunTime));
 // 		Point p = getPosition() - _target->getPosition();
 // 		removeFromParent();
 // 		_target->addChild(this); 
 //		setPosition(p);
-		auto act1 = DelayTime::create(150.0/60.0);
+		auto act1 = DelayTime::create(stunTime);
 		auto act2 = FadeOut::create(0.4);
 		auto act3 = CallFunc::create([&](){
 

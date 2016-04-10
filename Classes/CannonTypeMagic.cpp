@@ -112,16 +112,18 @@ void CannonTypeMagic::setDirection()
 
 }
 
+
+
 void CannonTypeMagic::update( float delta )
 {
 
 	if (!readyToShoot)
 	{
-		_iterator++;
+		_iterator += 60.0 * delta;
 		if (_iterator>=_attackInterval)
 		{
 			readyToShoot = true;
-			_iterator=0;
+			_iterator-= _attackInterval;
 		}
 
 	}

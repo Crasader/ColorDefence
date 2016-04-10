@@ -306,16 +306,18 @@ void LevelResultPanel::firework()
 	
 }
 
+
+
 void LevelResultPanel::update( float delta )
 {
 	if (fireworkTimer<=0)
 	{
 		firework();
-		fireworkTimer = 20 + CCRANDOM_0_1() * 100;
+		fireworkTimer = 0.3 + CCRANDOM_0_1() * 2.0;
 	}
 	else
 	{
-		fireworkTimer -= 1;
+		fireworkTimer -= delta;
 	}
 	
 	

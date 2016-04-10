@@ -191,7 +191,7 @@ bool TutorialPage::init(unsigned page)
 		GameStateManager::getInstance()->currentActioningState = true;
 
 
-		auto act1 = DelayTime::create(page == 23? 11.0:(page == 21? 9.0:7.6));
+		auto act1 = DelayTime::create(page == 23? 11.0:(page == 21? 10.5:6.75));
 		auto act2 = CallFunc::create([&](){	 _eventDispatcher->dispatchCustomEvent("TUT_AUTO_NEXT_PAGE");  });
 
 		runAction(Sequence::create(act1,act2,NULL));

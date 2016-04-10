@@ -13,7 +13,7 @@ public:
 	//create函数
 	static BuffTypePoisoning* create(Enemy* enemy, float poisonousDamage ,float poisonousTime);
 
-	virtual void makeEffectWithTarget(Enemy* target);
+	virtual void makeEffectWithTarget(Enemy* target, float delta);
 
 	virtual void overrideWithNewBuff(Buff* newBuff);
 

@@ -100,10 +100,11 @@ void BulletTypePoisonousMulti::setTarget( Enemy* enemy )
 
 }
 
+
 void BulletTypePoisonousMulti::update( float delta )
 {
 
-	_damageWidth += 2.4;
+	_damageWidth += 144.0 * delta;
 
 
 	for (Enemy* e : em->enemiesInSequence)
@@ -115,7 +116,6 @@ void BulletTypePoisonousMulti::update( float delta )
 				enemiesDamaged.pushBack(e);
 				float damageContributed = e->onPhysicalDamaged(_damage);
 				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
-				
 				
 				auto buff = BuffTypePoisoning::create(e,_poisonousDamage,_poisonousTime);
 				buff->setDamageContributerID(_damageContributerID);

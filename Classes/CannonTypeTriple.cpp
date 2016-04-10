@@ -66,6 +66,8 @@ void CannonTypeTriple::attackOnce(int index)
 
 }
 
+
+
 void CannonTypeTriple::update( float delta )
 {
 
@@ -85,11 +87,11 @@ void CannonTypeTriple::update( float delta )
 	{
 		if (!readyToShoot_3[i])
 		{
-			_iterator_3[i]++;
+			_iterator_3[i] += 60.0 * delta;
 			if (_iterator_3[i]>=_attackInterval)
 			{
 				readyToShoot_3[i] = true;
-				_iterator_3[i]=0;
+				_iterator_3[i] -= _attackInterval;
 			}
 
 		}

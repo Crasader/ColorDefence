@@ -25,7 +25,7 @@ bool CannonTypeChains::init()
 
 	}
 
-	_stunTime = 50;
+	_stunTime = 0.83;
 
 	return true;
 }

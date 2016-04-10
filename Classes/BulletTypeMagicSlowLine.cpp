@@ -67,6 +67,7 @@ void BulletTypeMagicSlowLine::setDamage(float damage , float damageWidth, float 
 }
 
 
+
 void BulletTypeMagicSlowLine::update( float delta )
 {
 	for (Enemy* e : em->enemiesInSequence)
@@ -78,7 +79,6 @@ void BulletTypeMagicSlowLine::update( float delta )
 				enemiesDamaged.pushBack(e);
 				float damageContributed = e->onMagicalDamaged(_damage);
 				DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
-
 				auto buff = BuffTypeSlow::create(e , _slowFactor,_slowTime);
 				//buff->setDamageContributerID(_damageContributerID);
 				e->setBuff(buff);

@@ -58,7 +58,7 @@ void BulletTypeBounce::bounce()
 
 	float damageContributed = _target->onPhysicalDamaged(_damage);
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
-	auto buff = BuffTypeSlow::create(_target , 0.4f , 60);
+	auto buff = BuffTypeSlow::create(_target , 0.4f , 1.0);
 	//buff->setDamageContributerID(_damageContributerID);
 	_target->setBuff(buff);
 	targetsBouncedOver.pushBack(_target);
@@ -131,6 +131,7 @@ void BulletTypeBounce::setTarget( Enemy* enemy )
 
 }
 
+
 void BulletTypeBounce::update( float delta )
 {
 
@@ -146,7 +147,7 @@ void BulletTypeBounce::update( float delta )
 	Vec2 dir = _target->getPosition() - getPosition();
 	dir.normalize();
 
-	dir = 5*dir;
+	dir = 300*delta*dir;
 	setPosition(getPosition()+dir);
 
 

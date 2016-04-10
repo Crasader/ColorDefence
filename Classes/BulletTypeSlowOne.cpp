@@ -32,7 +32,6 @@ void BulletTypeSlowOne::explode()
 	emitter->setEmissionRate(0);
 	float damageContributed = _target->onPhysicalDamaged(_damage);
 	DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
-
 	//_target->setBuffSlow(_slowFactor,_slowTime);
 	auto buff = BuffTypeSlow::create(_target , _slowFactor,_slowTime);
 	//buff->setDamageContributerID(_damageContributerID);
@@ -64,6 +63,8 @@ void BulletTypeSlowOne::setTarget( Enemy* enemy )
 	scheduleUpdate();
 }
 
+
+
 void BulletTypeSlowOne::update( float delta )
 {
 
@@ -77,7 +78,7 @@ void BulletTypeSlowOne::update( float delta )
 	Vec2 dir = _target->getPosition() - getPosition();
 	dir.normalize();
 	setRotation(CC_RADIANS_TO_DEGREES(atan2(dir.y, - dir.x)) - 90);
-	dir = 10*dir;
+	dir = 600 * delta *dir;
 	setPosition(getPosition()+dir);
 
 	emitter->setPosition(getPosition());

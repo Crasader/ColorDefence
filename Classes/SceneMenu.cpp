@@ -156,6 +156,7 @@ void SceneMenu::initAnimation()
 
 }
 
+
 void SceneMenu::update( float delta )
 {
 	for (Cannon* c : cannonsLeftSide)

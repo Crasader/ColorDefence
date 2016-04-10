@@ -52,7 +52,7 @@ bool Enemy::init()
 
 
 
-	timeInterval = 36;
+	timeInterval = 0.6f;
 
 
 	hpb = HitPointBar::create();
@@ -485,7 +485,9 @@ bool Enemy::setBuff( Buff* buff )
 	return true;
 }
 
-void Enemy::solveBuff()
+
+
+void Enemy::solveBuff(float delta)
 {
 	
 	if (_buffs.empty())
@@ -495,7 +497,7 @@ void Enemy::solveBuff()
  	int l  = _buffs.size()-1;
  	for (int i = l ; i>=0; i--)
  	{
- 		_buffs.at(i)->makeEffectWithTarget(this);
+ 		_buffs.at(i)->makeEffectWithTarget(this,delta);
  		if (_buffs.at(i)->willEndBuff())
  		{
 			_buffs.at(i)->setAppearacneWithTarget(this,false);

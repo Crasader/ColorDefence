@@ -21,12 +21,6 @@ bool BuffTypeStun::init(Enemy* enemy, float stunTime)
 	return true;
 }
 
-void BuffTypeStun::makeEffectWithTarget(Enemy* target)
-{
-
-	Buff::makeEffectWithTarget(target);
-	
-}
 
 BuffTypeStun* BuffTypeStun::create(Enemy* enemy, float stunTime)
 {

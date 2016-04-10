@@ -68,6 +68,8 @@ void BulletTypeMagic::setTarget( Enemy* enemy )
 
 }
 
+
+
 void BulletTypeMagic::update( float delta )
 {
 
@@ -82,7 +84,7 @@ void BulletTypeMagic::update( float delta )
 	Vec2 dir = _target->getPosition() - getPosition();
 	dir.normalize();
 	//setRotation(CC_RADIANS_TO_DEGREES(atan2(dir.y, - dir.x)) - 90);
-	dir = 9*dir;
+	dir = 540.0f * delta *dir;
 	setPosition(getPosition()+dir);
 	
 

@@ -28,12 +28,6 @@ bool BuffTypeExplodeOnDeath::init(Enemy* enemy, float explodeRadius , float expl
 	return true;
 }
 
-void BuffTypeExplodeOnDeath::makeEffectWithTarget(Enemy* target)
-{
-
-	Buff::makeEffectWithTarget(target);
-	
-}
 
 BuffTypeExplodeOnDeath* BuffTypeExplodeOnDeath::create(Enemy* enemy, float explodeRadius , float explodeDamage, float buffTime)
 {
@@ -108,7 +102,7 @@ void BuffTypeExplodeOnDeath::explodeOnDeath(Point position)
 			//float damageContributed  = e->onRealDamaged(888);
 			float damageContributed  = e->onMagicalDamaged(_explodeDamage);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed );
-			e->setBuff(BuffTypeSlow::create(e,0.55,40));
+			e->setBuff(BuffTypeSlow::create(e,0.55,0.6));
 		}
 
 

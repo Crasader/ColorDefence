@@ -70,6 +70,7 @@ void CannonTypeRage::attackOnce()
 
 
 
+
 void CannonTypeRage::update( float delta )
 {
 
@@ -78,20 +79,20 @@ void CannonTypeRage::update( float delta )
 	{
 		if (_rage)
 		{
-			_iterator++;
+			_iterator += 60.0 * delta;
 			if (_iterator>=_attackIntervalWhenRage)
 			{
 				readyToShoot = true;
-				_iterator=0;
+				_iterator-= _attackIntervalWhenRage;
 			}
 		}
 		else
 		{
-			_iterator++;
+			_iterator += 60.0 * delta;
 			if (_iterator>=_attackInterval)
 			{
 				readyToShoot = true;
-				_iterator=0;
+				_iterator-= _attackInterval;
 			}
 		}
 
