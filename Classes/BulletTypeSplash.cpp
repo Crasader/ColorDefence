@@ -12,11 +12,14 @@ bool BulletTypeSplash::init()
 		return false;
 	}
 
-	//BulletManager::getInstance()->bullets.pushBack(this);
 
 	setTexture("effects/Bullet_Splash.png");
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	//setScale(0.8);
+
+	//Sprite* shell = Sprite::create("effects/Bullet_Splash.png");
+	//addChild(shell,-1);
+	//shell->setPosition(getContentSize()/2);
+	
 
 
 	_damageRadius = 0;
@@ -45,18 +48,19 @@ void BulletTypeSplash::explode()
 	//动画
 	setTexture("effects/splash.png");
 	float ratio = 2*_damageRadius / getContentSize().height;
-	setScale(ratio);
+	setScale(ratio * 0.3);
 
-	auto ex1 = FadeOut::create(0.5);
-	//auto ex2 = RotateBy::create(0.5,-72);
-	//auto ex3 = Spawn::create(ex1,ex2,nullptr);
+	auto ex0 = ScaleTo::create(0.1,ratio);
+	auto ex1 = FadeOut::create(0.4);
+	auto ex2 = ScaleTo::create(0.1,ratio*0.85);
+	auto ex3 = Spawn::create(ex1,ex2,nullptr);
 
 	auto ex4 = CallFunc::create([&]{
 		BulletManager::getInstance()->bullets.eraseObject(this);
 		removeFromParent();
 	});
 
-	runAction(Sequence::create(ex1,ex4,NULL));
+	runAction(Sequence::create(ex0,ex3,ex4,NULL));
 
 
 

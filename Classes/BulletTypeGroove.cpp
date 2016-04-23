@@ -19,6 +19,11 @@ bool BulletTypeGroove::init()
 
 	setScale(0.1,0.01);
 
+	auto bg = Sprite::create("BLANK.png");
+	bg->setTextureRect(Rect(0,0,getContentSize().width,getContentSize().height));
+	addChild(bg,-1);
+	bg->setPosition(getContentSize()/2);
+	bg->setOpacity(128);
 
 
 	return true;

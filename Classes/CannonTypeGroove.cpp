@@ -3,6 +3,7 @@
 #include "NumericalManager.h"
 
 USING_NS_CC;
+const int color_tag = 111;
 
 bool CannonTypeGroove::init()
 {
@@ -12,6 +13,7 @@ bool CannonTypeGroove::init()
 		return false;
 	}
 
+	float dis = 17.9;
 	_cannonType = 0;
 	setTexture("cannons/CannonCover_Groove_base.png");
 	Vec2 v = getContentSize()/2;
@@ -20,12 +22,14 @@ bool CannonTypeGroove::init()
 		_outter[i] = Sprite::create("cannons/CannonCover_Groove_outter.png");
 		addChild(_outter[i]);
 		_outter[i]->setAnchorPoint(Point(0.5,0));
-		_outter[i]->setPosition(v.x + 25.6*cos(i * CC_DEGREES_TO_RADIANS(30)+CC_DEGREES_TO_RADIANS(90)), v.y + 25.6*sin(i* CC_DEGREES_TO_RADIANS(30)+CC_DEGREES_TO_RADIANS(90)));
+		_outter[i]->setPosition(v.x + dis*cos(i * CC_DEGREES_TO_RADIANS(30)+CC_DEGREES_TO_RADIANS(90)), v.y + dis*sin(i* CC_DEGREES_TO_RADIANS(30)+CC_DEGREES_TO_RADIANS(90)));
 		_outter[i]->setRotation(i*(-30));
 
 	}
 
 	_r_timer = 0 ;
+
+	//(this->getChildByTag(color_tag))->setOpacity(0);
 
 
 	return true;
@@ -76,6 +80,27 @@ void CannonTypeGroove::setDirection()
 
 
 	
+
+}
+
+void CannonTypeGroove::setColorInfo( cocos2d::Color3B c3b )
+{
+	(this->getChildByTag(color_tag))->setColor(c3b);
+	NumericalManager* nm = NumericalManager::getInstance();
+
+
+	for (int i =0 ; i <12 ; i++)
+	{
+		_outter[i]->setColor(nm->getBulletColor(c3b));
+	}
+
+
+
+
+	attackRange = nm->getRangeByColor(c3b,_cannonType);
+	_attackInterval = nm->getIntervalByColor(c3b , _cannonType);
+	_damage = nm->getAttackByColor(c3b, _cannonType);
+
 
 }
 

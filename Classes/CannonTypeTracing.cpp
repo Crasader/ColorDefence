@@ -77,6 +77,8 @@ void CannonTypeTracing::attackOnce()
 
 	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_tracing.mp3");
 
+	isAttacking = false;
+	_target = nullptr;
 
 
 }

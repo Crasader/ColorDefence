@@ -1,10 +1,12 @@
 ﻿#include "CannonTypeRage.h"
 #include "Bullet.h"
 #include "NumericalManager.h"
+#include "ParticleEmitterManager.h"
 
 USING_NS_CC;
 
 const int rage_tag = 12;
+const int rage_particle_tag = 89;
 
 
 bool CannonTypeRage::init()
@@ -186,6 +188,14 @@ void CannonTypeRage::setRage( bool rage )
 		RepeatForever* rept = RepeatForever::create(ro);
 		runAction(rept);
 
+
+		//粒子系统 特效
+		ParticleSystem* emitter =  ParticleSystemQuad::create("effects/Particle_Rage.plist");
+		(getParent())->addChild(emitter,10086,rage_particle_tag);
+		emitter->setPosition(getPosition());
+		ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
+
+
 	}
 	else
 	{
@@ -203,6 +213,13 @@ void CannonTypeRage::setRage( bool rage )
 			}
 		}
 
+
+		//粒子系统 特效
+		if (getParent()->getChildByTag(rage_particle_tag)!=nullptr)
+		{
+			((ParticleSystem*)(getParent()->getChildByTag(rage_particle_tag)))->setEmissionRate(0);
+
+		}
 		
 	}
 }
@@ -264,4 +281,14 @@ void CannonTypeRage::tryGetTarget()
 
 
 
+}
+
+void CannonTypeRage::onExit()
+{
+	if (_rage)
+	{
+		setRage(false);
+	}
+
+	Cannon::onExit();
 }

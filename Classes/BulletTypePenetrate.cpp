@@ -15,8 +15,12 @@ bool BulletTypePenetrate::init()
 	//BulletManager::getInstance()->bullets.pushBack(this);
 
 	setTexture("effects/Bullet_Penetrate.png");
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	Sprite* shell = Sprite::create("effects/Bullet_Penetrate.png");
+	addChild(shell,-1);
+	shell->setPosition((Vec2)(getContentSize()/2) + Vec2(0,5));
+	shell->setScale(1.2);
+	
 
 	em = EnemyManager::getInstance();
 	enemiesDamaged = Vector<Enemy*>();

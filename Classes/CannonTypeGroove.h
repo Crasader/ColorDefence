@@ -14,6 +14,7 @@ public:
 	//create函数
 	CREATE_FUNC(CannonTypeGroove);
 
+	void setColorInfo(cocos2d::Color3B c3b);
 
 private:
 	
@@ -22,7 +23,6 @@ private:
 	cocos2d::Sprite* _outter[12];
 
 	void setDirection();
-
 
 	int _r_timer;
 

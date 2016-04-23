@@ -16,6 +16,9 @@ public:
 
 	void setExtraState(bool on);
 
+	void pause();
+	void resume();
+
 private:
 	
 	void attackOnce();

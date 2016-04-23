@@ -31,6 +31,8 @@ private:
 
 	void setDirection();
 
+	void onExit();
+
 };
 
 

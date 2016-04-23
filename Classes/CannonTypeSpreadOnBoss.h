@@ -21,6 +21,12 @@ private:
 
 	void tryGetTarget();
 
+	cocos2d::Sprite* _core;
+
+	void setDirection();
+
+	void update(float delta);
+
 };
 
 

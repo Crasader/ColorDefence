@@ -32,7 +32,16 @@ void CannonTypeSuperPoisonous::attackOnce()
 
 	_cover->stopAllActions();
 	_cover->setScale(1);
-	_cover->runAction(Sequence::create(ScaleTo::create(0.1,0.2),ScaleTo::create(0.25,1),NULL));
+	_cover->setPosition(getContentSize()/2);
+
+	Vec2 dir = _target->getPosition() - getPosition();
+	dir.normalize();
+	dir = 18 *dir;
+
+	auto seq1 = Sequence::create(ScaleTo::create(0.1,0.2),ScaleTo::create(0.25,1),NULL);
+	auto seq2 = Sequence::create(MoveBy::create(0.1,dir),MoveBy::create(0.1,-1*dir),NULL);
+	
+	_cover->runAction(Spawn::create(seq1,seq2,NULL));
 
 
 
@@ -85,7 +94,7 @@ void CannonTypeSuperPoisonous::resume()
 
 void CannonTypeSuperPoisonous::setDirection()
 {
-	setRotation(getRotation()-3);
+	_cover->setRotation(_cover->getRotation()-1);
 	return;
 }
 

@@ -87,7 +87,9 @@ void CannonTypeSpiral::attackOnce()
 	{
 
 		SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_spiral_on.mp3");
-		
+		_outter->stopAllActions();
+		_outter->setScale(0.8);
+		_outter->runAction(ScaleTo::create(_attackInterval/60.0,1));
 		
 
 
@@ -104,6 +106,13 @@ void CannonTypeSpiral::attackOnce()
 
 
 		SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_spiral.mp3");
+		_outter->stopAllActions();
+		_outter->setScale(1);
+		auto act1 = ScaleTo::create(_attackInterval/60.0,0.8);
+		auto act2 = CallFunc::create([&](){ _outter->setScale(1); });
+		auto seq = Sequence::create(act1,act2,NULL);
+		_outter->runAction(seq);
+
 
 
 		//如果满了 粒子特效
@@ -154,25 +163,7 @@ void CannonTypeSpiral::attackOnce()
 		NumericalManager::getInstance()->getColorByResource(resource[2])));
 
 
-/*
-	//粒子系统 特效
-	ParticleSystem* emitter;
-	if (extraStateOn)
-	{
-		SoundManager::getInstance()->playSoundEffect("sound/cannon_consume.mp3");
-		emitter = ParticleSystemQuad::create("effects/Particle_Consumer.plist");
-	}
-	else
-	{
-		SoundManager::getInstance()->playSoundEffect("sound/cannon_consume.mp3");
-		emitter = ParticleSystemQuad::create("effects/Particle_Consumer.plist");
-	}
 
-	(getParent())->addChild(emitter,10086);
-	emitter->setPosition(getPosition());
-	ParticleEmitterManager::getInstance()->particleEmitters.pushBack(emitter);
-
-*/
 
 
 
@@ -195,5 +186,17 @@ void CannonTypeSpiral::setExtraState( bool on )
 
 	_outter->setOpacity(on?255:150);
 
+}
+
+void CannonTypeSpiral::pause()
+{
+	Cannon::pause();
+	_outter->pause();
+}
+
+void CannonTypeSpiral::resume()
+{
+	Cannon::resume();
+	_outter->resume();
 }
 

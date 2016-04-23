@@ -99,16 +99,14 @@
     <key>startColorVarianceRed</key>
     <real>0</real>
     <key>startParticleSize</key>
-    <real>20</real>
+    <real>16</real>
     <key>startParticleSizeVariance</key>
-    <real>10</real>
+    <real>5</real>
     <key>tangentialAccelVariance</key>
     <real>0</real>
     <key>tangentialAcceleration</key>
     <real>0</real>
     <key>textureFileName</key>
-    <string>Effects_Ring.png</string>
+    <string>Bullet.png</string>
   </dict>
-</plist>g>Effects_Ring.png</string>
-  </dict>
-</plist>>
+</plist>

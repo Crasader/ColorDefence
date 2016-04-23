@@ -13,8 +13,11 @@ bool CannonTypeSpreadOnBoss::init()
 	}
 
 	_cannonType = 0;
-	setTexture("cannons/CannonCover_SpreadOnBoss.png");
+	setTexture("cannons/CannonCover_SpreadOnBoss_base.png");
 
+	_core = Sprite::create("cannons/CannonCover_SpreadOnBoss_core.png");
+	addChild(_core);
+	_core->setPosition(getContentSize()/2);
 
 	return true;
 }
@@ -81,5 +84,78 @@ void CannonTypeSpreadOnBoss::tryGetTarget()
 
 
 
+
+}
+
+void CannonTypeSpreadOnBoss::setDirection()
+{
+	Cannon::setDirection();
+	if (_target->isBoss())
+	{
+		_core->setRotation(_core->getRotation()+5);
+	}
+	
+}
+
+void CannonTypeSpreadOnBoss::update( float delta )
+{
+	if (!readyToShoot)
+	{
+		_iterator += 60.0 * delta;
+		if (_iterator>=_attackInterval)
+		{
+			readyToShoot = true;
+			_iterator-= _attackInterval;
+		}
+
+	}
+
+
+	if (em->enemiesInSequence.size()==0)
+	{
+		isAttacking = false;
+		_core->setRotation(0);
+		return;
+	}
+
+	//若正在攻击
+	if (isAttacking)
+	{
+
+
+		//若攻击对象死了或超出范围
+		if ((!_target->isAlive())||(this->getPosition().getDistance(_target->getPosition())>attackRange)||(_target->isFloating))
+		{
+			isAttacking = false;
+			_target = nullptr;
+			_core->setRotation(0);
+			return;
+		}
+
+		setDirection();
+
+
+		if (readyToShoot)
+		{
+			readyToShoot = false;
+			attackOnce();
+
+		}
+
+
+
+
+
+
+	}
+	//若不在攻击
+	else
+	{
+
+
+		//如果有进入范围的
+		tryGetTarget();
+
+	}
 
 }

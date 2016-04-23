@@ -1,54 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> 
-<plist version="1.0"> 
-    <dict> 
-        <key>00</key> 
-        <string>欢迎来到Color Defence 在这里 你要用[颜色]来构建防线 阻止敌人进入它们的目的地</string> 
-        <key>01</key> 
-        <string>会溅射的塔 当炮弹爆炸时 可同时对一定范围内的多个敌人造成物理伤害</string> 
-        <key>02A</key> 
-        <string>敌人将从这里进入</string> 
-        <key>02B</key> 
-        <string>敌人将沿着路线前进最终到达这里</string> 
-        <key>03</key> 
-        <string>这里是塔基 点击塔基 造一座建筑</string> 
-        <key>04</key> 
-        <string>完成建造</string> 
-        <key>05</key> 
-        <string>战斗即将开始 点击这里 释放敌人</string> 
-        <key>06</key> 
-        <string>敌人出现战斗开始</string> 
-        <key>07</key> 
-        <string>干得漂亮 接下来会有更强的敌人</string> 
-        <key>08</key> 
-        <string>穿着盔甲的敌人会减少受到的伤害 现在提高塔的攻击力 点击炮塔来升级</string> 
-        <key>09A</key> 
-        <string>在红色的区域向上滑动可以增加[红色]资源投入[红色]可以增强建筑的攻击伤害</string> 
-        <key>09B</key> 
-        <string>注意观察围绕塔基旋转的白球白球的尺寸代表攻击伤害</string> 
-        <key>10</key> 
-        <string>完成升级</string> 
-        <key>12</key> 
-        <string>简直完美 接下来会有更快的敌人 我们做好准备 点击炮塔以升级</string> 
-        <key>13A</key> 
-        <string>在绿色的区域向上滑动可以增加[绿色]资源投入[绿色]可以增强建筑的攻击范围</string>
-        <key>13B</key> 
-        <string>注意观察围绕塔基旋转的白球白球的旋转半径代表攻击范围</string>  
-        <key>14A</key> 
-        <string>在蓝色的区域向上滑动可以增加[蓝色]资源投入[蓝色]可以增强建筑的攻击频率</string> 
-        <key>14B</key> 
-        <string>注意观察围绕塔基旋转的白球白球的旋转速度代表攻击频率</string> 
-        <key>17</key> 
-        <string>太棒了我们再造一座塔</string> 
-        <key>18</key> 
-        <string>长按并滑动选择另一种塔</string> 
-        <key>19</key> 
-        <string>建造的同时也可以对其增加资源投入 每种[颜色]的上限是16喔</string> 
-        <key>22</key> 
-        <string>完美！ 我们的武器初具规模 迎接下一波敌人</string> 
-        <key>24</key> 
-        <string>形势不妙！快使用超级武器 消耗掉三种颜色的差值 对所有敌人造成伤害</string> 
-        <key>25</key> 
-        <string>恭喜你已经完成教学关卡</string> 
-    </dict> 
-</plist> 

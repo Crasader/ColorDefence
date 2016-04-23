@@ -328,6 +328,18 @@ Cannon* CannonManager::getCannonByType( unsigned type )
 
 void CannonManager::readAllCannonTypesUnlocked()
 {
+
+	//*
+	//解锁全部
+	_allCannonTypesUnlocked.clear();
+	for (int i = 0 ; i <= 31 ; i++)
+	{
+		_allCannonTypesUnlocked.push_back(i);
+	}
+	return;
+	//*/
+
+
 	do{
 
 		std::string filename = FileUtils::getInstance()->getWritablePath() + "cannonTypeUnlocked.json";

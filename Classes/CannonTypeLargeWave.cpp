@@ -45,11 +45,19 @@ void CannonTypeLargeWave::attackOnce()
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));
 	//
 	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_largeWave.mp3");
+	setRotation(getRotation() + 60);
+
+	stopAllActions();
+	setOpacity(0);
+	auto act1 = FadeIn::create(_attackInterval/60.0);
+	//auto act2 = CallFunc::create([&](){ setScale(1); });
+	//auto seq = Sequence::create(act1,act2,NULL);
+	runAction(act1);
 
 }
 
 void CannonTypeLargeWave::setDirection()
 {
-	_rot-> setRotation(_rot->getRotation() + 2.0);
+	_rot-> setRotation(_rot->getRotation() - 2.0);
 }
 

@@ -25,6 +25,10 @@ private:
 
 	void update(float delta);
 
+	cocos2d::Sprite* _trap;
+
+	void resetTrap();
+
 };
 
 

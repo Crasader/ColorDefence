@@ -13,9 +13,13 @@ bool CannonTypeTrapping::init()
 	}
 
 	_cannonType = 0;
-	setTexture("cannons/CannonCover_Trapping.png");
+	setTexture("cannons/CannonCover_Trapping_base.png");
 
 	_isTrapping = false;
+
+	_trap = Sprite::create("cannons/CannonCover_Trapping_trap.png");
+	addChild(_trap);
+	_trap->setPosition(getContentSize()/2);
 
 	return true;
 }
@@ -47,6 +51,7 @@ void CannonTypeTrapping::attackOnce()
 	if (_isTrapping)
 	{
 		SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_trapping_trap.mp3");
+		_trap->setVisible(false);
 	}
 	else
 	{
@@ -80,6 +85,7 @@ void CannonTypeTrapping::tryGetTarget()
 		isAttacking = true;
 		_isTrapping = true;
 
+
 	}
 }
 
@@ -101,8 +107,10 @@ void CannonTypeTrapping::update( float delta )
 	if (em->enemiesInSequence.size()==0)
 	{
 		isAttacking = false;
+		//resetTrap();
 		return;
 	}
+
 
 	//若正在攻击
 	if (isAttacking)
@@ -113,6 +121,7 @@ void CannonTypeTrapping::update( float delta )
 		if ((!_target->isAlive())||(this->getPosition().getDistance(_target->getPosition())>attackRange*1.2)||(_target->isFloating))
 		{
 			isAttacking = false;
+			resetTrap();
 			_target = nullptr;
 			return;
 		}
@@ -137,12 +146,23 @@ void CannonTypeTrapping::update( float delta )
 	else
 	{
 
+		if (em->enemiesInSequence.size()!=0)
+		{
+			//如果有进入范围的
+			tryGetTarget();
+		}
 
-		//如果有进入范围的
-		tryGetTarget();
 
 	}
 
 
+}
+
+void CannonTypeTrapping::resetTrap()
+{
+	_trap->stopAllActions();
+	_trap->setVisible(true);
+	_trap->setScale(0.01);
+	_trap->runAction(ScaleTo::create(0.18,1));
 }
 
