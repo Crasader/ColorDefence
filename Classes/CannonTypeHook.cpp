@@ -4,6 +4,7 @@
 #include "BuffTypeStun.h"
 
 
+
 const int color_tag = 111;
 USING_NS_CC;
 
@@ -114,11 +115,15 @@ void CannonTypeHook::catchOnce( bool catching , Point targetPosition)
 		auto mv_updt = CallFunc::create([&]{
 
 			_target->updateDestination();
+// 			float damageContributed = _target->onPhysicalDamaged(100);
+// 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+
 
 		});
 		auto seq = Sequence::create(dt_tar,mv_tar,mv_updt,NULL);
 
 		_target->setBuff(BuffTypeStun::create(_target,0.1f + mv_tar_dur));
+		//_target->setBuff(BuffTypeBlooding::create(_target,0.1f + mv_tar_dur));
 
 		_target->runAction(seq);
 

@@ -14,6 +14,7 @@ public:
 	//create函数
 	CREATE_FUNC(CannonTypeLargeWave);
 
+	void tryGetTarget();
 
 private:
 	
@@ -22,6 +23,7 @@ private:
 	cocos2d::Sprite* _rot;
 
 	void setDirection();
+
 
 };
 

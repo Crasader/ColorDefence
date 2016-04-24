@@ -345,7 +345,7 @@ std::vector<float> NumericalManager::getExtraStateFactor( short type )
 	switch (type)
 	{
 	case 17:
-		ret[0] = 0.2;
+		ret[0] = 0.8;
 		return ret;
 	case 29:
 		ret[0] = 2.0;

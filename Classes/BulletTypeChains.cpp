@@ -34,7 +34,7 @@ void BulletTypeChains::explode()
 	
 	//动画
 
-	auto ex1 = DelayTime::create(_stunTime/60);
+	auto ex1 = DelayTime::create(_stunTime);
 	auto ex2 = FadeOut::create(0.12);
 
 	auto ex4 = CallFunc::create([&]{

@@ -103,7 +103,6 @@
 	<key>tangentialAcceleration</key>
 	<real>300</real>
 	<key>textureFileName</key>
-	<string>particle_texture.png</string>
 	<string>Bullet.png</string>
 </dict>
-</plist>>
+</plist>

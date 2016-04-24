@@ -16,9 +16,12 @@ bool CannonTypePoisonousOne::init()
 
 	_cannonType = 0;
 	((Sprite*)(getChildByTag(color_tag)))->setScaleX(0.5);
-	setTexture("cannons/CannonCover_PoisonousOne.png");
+	setTexture("cannons/CannonCover_PoisonousOne_base.png");
 
-
+	_piston = Sprite::create("cannons/CannonCover_PoisonousOne_piston.png");
+	//_piston = Sprite::create();
+	this->addChild(_piston);
+	_piston->setPosition((Vec2)(getContentSize()/2) + Vec2(0,-8));
 
 	return true;
 }
@@ -47,9 +50,18 @@ void CannonTypePoisonousOne::attackOnce()
 
 	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_poisonousOne.wav");
 
+	_piston->stopAllActions();
+	_piston->setPosition((Vec2)(getContentSize()/2) + Vec2(0,-8));
+	auto mv1 = MoveBy::create(0.1,Vec2(0,16));
+	_piston->runAction(Sequence::create(mv1,mv1->reverse(),NULL));
+
 
 	isAttacking = false;
 	_target = nullptr;
+
+
+
+
 
 }
 

@@ -61,3 +61,36 @@ void CannonTypeLargeWave::setDirection()
 	_rot-> setRotation(_rot->getRotation() - 2.0);
 }
 
+void CannonTypeLargeWave::tryGetTarget()
+{
+	Vector<Enemy*> v_target = Vector<Enemy*>();
+	for (Enemy* e: em->enemiesInSequence)
+	{
+		if ((!e->isAntiMagic())&&(getPosition().getDistance(e->getPosition())<=attackRange))
+		{
+			v_target.pushBack(e);
+		}
+	}
+
+
+	if (v_target.empty())
+	{
+		return;
+	}
+
+	_target = v_target.front();
+
+	for (Enemy*e : v_target)
+	{
+		if (getPosition().getDistance(e->getPosition())<=getPosition().getDistance(_target->getPosition()))
+		{
+			_target = e;
+			isAttacking = true;
+		}
+	}
+
+
+
+}
+
+

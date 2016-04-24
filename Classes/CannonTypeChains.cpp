@@ -71,7 +71,7 @@ void CannonTypeChains::attackOnce()
 		_catchers[i]->setRotation((float)i * 60 - 18 + CCRANDOM_0_1()*36);
 		_catchers[i]->setOpacity(255);
 		auto fo = FadeOut::create(0.01);
-		auto dt = DelayTime::create(_stunTime/60 + 0.1);
+		auto dt = DelayTime::create(_stunTime + 0.1);
 		auto fi = FadeIn::create(0.01);
 		
 		_catchers[i]->runAction(Sequence::create(fo,dt,fi,nullptr));

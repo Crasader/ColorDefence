@@ -19,7 +19,7 @@ private:
 	
 	void attackOnce();
 
-
+	cocos2d::Sprite* _piston;
 
 };
 
