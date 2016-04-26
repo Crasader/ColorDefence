@@ -25,7 +25,7 @@ bool BulletTypeSpreadOnBoss::init()
 void BulletTypeSpreadOnBoss::explode()
 {
 
-	auto buff = BuffTypeSpreadDamage::create(_target,3.0f);
+	auto buff = BuffTypeSpreadDamage::create(_target,3.0f,35);
 	buff->setDamageContributerID(_damageContributerID);
 	_target->setBuff(buff);
 	

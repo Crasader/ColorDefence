@@ -8,10 +8,10 @@ class BuffTypeSpreadDamage : public Buff
 public:
 
 	//初始化
-	virtual bool init(Enemy* enemy, float buffTime);  
+	virtual bool init(Enemy* enemy, float buffTime, float damageSpread);  
 
 	//create函数
-	static BuffTypeSpreadDamage* create(Enemy* enemy, float buffTime);
+	static BuffTypeSpreadDamage* create(Enemy* enemy, float buffTime, float damageSpread);
 
 	virtual void overrideWithNewBuff(Buff* newBuff);
 
@@ -23,5 +23,6 @@ public:
 
 private:
 
+	float _damageSpread;
 };
 

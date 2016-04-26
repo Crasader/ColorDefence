@@ -4,6 +4,7 @@
 
 
 USING_NS_CC;
+const int color_tag = 111;
 
 bool CannonTypeExplodeOnDeath::init()
 {
@@ -14,15 +15,18 @@ bool CannonTypeExplodeOnDeath::init()
 	}
 
 	_cannonType = 0;
-	setTexture("cannons/CannonCover_ExplodeOnDeath_ring.png");
+	setTexture("cannons/CannonCover_ExplodeOnDeath_base.png");
 	
+	((Sprite*)getChildByTag(color_tag))->setTexture("cannons/CannonCover_ExplodeOnDeath_ring.png");
+
 	_head = Sprite::create("cannons/CannonCover_ExplodeOnDeath_head.png");
 	addChild(_head,-1);
 	_head->setPosition(getContentSize()/2);
 
-	Sprite* bg = Sprite::create("cannons/CannonCover_ExplodeOnDeath_base.png");
-	addChild(bg,-1);
+	Sprite* bg = Sprite::create("cannons/CannonColor.png");
+	addChild(bg,-10086);
 	bg->setPosition(getContentSize()/2);
+	bg->setColor(Color3B(0,0,0));
 
 
 	_particle = ParticleSystemQuad::create("effects/Particle_ExplodeOnDeath_buff.plist");
@@ -94,6 +98,6 @@ void CannonTypeExplodeOnDeath::resume()
 void CannonTypeExplodeOnDeath::setColorInfo( cocos2d::Color3B c3b )
 {
 	Cannon::setColorInfo(c3b);
-	setColor(c3b);
+	//setColor(c3b);
 }
 

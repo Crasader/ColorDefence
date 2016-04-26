@@ -15,11 +15,19 @@ public:
 	CREATE_FUNC(CannonTypePoisonousOne);
 
 
+	void pause();
+	void resume();
+
+
 private:
 	
 	void attackOnce();
 
 	cocos2d::Sprite* _piston;
+
+	void setDirection();
+
+	//bool _canRotate;
 
 };
 

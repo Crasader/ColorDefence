@@ -21,7 +21,10 @@ bool CannonTypePoisonousOne::init()
 	_piston = Sprite::create("cannons/CannonCover_PoisonousOne_piston.png");
 	//_piston = Sprite::create();
 	this->addChild(_piston);
-	_piston->setPosition((Vec2)(getContentSize()/2) + Vec2(0,-8));
+	_piston->setPosition(getContentSize()/2);
+
+
+	//_canRotate = true;
 
 	return true;
 }
@@ -31,6 +34,8 @@ bool CannonTypePoisonousOne::init()
 
 void CannonTypePoisonousOne::attackOnce()
 {
+
+	//_canRotate = false;
 
 	BulletTypePoisonousOne* bullet = BulletTypePoisonousOne::create();
 
@@ -51,9 +56,10 @@ void CannonTypePoisonousOne::attackOnce()
 	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_poisonousOne.wav");
 
 	_piston->stopAllActions();
-	_piston->setPosition((Vec2)(getContentSize()/2) + Vec2(0,-8));
+	_piston->setPosition((Vec2)(getContentSize()/2)+Vec2(0,-8));
 	auto mv1 = MoveBy::create(0.1,Vec2(0,16));
-	_piston->runAction(Sequence::create(mv1,mv1->reverse(),NULL));
+	auto mv2 = MoveTo::create(0.1,getContentSize()/2);
+	_piston->runAction(Sequence::create(mv1,mv2,NULL));
 
 
 	isAttacking = false;
@@ -65,3 +71,24 @@ void CannonTypePoisonousOne::attackOnce()
 
 }
 
+void CannonTypePoisonousOne::setDirection()
+{
+	//if (_canRotate)
+	//{
+		Cannon::setDirection();
+	//}
+	
+
+}
+
+void CannonTypePoisonousOne::pause()
+{
+	_piston->pause();
+	Sprite::pause();
+}
+
+void CannonTypePoisonousOne::resume()
+{
+	Sprite::resume();
+	_piston->resume();
+}

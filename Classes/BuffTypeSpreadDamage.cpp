@@ -8,7 +8,7 @@
 
 USING_NS_CC;
 
-bool BuffTypeSpreadDamage::init(Enemy* enemy, float buffTime)
+bool BuffTypeSpreadDamage::init(Enemy* enemy, float buffTime, float damageSpread)
 {
 
 	if ( !Buff::init() )
@@ -22,7 +22,7 @@ bool BuffTypeSpreadDamage::init(Enemy* enemy, float buffTime)
 
 	_buffTimeRest = buffTime;
 
-
+	_damageSpread = damageSpread;
 
 
 
@@ -32,11 +32,11 @@ bool BuffTypeSpreadDamage::init(Enemy* enemy, float buffTime)
 }
 
 
-BuffTypeSpreadDamage* BuffTypeSpreadDamage::create(Enemy* enemy, float buffTime)
+BuffTypeSpreadDamage* BuffTypeSpreadDamage::create(Enemy* enemy, float buffTime, float damageSpread)
 {
 
 	BuffTypeSpreadDamage *pRet = new BuffTypeSpreadDamage(); 
-	if (pRet && pRet->init( enemy, buffTime)) 
+	if (pRet && pRet->init( enemy, buffTime , damageSpread)) 
 	{
 		pRet->autorelease(); 
 		return pRet; 
@@ -54,6 +54,7 @@ void BuffTypeSpreadDamage::overrideWithNewBuff( Buff* newBuff )
 {
 
 	_buffTimeRest = _buffTimeRest>((BuffTypeSpreadDamage*)newBuff)->_buffTimeRest?_buffTimeRest:((BuffTypeSpreadDamage*)newBuff)->_buffTimeRest;
+	_damageSpread = _damageSpread>((BuffTypeSpreadDamage*)newBuff)->_damageSpread?_damageSpread:((BuffTypeSpreadDamage*)newBuff)->_damageSpread;
 }
 
 
@@ -116,7 +117,7 @@ void BuffTypeSpreadDamage::spreadDamage(Point position)
 
 		if ((!e->isBoss())&&(e->getPosition().getDistance(position)<250))
 		{
-			float damageContributed  = e->onRealDamaged(35);
+			float damageContributed  = e->onRealDamaged(_damageSpread);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed );
 		}
 
