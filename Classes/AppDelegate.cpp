@@ -1,7 +1,8 @@
-﻿#include "AppDelegate.h"
+#include "AppDelegate.h"
 #include "SceneMenu.h"
 
 USING_NS_CC;
+
 
 AppDelegate::AppDelegate() {
 
@@ -65,7 +66,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	// create a scene. it's an autorelease object
 	auto scene = SceneMenu::createScene();
-
+    
+    //读写路径
+    log(" %s" , FileUtils::getInstance()->getWritablePath().c_str());
+    
 	// run
 	director->runWithScene(scene);
 

@@ -40,7 +40,7 @@ bool ColorPad::init()
 		_labelBackGround[i]->setOpacity(255);
 
 		//_labelRGB[i] = LabelTTF::create("1","Arial",50);
-		_labelRGB[i] = LabelTTF::create("1","fonts/miniskip.ttf",70);
+		_labelRGB[i] = Label::createWithTTF("1","fonts/Miniskip.ttf",70);
 		_labelBackGround[i]->addChild(_labelRGB[i]);
 		_labelRGB[i]->setPosition(_labelBackGround[i]->getContentSize()/2);
 		_labelRGB[i]->setPosition(_labelRGB[i]->getPosition() + Vec2(0,-18));

@@ -35,7 +35,7 @@ private:
 
 
 	
-	cocos2d::LabelTTF* _labelRGB[3];
+	cocos2d::Label* _labelRGB[3];
 	cocos2d::Sprite* _labelBackGround[3];
 
 
