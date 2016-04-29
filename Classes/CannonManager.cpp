@@ -1,4 +1,6 @@
-﻿#include "CannonManager.h"
+﻿#include "TestingConfig.h"
+
+#include "CannonManager.h"
 
 #include "json/rapidjson.h"  
 #include "json/writer.h"
@@ -329,7 +331,7 @@ Cannon* CannonManager::getCannonByType( unsigned type )
 void CannonManager::readAllCannonTypesUnlocked()
 {
 
-	//*
+#if(TESTING_MODE == 1)
 	//解锁全部
 	_allCannonTypesUnlocked.clear();
 	for (int i = 0 ; i <= 31 ; i++)
@@ -337,7 +339,7 @@ void CannonManager::readAllCannonTypesUnlocked()
 		_allCannonTypesUnlocked.push_back(i);
 	}
 	return;
-	//*/
+#endif
 
 
 	do{

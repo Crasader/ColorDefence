@@ -1,4 +1,6 @@
-﻿#include "SceneLevels.h"
+﻿#include "TestingConfig.h"
+
+#include "SceneLevels.h"
 #include "ScenePlaying.h"
 #include "LevelManager.h"
 #include "SceneCollection.h"
@@ -95,9 +97,15 @@ bool SceneLevels::init()
 	menu->alignItemsHorizontallyWithPadding(visibleSize.width - 2*item_tutorial->getContentSize().width );
 
 
-	
+    
+    bool enableStore = UserDefault::getInstance()->getBoolForKey("cannon_store_unlocked",false);
+    
+#if(TESTING_MODE == 1)
+    //解锁商店
+    enableStore = true ;
+#endif
 	//商店 是否解锁
-	if (UserDefault::getInstance()->getBoolForKey("cannon_store_unlocked",false))
+	if (enableStore)
 	{
 		auto item_store = MenuItemImage::create("UI/UI_lvs_store.png","UI/UI_lvs_store.png",[&](Ref* pSender){
 
