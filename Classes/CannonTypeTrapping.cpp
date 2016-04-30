@@ -106,9 +106,13 @@ void CannonTypeTrapping::update( float delta )
 
 	if (em->enemiesInSequence.size()==0)
 	{
-		isAttacking = false;
-		//resetTrap();
-		return;
+        if (isAttacking)
+        {
+            isAttacking = false;
+            resetTrap();
+            return;
+        }
+
 	}
 
 
@@ -165,4 +169,20 @@ void CannonTypeTrapping::resetTrap()
 	_trap->setScale(0.01);
 	_trap->runAction(ScaleTo::create(0.18,1));
 }
+
+
+
+void CannonTypeTrapping::pause()
+{
+    Cannon::pause();
+    _trap->pause();
+}
+
+void CannonTypeTrapping::resume()
+{
+    Cannon::resume();
+    _trap->resume();
+}
+
+
 

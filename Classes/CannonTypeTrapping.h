@@ -14,7 +14,11 @@ public:
 	//create函数
 	CREATE_FUNC(CannonTypeTrapping);
 
+    
+    void pause();
+    void resume();
 
+    
 private:
 	
 	void attackOnce();
