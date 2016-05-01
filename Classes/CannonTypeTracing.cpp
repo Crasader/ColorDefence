@@ -101,16 +101,10 @@ void CannonTypeTracing::resume()
 
 void CannonTypeTracing::setColorInfo( cocos2d::Color3B c3b )
 {
-	(this->getChildByTag(color_tag))->setColor(c3b);
+	Cannon::setColorInfo(c3b);
 	_gateColor->setColor(c3b);
 
 
-
-	NumericalManager* nm = NumericalManager::getInstance();
-
-	attackRange = nm->getRangeByColor(c3b,_cannonType);
-	_attackInterval = nm->getIntervalByColor(c3b , _cannonType);
-	_damage = nm->getAttackByColor(c3b, _cannonType);
 
 }
 

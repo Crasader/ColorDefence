@@ -13,13 +13,13 @@ public:
 	//create函数
 	CREATE_FUNC(BulletTypeSpreadOnBoss);
 
-	void setDamage(float damage);
+	void setDamage(float damage , float spreadDamage);
 
 protected:
 
 
 	virtual void explode();
-
+	float _spreadDamage;
 
 };
 

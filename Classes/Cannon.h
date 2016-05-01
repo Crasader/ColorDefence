@@ -57,6 +57,9 @@ public:
 
 protected:
 
+
+	cocos2d::Color3B _color;
+
 	virtual void update(float delta);
 
 

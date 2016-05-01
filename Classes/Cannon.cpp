@@ -59,6 +59,8 @@ bool Cannon::init()
 		_isActioning = false;
 	}
 
+	_color = getChildByTag(color_tag)->getColor();
+
 	hasBaseAfterDestroyed = true;
 
 	_damageContributerID = 0;
@@ -203,6 +205,9 @@ void Cannon::attackOnce()
 
 void Cannon::setColorInfo( cocos2d::Color3B c3b )
 {
+
+	_color = c3b;
+
 	(this->getChildByTag(color_tag))->setColor(c3b);
 
 	NumericalManager* nm = NumericalManager::getInstance();
@@ -228,7 +233,7 @@ unsigned Cannon::getCannonType()
 
 cocos2d::Color3B Cannon::getColorInfo()
 {
-	return ((Sprite*)(this->getChildByTag(color_tag)))->getColor();
+	return _color;
 }
 
 void Cannon::setCannonType( unsigned type )

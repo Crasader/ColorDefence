@@ -55,7 +55,7 @@ void CannonTypeExplodeOnDeath::attackOnce()
 
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, 250 , 195);
+	bullet->setDamage(_damage, 250 , 115.0 + 120.0 * (float) _color.r / 255);
 	bullet->setDamageContributerID(_damageContributerID);
 
 

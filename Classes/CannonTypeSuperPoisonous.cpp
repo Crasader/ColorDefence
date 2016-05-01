@@ -51,7 +51,7 @@ void CannonTypeSuperPoisonous::attackOnce()
 
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, 252.5, 14.5 , 45);
+	bullet->setDamage(_damage, 212.5, 15.0 + 25.0 * (float)_color.r / 255 , 55);
 
 	bullet->setTarget(_target);
 	bullet->setDamageContributerID(_damageContributerID);
@@ -69,14 +69,8 @@ void CannonTypeSuperPoisonous::attackOnce()
 void CannonTypeSuperPoisonous::setColorInfo( cocos2d::Color3B c3b )
 {
 
-	(this->getChildByTag(color_tag))->setColor(c3b);
+	Cannon::setColorInfo(c3b);
 	_cover->setColor(c3b);
-
-	NumericalManager* nm = NumericalManager::getInstance();
-
-	attackRange = nm->getRangeByColor(c3b,_cannonType);
-	_attackInterval = nm->getIntervalByColor(c3b , _cannonType);
-	_damage = nm->getAttackByColor(c3b, _cannonType);
 
 }
 

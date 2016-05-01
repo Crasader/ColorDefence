@@ -66,6 +66,9 @@ void CannonTypeDuplicate::attackOnce()
 
 void CannonTypeDuplicate::setColorInfo( cocos2d::Color3B c3b )
 {
+
+	_color = c3b;
+
 	(this->getChildByTag(color_tag))->setColor(c3b);
 
 	NumericalManager* nm = NumericalManager::getInstance();

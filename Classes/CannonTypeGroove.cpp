@@ -46,7 +46,7 @@ void CannonTypeGroove::attackOnce()
 	BulletTypeGroove* bullet = BulletTypeGroove::create();
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, 1.5,155);
+	bullet->setDamage(_damage, 0.9 + 0.9* (float)_color.r/255.0 ,155);
 
 	bullet->setTarget(_target);
 	bullet->setDamageContributerID(_damageContributerID);
@@ -85,21 +85,14 @@ void CannonTypeGroove::setDirection()
 
 void CannonTypeGroove::setColorInfo( cocos2d::Color3B c3b )
 {
-	(this->getChildByTag(color_tag))->setColor(c3b);
-	NumericalManager* nm = NumericalManager::getInstance();
-
+	Cannon::setColorInfo(c3b);
+	auto nm = NumericalManager::getInstance();
 
 	for (int i =0 ; i <12 ; i++)
 	{
 		_outter[i]->setColor(nm->getBulletColor(c3b));
 	}
 
-
-
-
-	attackRange = nm->getRangeByColor(c3b,_cannonType);
-	_attackInterval = nm->getIntervalByColor(c3b , _cannonType);
-	_damage = nm->getAttackByColor(c3b, _cannonType);
 
 
 }

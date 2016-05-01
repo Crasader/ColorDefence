@@ -38,7 +38,7 @@ void CannonTypePoisonousMulti::attackOnce()
 
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, attackRange,53.0 ,26.5);
+	bullet->setDamage(_damage, attackRange,59.0 ,7.0 + 7.0 * (float)_color.r/255);
 	bullet->setDamageContributerID(_damageContributerID);
 
 	bullet->setTarget(_target);
@@ -48,7 +48,7 @@ void CannonTypePoisonousMulti::attackOnce()
 	bullet->setColor(NumericalManager::getInstance()->getBulletColor(getColorInfo()));
 	//
 
-	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_splash.wav");
+	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_poisonousMulti.mp3");
 
 	DelayTime* dt = DelayTime::create(0.8);
 	CallFunc* cf = CallFunc::create([&](){
@@ -60,7 +60,7 @@ void CannonTypePoisonousMulti::attackOnce()
 	runAction(seq);
 
 	
-	SoundManager::getInstance()->playSoundEffect("sound/cannon_shot_poisonousMulti.mp3");
+	
 
 
 	isAttacking = false;

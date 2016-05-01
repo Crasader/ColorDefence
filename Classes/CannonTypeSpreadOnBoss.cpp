@@ -35,7 +35,7 @@ void CannonTypeSpreadOnBoss::attackOnce()
 	getParent()->addChild(bullet);
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage);
+	bullet->setDamage(_damage, 12.0 + 18.0* (float)_color.r / 255);
 
 	bullet->setTarget(_target);
 	bullet->setDamageContributerID(_damageContributerID);

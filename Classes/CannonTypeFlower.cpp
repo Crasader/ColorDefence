@@ -100,18 +100,13 @@ void CannonTypeFlower::collaborate()
 
 void CannonTypeFlower::setColorInfo( cocos2d::Color3B c3b )
 {
-	(this->getChildByTag(color_tag))->setColor(c3b);
+
+	Cannon::setColorInfo(c3b);
 
 	for (int i = 0 ; i<5;i++)
 	{
 		_petal[i]->setColor(c3b);
 	}
-
-	NumericalManager* nm = NumericalManager::getInstance();
-
-	attackRange = nm->getRangeByColor(c3b,_cannonType);
-	_attackInterval = nm->getIntervalByColor(c3b , _cannonType);
-	_damage = nm->getAttackByColor(c3b, _cannonType);
 
 
 }

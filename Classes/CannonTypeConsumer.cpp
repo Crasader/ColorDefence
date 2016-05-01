@@ -138,6 +138,9 @@ void CannonTypeConsumer::attackOnce()
 
 void CannonTypeConsumer::setColorInfo( cocos2d::Color3B c3b )
 {
+
+	_color = c3b;
+
 	(this->getChildByTag(color_tag))->setColor(c3b);
 
 	_mixer[0]->setColor(Color3B(c3b.r,0,0));
