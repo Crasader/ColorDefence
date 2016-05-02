@@ -4,7 +4,7 @@
 #include "DescriptionCard.h"
 
 
-class SceneCollection : public cocos2d::Layer
+class LayerCollectionEnemy : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -14,17 +14,8 @@ public:
     virtual bool init();  
 
     // implement the "static create()" method manually
-    CREATE_FUNC(SceneCollection);
+    CREATE_FUNC(LayerCollectionEnemy);
 
-
-private:
-
-	cocos2d::MenuItemToggle* _menuItemToggle ;
-
-	cocos2d::Layer* _layerCollectionCannon;
-	cocos2d::Layer* _layerCollectionEnemy;
-
-	cocos2d::MenuItem* _menuItemQuit;
 
 
 };

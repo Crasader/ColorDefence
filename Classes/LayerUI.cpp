@@ -753,16 +753,25 @@ void LayerUI::displayDamageContribution()
 	{
 		if (dcm->getContribution(i)!=0)
 		{
+			
 			Sprite* bg = Sprite::create("BLANK.png");
 			addChild(bg,1);
 			bg->setColor(Color3B(0,0,0));
 			bg->setTextureRect(Rect(0,0,80,30));
 			bg->setPosition(MapPointsManager::getPointByIndex(i) + Vec2(0,-30));
 			int damage = (int)(dcm->getContribution(i));
-			LabelTTF* label = LabelTTF::create(String::createWithFormat("%d",damage)->_string,"Arial",20);
+			Label* label = Label::createWithSystemFont(String::createWithFormat("%d",damage)->_string,"Arial",20);
 			bg->addChild (label,1);
 			label->setPosition(bg->getContentSize()/2);
 			
+// 			int damage = (int)(dcm->getContribution(i));
+// 			Label* label = Label::createWithSystemFont(String::createWithFormat("%d",damage)->_string,"Arial",20);
+// 			addChild(label);
+// 			label->setPosition(MapPointsManager::getPointByIndex(i) + Vec2(0,-30));
+// 			TTFConfig ttfConfig("Arial", 20);
+// 			ttfConfig.distanceFieldEnabled = true;
+// 			label->setTTFConfig(ttfConfig);
+//			label->enableOutline(Color4B::BLACK,10);
 			
 
 		}

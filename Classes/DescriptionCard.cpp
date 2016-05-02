@@ -52,10 +52,10 @@ bool DescriptionCard::init()
 	std::string intro = "";
 	_introduction = Label::create(intro,"Arial",38);
 	_description->addChild(_introduction);
-	_introduction->setPosition(0.6*_description->getContentSize().width, 0.5*_description->getContentSize().height);
+	_introduction->setPosition(0.5*_description->getContentSize().width, 0.5*_description->getContentSize().height);
 	//_introduction->setMaxLineWidth(400);
 	_introduction->setLineBreakWithoutSpace(true);
-	_introduction->setDimensions(400,0);
+	_introduction->setDimensions(510,0);
 	//_introduction->setHorizontalAlignment(TextHAlignment::RIGHT);
 
 
