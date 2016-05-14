@@ -362,7 +362,8 @@ void LayerForeground::onTouchEnded( cocos2d::Touch *touch, cocos2d::Event *unuse
 
 				_eventDispatcher->dispatchCustomEvent("NOT_UPGRADING_SELECT",cannonSelected);
 
-
+				cannonSelected->unscheduleUpdate();
+				cannonSelected->pause();
 				return;
 			}
 
