@@ -51,7 +51,7 @@ void CannonTypeSuperPoisonous::attackOnce()
 
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, 212.5, 15.0 + 25.0 * (float)_color.r / 255 , 55);
+	bullet->setDamage(_damage, 234.5, 15.0 + 28.0 * (float)_color.r / 255 , 59);
 
 	bullet->setTarget(_target);
 	bullet->setDamageContributerID(_damageContributerID);

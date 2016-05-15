@@ -51,7 +51,8 @@ void CannonTypeHook::attackOnce()
 	}
 	
 
-
+	isAttacking = false;
+	_target = nullptr;
 
 
 }

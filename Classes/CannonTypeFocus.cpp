@@ -194,7 +194,7 @@ void CannonTypeFocus::sacrifice()
 
 
 		float dmg = (float)( color_r + color_g + color_b );
-		dmg = dmg*dmg*18;
+		dmg = dmg*dmg*32;
 		for (Enemy* e:EnemyManager::getInstance()->enemiesInSequence)
 		{
 			if (e->getPosition().getDistance(_target->getPosition())<125)
