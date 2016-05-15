@@ -218,6 +218,7 @@ void CannonTypeRage::setRage( bool rage )
 		if (getParent()->getChildByTag(rage_particle_tag)!=nullptr)
 		{
 			((ParticleSystem*)(getParent()->getChildByTag(rage_particle_tag)))->setEmissionRate(0);
+            getParent()->removeChildByTag(rage_particle_tag);
 
 		}
 		

@@ -1,5 +1,6 @@
 ﻿#include "PanelEnsurePurchase.h"
 #include "SoundManager.h"
+#include "MultilanguageManager.h"
 
 USING_NS_CC;
 
@@ -49,6 +50,15 @@ bool PanelEnsurePurchase::init()
 		this->removeFromParent();
 
 	});
+    
+    
+    //一个label
+    const char* str = MultilanguageManager::getStringByKey("ensure_purchase");
+    auto label = LabelTTF::create(str,"Arial",40);
+    msgBox->addChild(label);
+    label->setPosition(msgBox->getContentSize()/2);
+
+    
 
 
 

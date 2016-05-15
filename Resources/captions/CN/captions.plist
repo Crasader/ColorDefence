@@ -1,16 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>  
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
-<plist version="1.0">  
-    <dict>  
-        <key>start_game</key>  
-        <string>开始游戏</string>  
-        <key>please_select</key>  
-        <string>请选择要使用的武器</string>  
-        <key>game_win</key>  
-        <string>恭喜过关</string>  
-        <key>game_lose</key>  
-        <string>对不起 你输了</string>  
-        <key>unlock</key>  
-        <string>解锁新武器！</string>  
-    </dict>  
-</plist>  
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>start_game</key>
+	<string>开始游戏</string>
+	<key>please_select</key>
+	<string>请选择要使用的武器</string>
+	<key>game_win</key>
+	<string>恭喜过关</string>
+	<key>game_lose</key>
+	<string>对不起 你输了</string>
+	<key>unlock</key>
+	<string>解锁新武器！</string>
+	<key>ensure_purchase</key>
+	<string>确认购买？</string>
+</dict>
+</plist>
