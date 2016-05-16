@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>enemy_level</key>
+	<string>-敌人等级：</string>
+	<key>enemy_type</key>
+	<string>-敌人类型：</string>
+	<key>special_enemy</key>
+	<string>-特种敌人：</string>
+	<key>enemy_type_fast</key>
+	<string>火箭</string>
+	<key>enemy_type_armor</key>
+	<string>装甲</string>
+	<key>enemy_type_antimagic</key>
+	<string>魔免</string>
+	<key>enemy_type_boss</key>
+	<string>BOSS</string>
+</dict>
+</plist>

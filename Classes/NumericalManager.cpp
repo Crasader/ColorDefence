@@ -213,7 +213,7 @@ cocos2d::Color3B NumericalManager::getBulletColor( cocos2d::Color3B c3b )
 float NumericalManager::getAttackByColor( cocos2d::Color3B c3b , short type)
 {
 
-	float keyValue = ((float)c3b.r - 30 ) * (1 - (float)(c3b.g + c3b.b)/1020) + 1;
+	float keyValue = ((float)c3b.r - 30 ) * (1 - (float)(c3b.g + c3b.b)/1020) + 30;
 
 	return functionLinear( _attackLowerLimits.at(type),_attackUpperLimits.at(type), keyValue );
 
@@ -245,7 +245,7 @@ float NumericalManager::getAttackByColor( cocos2d::Color3B c3b , short type)
 float NumericalManager::getRangeByColor( cocos2d::Color3B c3b , short type)
 {
 
-	float keyValue = ((float)c3b.g - 30 ) * (1 - (float)(c3b.r + c3b.b)/1020) + 1;
+	float keyValue = ((float)c3b.g - 30 ) * (1 - (float)(c3b.r + c3b.b)/1020) + 30;
 
 	return functionLinear( _rangeLowerLimits.at(type),_rangeUpperLimits.at(type), keyValue );
 
@@ -275,7 +275,7 @@ float NumericalManager::getRangeByColor( cocos2d::Color3B c3b , short type)
 int NumericalManager::getIntervalByColor( cocos2d::Color3B c3b , short type)
 {
 
-	float keyValue = ((float)c3b.b - 30) * (1 - (float)(c3b.r + c3b.g)/1020) + 1;
+	float keyValue = ((float)c3b.b - 30) * (1 - (float)(c3b.r + c3b.g)/1020) + 30;
 
 	return functionLinear( _intervalLowerLimits.at(type),_intervalUpperLimits.at(type), keyValue );
 

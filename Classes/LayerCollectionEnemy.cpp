@@ -1,7 +1,7 @@
 ﻿#include "LayerCollectionEnemy.h"
 #include "SceneLevels.h"
 #include "DescriptionCard.h"
-
+#include "MultilanguageManager.h"
 
 
 USING_NS_CC;
@@ -41,7 +41,8 @@ bool LayerCollectionEnemy::init()
 
 	//////////////////////////////////////////////////////////////////////////////
 	//三个label 1. 等级
-	Label* labelLevels = Label::createWithSystemFont("- ENEMY LEVELS: ","Arial",35);
+    std::string e_lv = MultilanguageManager::getIntroForEnemyByKey("enemy_level");
+	Label* labelLevels = Label::createWithSystemFont(e_lv,"Arial",35);
 	addChild(labelLevels);
 	//labelLevels->setHorizontalAlignment(cocos2d::TextHAlignment::LEFT);
 	labelLevels->setAnchorPoint(Point(0,0.5));
@@ -56,13 +57,12 @@ bool LayerCollectionEnemy::init()
 		addChild(label);
 		label->setPosition( enemy->getPosition() + Vec2(0, -90));
 	}
-
-
-
-
-	//////////////////////////////////////////////////////////////////////////////
+    
+    
+    //////////////////////////////////////////////////////////////////////////////
 	//三个label 2.种类
-	Label* labelTypes = Label::createWithSystemFont("- ENEMY EQUIPS: ","Arial",35);
+    std::string e_type = MultilanguageManager::getIntroForEnemyByKey("enemy_type");
+	Label* labelTypes = Label::createWithSystemFont(e_type,"Arial",35);
 	addChild(labelTypes);
 	labelTypes->setAnchorPoint(Point(0,0.5));
 	labelTypes->enableShadow(Color4B(255,255,255,128),Size(4, -4));
@@ -80,11 +80,17 @@ bool LayerCollectionEnemy::init()
 		{
 		case 1:
 			enemy->setTexture("enemies/type_fast_01.png");
-			label->setString("Fast");
+            {
+                std::string tmp = MultilanguageManager::getIntroForEnemyByKey("enemy_type_fast");
+                label->setString(tmp);
+            }
 			break;
 		case 2:
 			enemy->setTexture("enemies/type_armor_01.png");
-			label->setString("Armor");
+            {
+                std::string tmp = MultilanguageManager::getIntroForEnemyByKey("enemy_type_armor");
+                label->setString(tmp);
+            }
 			break;
 		case 3:
 			enemy->setTexture("enemies/type_antiMagic_01.png");
@@ -97,7 +103,10 @@ bool LayerCollectionEnemy::init()
 				RotateBy* roi =  RotateBy::create(1,360);
 				inner->runAction(RepeatForever::create(roi));
 			}
-			label->setString("Anti-Magic");
+            {
+                std::string tmp = MultilanguageManager::getIntroForEnemyByKey("enemy_type_antimagic");
+                label->setString(tmp);
+            }
 			break;
 		case 4:
 			enemy->setTexture("enemies/type_boss_01.png");
@@ -110,7 +119,10 @@ bool LayerCollectionEnemy::init()
 				Sequence* sq = Sequence::create(fi,fo,nullptr);
 				light->runAction(RepeatForever::create(sq));
 			}
-			label->setString("Boss");
+            {
+                std::string tmp = MultilanguageManager::getIntroForEnemyByKey("enemy_type_boss");
+                label->setString(tmp);
+            }
 			break;
 		default:
 			break;
@@ -120,7 +132,8 @@ bool LayerCollectionEnemy::init()
 
 	//////////////////////////////////////////////////////////////////////////////
 	//三个label 3.特殊
-	Label* labelSpecial = Label::createWithSystemFont("- SPECIAL ENEMIES: ","Arial",35);
+    std::string e_spc = MultilanguageManager::getIntroForEnemyByKey("special_enemy");
+	Label* labelSpecial = Label::createWithSystemFont(e_spc,"Arial",35);
 	addChild(labelSpecial);
 	labelSpecial->setAnchorPoint(Point(0,0.5));
 	labelSpecial->enableShadow(Color4B(255,255,255,128),Size(4, -4));
