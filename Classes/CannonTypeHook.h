@@ -18,6 +18,8 @@ public:
 
 	void catchOnce(bool catching,  cocos2d::Point targetPosition);
 
+	void tryGetTarget();
+
 private:
 
 	void attackOnce();

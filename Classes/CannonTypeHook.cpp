@@ -177,3 +177,34 @@ void CannonTypeHook::catchOnce( bool catching , Point targetPosition)
 	_target = nullptr;
 }
 
+void CannonTypeHook::tryGetTarget()
+{
+	Vector<Enemy*> v_target = Vector<Enemy*>();
+	for (Enemy* e: em->enemiesInSequence)
+	{
+		if (getPosition().getDistance(e->getPosition())<=attackRange)
+		{
+			v_target.pushBack(e);
+		}
+	}
+
+
+	if (v_target.empty())
+	{
+		return;
+	}
+
+	_target = v_target.front();
+
+	for (Enemy*e : v_target)
+	{
+		if (e->getMovingProgress()>_target->getMovingProgress())
+		{
+			_target = e;
+
+		}
+	}
+	isAttacking = true;
+
+}
+
