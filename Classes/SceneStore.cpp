@@ -246,6 +246,7 @@ void SceneStore::initHolder()
 		si->setCannonType(15+i);
 		_holder->addChild(si);
 		si->setPosition(0.4*visibleSize.width, (_totalNumberOfItems*(-1) + i)*single_cannon_height );
+		si->initPos(si->getPosition());
 		_itemList.pushBack(si);
 		if (si->isSold())
 		{
@@ -261,6 +262,7 @@ void SceneStore::initHolder()
 		si->setCannonType(1988);
 		_holder->addChild(si);
 		si->setPosition(0.4*visibleSize.width, (_totalNumberOfItems*(-1) + i)*single_cannon_height );
+		si->initPos(si->getPosition());
 		_itemList.pushBack(si);
 		if (si->isSold())
 		{

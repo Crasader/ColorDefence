@@ -122,14 +122,24 @@ void StoreItem::setSelected( bool selected )
 {
 	if (selected)
 	{
-		setScale(1.2);
-		setLocalZOrder(2);
+		stopAllActions();
+		auto st1 = ScaleTo::create(0.1,1,0);
+		auto st2 = ScaleTo::create(0.1,1,1);
+		auto st = Sequence::create(st1,st2,NULL);
+		auto mb1 = MoveBy::create(0.1,Vec2(35,0));
+		auto mb2 = MoveBy::create(0.1,Vec2(35,0));
+		auto mb = Sequence::create(mb1,mb2,NULL);
+		auto sp = Spawn::create(st , mb , NULL);
+		runAction(sp);
 
 	}
 	else
 	{
+		stopAllActions();
 		setScale(1);
-		setLocalZOrder(-1);
+		//setLocalZOrder(-1);
+		setPosition(_pos);
+
 
 	}
 
@@ -179,6 +189,11 @@ bool StoreItem::_available()
 int StoreItem::getPrice()
 {
 	return _price;
+}
+
+void StoreItem::initPos( cocos2d::Point pos )
+{
+	_pos = pos;
 }
 
 

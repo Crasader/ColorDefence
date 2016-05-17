@@ -27,6 +27,8 @@ public:
 
 	int getPrice();
 
+	void initPos(cocos2d::Point pos);
+
 private:
 
 	unsigned _cannonType;
@@ -36,6 +38,8 @@ private:
 	bool _available();
 
 	cocos2d::Label* _introduction;
+
+	cocos2d::Point _pos;
 
 };
 
