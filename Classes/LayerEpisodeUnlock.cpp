@@ -25,9 +25,9 @@ bool LayerEpisodeUnlock::init()
 	addChild(bg,-1);
 	bg->setPosition(getContentSize()/2);
 
-	auto caption = Sprite::create("episodeUnlockPage/30.png");
-	addChild(caption);
-	caption->setPosition(getContentSize()/2);
+	_caption = Sprite::create("episodeUnlockPage/30.png");
+	addChild(_caption);
+	_caption->setPosition(getContentSize()/2);
 
 	//对触摸事件的监听
 	auto touchListener=EventListenerTouchOneByOne::create();
@@ -71,6 +71,14 @@ void LayerEpisodeUnlock::setEpisodeUnlocked( int episode )
 			UserDefault::getInstance()->setBoolForKey("cannon_store_unlocked",true);
 			log("store unlock");
 		}
+            break;
+    case 3:
+        {
+            _caption->setTexture("episodeUnlockPage/60.png");
+            UserDefault::getInstance()->setBoolForKey("challenge_mode_unlocked",true);
+        }
+            break;
+            
 	default:
 		break;
 	}

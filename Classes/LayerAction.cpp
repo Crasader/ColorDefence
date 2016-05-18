@@ -352,8 +352,11 @@ void LayerAction::update( float delta )
 	else if ((enemyManager->enemiesLeft.size()== 0)&&(enemyManager->enemiesInSequence.size()==0))
 	{
 		unsigned grading = chancesLeft==10?3:(chancesLeft>=5?2:1);
-		levelManager->newLevelRecord(grading);
+        log("1. record %d",UserDefault::getInstance()->getIntegerForKey("level_record",0));
 		_eventDispatcher->dispatchCustomEvent("GAME_OVER_WIN",&grading);
+        log("2. record %d",UserDefault::getInstance()->getIntegerForKey("level_record",0));
+        levelManager->newLevelRecord(grading);
+        log("3. record %d",UserDefault::getInstance()->getIntegerForKey("level_record",0));
 		//log("win");
 		unscheduleUpdate();
 	}

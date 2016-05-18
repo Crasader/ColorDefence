@@ -22,6 +22,8 @@ private:
 
 
 	bool _win;
+    
+    int _record;
 
 	//关于触摸事件
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused);

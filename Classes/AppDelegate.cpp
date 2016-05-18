@@ -70,6 +70,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //读写路径
     log(" %s" , FileUtils::getInstance()->getWritablePath().c_str());
     
+    /*
+    UserDefault::getInstance()->setIntegerForKey("level_record",29);
+    UserDefault::getInstance()->setBoolForKey("cannon_store_unlocked",false);
+    UserDefault::getInstance()->setIntegerForKey("chanllenge_mode_unlocked",false);
+    */
+    
 	// run
 	director->runWithScene(scene);
 

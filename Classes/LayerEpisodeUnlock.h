@@ -20,6 +20,10 @@ public:
 
 	void setEpisodeUnlocked(int episode);
 	void appear();
+    
+private:
+    
+    cocos2d::Sprite* _caption;
 
 };
 

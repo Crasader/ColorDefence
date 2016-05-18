@@ -34,6 +34,7 @@ bool LevelResultPanel::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener,this);
 
 	_win = false;
+    _record = UserDefault::getInstance()->getIntegerForKey("level_record",0);
 
 	return true;
 }
@@ -325,13 +326,15 @@ void LevelResultPanel::update( float delta )
 
 void LevelResultPanel::checkForNewEpisode()
 {
-	int record = UserDefault::getInstance()->getIntegerForKey("level_record",0);
-	if (record%30 != 1)
+    
+	//int record = UserDefault::getInstance()->getIntegerForKey("level_record",0);
+    log("_record lrp %d",_record);
+	if (_record%30 != 0)
 	{
 		return;
 	}
 
-	if ((record == 31)&&(!UserDefault::getInstance()->getBoolForKey("cannon_store_unlocked",false)))
+	if ((_record == 30)&&(!UserDefault::getInstance()->getBoolForKey("cannon_store_unlocked",false)))
 	{
 		
 		LayerEpisodeUnlock* leu = LayerEpisodeUnlock::create();
@@ -340,6 +343,15 @@ void LevelResultPanel::checkForNewEpisode()
 		leu->setEpisodeUnlocked(2);
 		leu->appear();
 	}
+    else if ((_record == 60)&&(!UserDefault::getInstance()->getBoolForKey("challenge_mode_unlocked",false)))
+    {
+        
+        LayerEpisodeUnlock* leu = LayerEpisodeUnlock::create();
+        addChild(leu);
+        leu->setPosition(0,620);
+        leu->setEpisodeUnlocked(3);
+        leu->appear();
+    }
 	
 
 }
