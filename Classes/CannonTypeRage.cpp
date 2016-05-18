@@ -21,7 +21,7 @@ bool CannonTypeRage::init()
 	setTexture("cannons/CannonCover_Rage.png");
 
 
-	_attackIntervalWhenRage = 0.19*_attackInterval;
+	_attackIntervalWhenRage = 0.28*_attackInterval;
 
 	_rage = false;
 	_countForRage = 0;

@@ -41,9 +41,14 @@ void BulletTypeConsumer::explode()
 	EnemyManager* em  = EnemyManager::getInstance();
 	for (Enemy* e : em->enemiesInSequence)
 	{
-		if (pt.getDistance(e->getPosition())<_damageRadius)
+		if (pt.getDistance(e->getPosition())< 0.6*_damageRadius)
 		{
 			float damageContributed = e->onPhysicalDamaged(_damage);
+			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
+		}
+		else if (pt.getDistance(e->getPosition())<_damageRadius)
+		{
+			float damageContributed = e->onPhysicalDamaged(0.8*_damage);
 			DamageContributionManager::getInstance()->recordContribution(_damageContributerID , damageContributed);
 		}
 	}

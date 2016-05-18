@@ -67,7 +67,7 @@ void CannonTypeConsumer::attackOnce()
 	BulletTypeConsumer* bullet = BulletTypeConsumer::create();
 	bullet->setPosition(getPosition());
 	//bullet->setRotation(getRotation());
-	bullet->setDamage(_damage,118);
+	bullet->setDamage(_damage,130);
 	bullet->setDamageContributerID(_damageContributerID);
 
 	
@@ -91,9 +91,9 @@ void CannonTypeConsumer::attackOnce()
 
 	
 
-	if (_consumeCount >80 )
+	if (_consumeCount >70 )
 	{
-		_consumeCount-= 80;
+		_consumeCount-= 70;
 		//粒子系统 特效
 		ParticleSystem* emitter = ParticleSystemQuad::create("effects/Particle_Consumer.plist");
 		(getParent())->addChild(emitter,10086);

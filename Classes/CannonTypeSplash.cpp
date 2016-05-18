@@ -30,7 +30,7 @@ void CannonTypeSplash::attackOnce()
 	BulletTypeSplash* bullet = BulletTypeSplash::create();
 	bullet->setPosition(getPosition());
 	bullet->setRotation(getRotation());
-	bullet->setDamage(_damage, 88);
+	bullet->setDamage(_damage, 83);
 
 	bullet->setTarget(_target);
 	bullet->setDamageContributerID(_damageContributerID);
